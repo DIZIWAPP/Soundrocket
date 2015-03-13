@@ -39,6 +39,9 @@ PODS:
   - JSONModel (1.0.1)
   - MarqueeLabel (2.1.1)
   - MBProgressHUD (0.9)
+  - Mixpanel (2.7.2):
+    - Mixpanel/MPCategoryHelpers (= 2.7.2)
+  - Mixpanel/MPCategoryHelpers (2.7.2)
   - RESideMenu (4.0.7)
   - SSKeychain (1.2.2)
   - SVProgressHUD (1.1.2)
@@ -53,6 +56,7 @@ DEPENDENCIES:
   - JSONModel
   - MarqueeLabel
   - MBProgressHUD (~> 0.8)
+  - Mixpanel
   - RESideMenu (~> 4.0.7)
   - SSKeychain
   - SVProgressHUD
@@ -67,6 +71,7 @@ SPEC CHECKSUMS:
   JSONModel: 634100aaacbd89811bc8a03da209356e5989c569
   MarqueeLabel: 14779243e93f5e027f130a6477bb79c238cba976
   MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
+  Mixpanel: def38b9e600f101686b8d647e05660a72c089c65
   RESideMenu: a9c1cd2e64e60e1d3166ddac01a83e215a0e4d30
   SSKeychain: cc48bd3ad24fcd9125adb9e0d23dd50b8bbd08b9
   SVProgressHUD: da7a49e789af645d9279ffbca62318945a832438
