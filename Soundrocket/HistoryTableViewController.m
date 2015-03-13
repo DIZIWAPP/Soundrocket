@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import"UIImageView+AFNetworking.h"
 #import <FAKIonIcons.h>
+#import "SRStylesheet.h"
 @interface HistoryTableViewController ()
 @property (nonatomic,strong)NSIndexPath * currentTrackIndexPath;
 @end
@@ -25,7 +26,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithWhite:0.500 alpha:1.000];
+    self.navigationController.navigationBar.barTintColor = [SRStylesheet lightGrayColor];
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     self.navigationController.navigationBar.translucent = NO;
@@ -83,7 +84,7 @@
         [playbackcount appendAttributedString:commentCount];
         
         if (delegate.playingIndex.row == indexPath.row) {
-            cell.backgroundColor = [UIColor colorWithWhite:0.860 alpha:1.000];
+            cell.backgroundColor = [SRStylesheet lightGrayColor];
             self.currentTrackIndexPath = indexPath;
         }
         cell.playbackCountLabel.attributedText = playbackcount;
@@ -95,7 +96,7 @@
             NSMutableAttributedString * shuffleText = [[[FAKIonIcons plusCircledIconWithSize:17]attributedString]mutableCopy];
             [shuffleText appendAttributedString:[[NSAttributedString alloc]initWithString:@"   Add to Playlist" attributes:nil]];
             cell.textLabel.attributedText = shuffleText;
-            [cell.textLabel setTextColor:[UIColor darkGrayColor]];
+            [cell.textLabel setTextColor:[SRStylesheet darkGrayColor]];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         } else {
             NSMutableAttributedString * shuffleText = [[[FAKIonIcons shuffleIconWithSize:17]attributedString]mutableCopy];
@@ -110,7 +111,7 @@
 
             cell.accessoryView = shuffleSwitch;
             self.shuffleSwitch = shuffleSwitch;
-            [cell.textLabel setTextColor:[UIColor darkGrayColor]];
+            [cell.textLabel setTextColor:[SRStylesheet darkGrayColor]];
 
         }
         return  cell;
@@ -139,7 +140,7 @@
         cellToDeselect.backgroundColor = [UIColor whiteColor];
         
         BasicTrackTableViewCell * cellToSelect = (BasicTrackTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
-        cellToSelect.backgroundColor = [UIColor colorWithWhite:0.860 alpha:1.000];
+        cellToSelect.backgroundColor = [SRStylesheet lightGrayColor];
         [delegate setPlayingIndex:indexPath];
         [delegate setupPlayerWithtrack:track];
         self.currentTrackIndexPath = indexPath;

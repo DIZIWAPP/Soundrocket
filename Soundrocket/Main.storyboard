@@ -118,7 +118,7 @@
                                                     <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 </activityIndicatorView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzc-CI-dTs">
-                                                    <rect key="frame" x="0.0" y="3" width="320" height="40"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <state key="normal" title="Sign in with SoundCloud">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -129,19 +129,31 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
-                                            <color key="backgroundColor" red="1" green="0.18039215689999999" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             <constraints>
+                                                <constraint firstItem="nzc-CI-dTs" firstAttribute="top" secondItem="1c5-4b-5FA" secondAttribute="top" id="5c4-5y-dwf"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="nzc-CI-dTs" secondAttribute="bottom" constant="-6" id="82h-HE-les"/>
+                                                <constraint firstAttribute="trailing" secondItem="nzc-CI-dTs" secondAttribute="trailing" id="8TM-PN-pvT"/>
                                                 <constraint firstItem="nzc-CI-dTs" firstAttribute="leading" secondItem="1c5-4b-5FA" secondAttribute="leadingMargin" constant="-8" id="NgQ-Zs-Y3f"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="nzc-CI-dTs" secondAttribute="trailing" constant="-8" id="TLY-dd-eeg"/>
                                                 <constraint firstAttribute="centerX" secondItem="DYT-Rn-J6j" secondAttribute="centerX" id="TTa-Z1-pr7"/>
                                                 <constraint firstAttribute="centerY" secondItem="DYT-Rn-J6j" secondAttribute="centerY" id="dIb-iS-lFq"/>
+                                                <constraint firstItem="nzc-CI-dTs" firstAttribute="leading" secondItem="1c5-4b-5FA" secondAttribute="leading" id="eSW-mv-8xn"/>
+                                                <constraint firstAttribute="bottom" secondItem="nzc-CI-dTs" secondAttribute="bottom" id="feb-wh-ncK"/>
                                                 <constraint firstItem="nzc-CI-dTs" firstAttribute="top" secondItem="1c5-4b-5FA" secondAttribute="topMargin" constant="-5" id="ovP-hZ-MeJ"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="82h-HE-les"/>
+                                                    <exclude reference="NgQ-Zs-Y3f"/>
+                                                    <exclude reference="TLY-dd-eeg"/>
+                                                    <exclude reference="ovP-hZ-MeJ"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.1333333333" green="0.86666666670000003" blue="0.59999999999999998" alpha="0.0" colorSpace="calibratedRGB"/>
-                                        <color key="tintColor" red="0.1333333333" green="0.86666666670000003" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -156,8 +168,10 @@
                         <outlet property="activityIndicatorLoggingIn" destination="DYT-Rn-J6j" id="dA1-fa-lnw"/>
                         <outlet property="emailTextField" destination="EBQ-yc-Bmh" id="1iB-gT-1I4"/>
                         <outlet property="loginButton" destination="nzc-CI-dTs" id="TEf-Ai-2e5"/>
+                        <outlet property="loginButtonBackgroundView" destination="1c5-4b-5FA" id="YTh-0Z-5Vz"/>
                         <outlet property="logoImageView" destination="dlf-ZN-gnz" id="eJz-05-9Tl"/>
                         <outlet property="passWordTextField" destination="acZ-ri-yKl" id="ifi-bp-iTv"/>
+                        <outlet property="poweredByLabel" destination="sXg-Th-qfs" id="qoq-FD-bkd"/>
                         <outlet property="soundrocketNameLabel" destination="eH2-5O-cQa" id="USU-sj-MMe"/>
                     </connections>
                 </tableViewController>
@@ -959,13 +973,13 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7L6-0u-zYB" id="LZS-NI-8DM">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Public" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1um-Ab-hmL">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Public" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1um-Ab-hmL">
                                                     <rect key="frame" x="8" y="10" width="247" height="23"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8dm-0s-JxV">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8dm-0s-JxV">
                                                     <rect key="frame" x="263" y="8" width="51" height="31"/>
                                                     <color key="tintColor" white="0.75" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="onTintColor" red="0.1333333333" green="0.86666666670000003" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -987,7 +1001,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oOh-pj-Loi" id="W3F-0x-wE4">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlS-C5-VS8">
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlS-C5-VS8">
                                                     <rect key="frame" x="8" y="8" width="304" height="30"/>
                                                     <state key="normal" title="Create Playlist">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1163,8 +1177,8 @@
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="1VC-kf-sWX">
                                 <rect key="frame" x="290" y="289" width="20" height="20"/>
-                                <color key="tintColor" red="1" green="0.18039215689999999" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="color" red="1" green="0.18039215689999999" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="color" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logging in ...." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDH-Tf-be4">
                                 <rect key="frame" x="41" y="227" width="518" height="34"/>
@@ -1173,7 +1187,7 @@
                                     <constraint firstAttribute="height" constant="34" id="dpV-67-tAh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="1" green="0.18039215689999999" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -1475,6 +1489,7 @@
                         <outlet property="contactLabel" destination="P7x-Tn-u4T" id="Grf-5j-awU"/>
                         <outlet property="libariesLabel" destination="9aO-Cc-hQ9" id="lqo-Ri-CMO"/>
                         <outlet property="logoImageView" destination="Qfu-x5-pop" id="X2c-7U-kf9"/>
+                        <outlet property="poweredByLabel" destination="Ybu-BR-2AZ" id="UC8-Do-LvS"/>
                         <outlet property="poweredBySoundcloudLabel" destination="Ybu-BR-2AZ" id="l07-yj-spy"/>
                         <outlet property="rateThisAppLabel" destination="01H-EW-KUP" id="Hj1-sL-Oqt"/>
                         <outlet property="soundrocketNameLabel" destination="00B-K5-0H6" id="9cl-nq-qV5"/>
@@ -1629,5 +1644,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="aTd-C0-ImL"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="1" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    <color key="tintColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
 </document>

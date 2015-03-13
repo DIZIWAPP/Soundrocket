@@ -15,8 +15,6 @@
 #import <Crashlytics/Crashlytics.h>
 #import <Mixpanel.h>
 
-#define MIXPANEL_TOKEN @"739265f4d1e33052e1f1d63d5835c1cc"
-
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 

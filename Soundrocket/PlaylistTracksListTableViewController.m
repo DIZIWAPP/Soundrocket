@@ -19,7 +19,7 @@
 #import "CreatePlaylistTableTableViewController.h"
 #import <SWTableViewCell.h>
 #import "UserTableViewController.h"
-
+#import "SRStylesheet.h"
 @interface PlaylistTracksListTableViewController() <SWTableViewCellDelegate>
 @property (nonatomic,strong)CredentialStore * store;
 @property (nonatomic,strong)NSMutableArray * tracks;
@@ -197,7 +197,7 @@
                                                                  whiteColor]];
         cell.delegate = self;
         NSMutableArray * leftUtilityButtons = [NSMutableArray new];
-        [leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithWhite:0.250 alpha:1.000] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
+        [leftUtilityButtons sw_addUtilityButtonWithColor:[SRStylesheet darkGrayColor] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
         cell.leftUtilityButtons = leftUtilityButtons;
         /***********************************************************/
         

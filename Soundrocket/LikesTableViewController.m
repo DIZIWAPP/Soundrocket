@@ -20,7 +20,7 @@
 #import "LoadMoreTableViewCell.h"
 #import <TSMessage.h>
 #import "UserTableViewController.h"
-
+#import "SRStylesheet.h"
 @interface LikesTableViewController ()<SWTableViewCellDelegate>
 @property (nonatomic,strong) NSMutableArray * tracks;
 @property (nonatomic,strong) CredentialStore * store;
@@ -195,7 +195,7 @@
                                                                  whiteColor]];
         cell.delegate = self;
         NSMutableArray * leftUtilityButtons = [NSMutableArray new];
-        [leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithWhite:0.250 alpha:1.000] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
+        [leftUtilityButtons sw_addUtilityButtonWithColor:[SRStylesheet lightGrayColor] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
         cell.leftUtilityButtons = leftUtilityButtons;
         /***********************************************************/
         

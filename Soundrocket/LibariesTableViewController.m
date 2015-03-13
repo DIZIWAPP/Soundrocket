@@ -7,7 +7,7 @@
 //
 
 #import "LibariesTableViewController.h"
-
+#import "SRStylesheet.h"
 @interface LibariesTableViewController ()
 @property (nonatomic,strong) NSMutableArray * libaries;
 @end
@@ -69,7 +69,7 @@
     
     cell.textLabel.text = [self.libaries objectAtIndex:indexPath.row];
     cell.textLabel.font = [UIFont systemFontOfSize:12];
-    cell.textLabel.textColor = [UIColor lightGrayColor];
+    cell.textLabel.textColor = [SRStylesheet lightGrayColor];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }

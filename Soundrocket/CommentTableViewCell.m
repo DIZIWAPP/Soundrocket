@@ -7,7 +7,7 @@
 //
 
 #import "CommentTableViewCell.h"
-
+#import "SRStylesheet.h"
 @implementation CommentTableViewCell
 
 - (void)awakeFromNib {
@@ -15,8 +15,9 @@
     
     self.avatarImageView.clipsToBounds = YES;
     self.avatarImageView.layer.cornerRadius = 25;
-    self.avatarImageView.layer.borderColor = [[UIColor colorWithRed:1.000 green:0.180 blue:0.220 alpha:1.000] CGColor];
+    self.avatarImageView.layer.borderColor = [[SRStylesheet mainColor] CGColor];
     self.avatarImageView.layer.borderWidth = 1.0;
+    self.userNameLabel.textColor = [SRStylesheet mainColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -7,15 +7,17 @@
 //
 
 #import "UserTableViewCell.h"
-
+#import "SRStylesheet.h"
 @implementation UserTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
     self.userImageView.clipsToBounds = YES;
     self.userImageView.layer.cornerRadius = 25;
-    self.userImageView.layer.borderColor = [[UIColor colorWithRed:1.000 green:0.180 blue:0.220 alpha:1.000] CGColor];
+    self.userImageView.layer.borderColor = [[SRStylesheet mainColor] CGColor];
     self.userImageView.layer.borderWidth = 1.0;
+    self.userNameAndCoutryLabel.textColor = [SRStylesheet mainColor];
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

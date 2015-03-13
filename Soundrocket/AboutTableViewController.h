@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *libariesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *soundrocketNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *rateThisAppLabel;
+@property (weak, nonatomic) IBOutlet UILabel *poweredByLabel;
 
 @end

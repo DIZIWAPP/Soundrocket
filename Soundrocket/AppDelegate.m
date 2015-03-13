@@ -19,7 +19,9 @@
 #import "Constants.h"
 #import <TSMessage.h>
 #import <SVProgressHUD.h>
+#import "SRStylesheet.h"
 
+#define MIXPANEL_TOKEN @"739265f4d1e33052e1f1d63d5835c1cc"
 
 @interface AppDelegate ()
 @property(nonatomic,assign) BOOL isLoggedIn;
@@ -111,6 +113,7 @@
     
     self.currentUser = [[User alloc]init];
     self.isLoggedIn = self.store.isLoggedIn;
+   [self.window setTintColor:[SRStylesheet mainColor]];
 }
 
 -(void)setupUI{
@@ -118,12 +121,12 @@
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]]; // Initializing the window
     [self.window setBackgroundColor:[UIColor whiteColor]];
     
-    [SVProgressHUD setBackgroundColor:[UIColor colorWithRed:1.000 green:0.180 blue:0.220 alpha:1.000]];
+    [SVProgressHUD setBackgroundColor:[SRStylesheet mainColor]];
     [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
     
-    UIColor * soundrocketRed = [UIColor colorWithRed:1.000 green:0.180 blue:0.220 alpha:1.000];
+    UIColor * soundrocketRed = [SRStylesheet mainColor];
     UIPageControl *pageControl = [UIPageControl appearance];
-    pageControl.pageIndicatorTintColor =  [UIColor grayColor];
+    pageControl.pageIndicatorTintColor =  [SRStylesheet darkGrayColor];
     pageControl.backgroundColor = [UIColor clearColor];
     pageControl.currentPageIndicatorTintColor = soundrocketRed;
 }

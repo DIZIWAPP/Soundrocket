@@ -7,11 +7,12 @@
 //
 
 #import "LoadMoreTableViewCell.h"
-
+#import "SRStylesheet.h"
 @implementation LoadMoreTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
+    self.loadingIndicator.tintColor = [SRStylesheet mainColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
