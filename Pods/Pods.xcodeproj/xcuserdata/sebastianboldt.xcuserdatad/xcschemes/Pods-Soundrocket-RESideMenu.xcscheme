@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "74FADDE476562D3410F1C12C"
+               BlueprintIdentifier = "C59D2FF81C4F3E4E79193ACE"
                BuildableName = "libPods-Soundrocket-RESideMenu.a"
                BlueprintName = "Pods-Soundrocket-RESideMenu"
                ReferencedContainer = "container:Pods.xcodeproj">

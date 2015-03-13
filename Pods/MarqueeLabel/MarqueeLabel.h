@@ -18,6 +18,10 @@ typedef NS_ENUM(NSUInteger, MarqueeType) {
 };
 
 
+#ifndef IBInspectable
+#define IBInspectable
+#endif
+
 /**
  MarqueeLabel is a UILabel subclass adds a scrolling marquee effect when the text of a label instance outgrows the available width. Instances of `MarqueeLabel` can be configured
  for label scrolling direction/looping, speed/rate, and other options.
@@ -116,7 +120,7 @@ typedef NS_ENUM(NSUInteger, MarqueeType) {
  ellipsis, especially if using an edge transparency fade.
  */
 
-@property (nonatomic, assign) BOOL labelize;
+@property (nonatomic, assign) IBInspectable BOOL labelize;
 
 
 /** A boolean property that sets whether the `MarqueeLabel` should hold (prevent) label scrolling.
@@ -132,7 +136,7 @@ typedef NS_ENUM(NSUInteger, MarqueeType) {
  @warning The label will not automatically scroll when this property is set to `YES`.
  */
 
-@property (nonatomic, assign) BOOL holdScrolling;
+@property (nonatomic, assign) IBInspectable BOOL holdScrolling;
 
 
 /** A boolean property that sets whether the `MarqueeLabel` should only begin a scroll when tapped.
@@ -146,7 +150,7 @@ typedef NS_ENUM(NSUInteger, MarqueeType) {
  @see holdScrolling
  */
 
-@property (nonatomic, assign) BOOL tapToScroll;
+@property (nonatomic, assign) IBInspectable BOOL tapToScroll;
 
 
 /** Defines the direction and method in which the `MarqueeLabel` instance scrolls.
@@ -183,7 +187,7 @@ typedef NS_ENUM(NSUInteger, MarqueeType) {
  @see rate
  */
 
-@property (nonatomic, assign) NSTimeInterval scrollDuration;
+@property (nonatomic, assign) IBInspectable CGFloat scrollDuration;
 
 
 /** Defines the rate at which the label will scroll, in pixels per second.
@@ -195,7 +199,7 @@ typedef NS_ENUM(NSUInteger, MarqueeType) {
  @see scrollDuration
  */
 
-@property (nonatomic, assign) CGFloat rate;
+@property (nonatomic, assign) IBInspectable CGFloat rate;
 
 
 /** A buffer (offset) between the leading edge of the label text and the label frame.
@@ -216,7 +220,7 @@ typedef NS_ENUM(NSUInteger, MarqueeType) {
  @since Available in 2.1.0 and later.
  */
 
-@property (nonatomic, assign) CGFloat leadingBuffer;
+@property (nonatomic, assign) IBInspectable CGFloat leadingBuffer;
 
 
 /** A buffer (offset) between the trailing edge of the label text and the label frame.
@@ -236,7 +240,7 @@ typedef NS_ENUM(NSUInteger, MarqueeType) {
  @since Available in 2.1.0 and later.
  */
 
-@property (nonatomic, assign) CGFloat trailingBuffer;
+@property (nonatomic, assign) IBInspectable CGFloat trailingBuffer;
 
 
 /** The additional amount of space (in points) inbetween the strings of a continuous-type label.
@@ -259,12 +263,12 @@ typedef NS_ENUM(NSUInteger, MarqueeType) {
  Defaults to `0`.
  */
 
-@property (nonatomic, assign) CGFloat fadeLength;
+@property (nonatomic, assign) IBInspectable CGFloat fadeLength;
 
 
 /** The length of delay in seconds that the label pauses at the completion of a scroll. */
 
-@property (nonatomic, assign) CGFloat animationDelay;
+@property (nonatomic, assign) IBInspectable CGFloat animationDelay;
 
 
 
@@ -272,11 +276,10 @@ typedef NS_ENUM(NSUInteger, MarqueeType) {
 /// @name Animation control
 ////////////////////////////////////////////////////////////////////////////////
 
-/** Restarts the label text scroll animation.
- 
- The text is immediately returned to the home position, and the scroll animation will be begin again if the appropriate conditions are met.
+/** Immediately resets the label to the home position, and restarts the scroll animation if the appropriate conditions are met.
  
  @see resetLabel
+ @see triggerScrollStart
  */
 
 - (void)restartLabel;
@@ -310,6 +313,24 @@ typedef NS_ENUM(NSUInteger, MarqueeType) {
 - (void)unpauseLabel;
 
 
+/** Overrides any non-size condition which is preventing the receiver from automatically scrolling, and begins a scroll animation.
+ 
+ Currently the only non-size conditions which can prevent a label from scrolling are the `tapToScroll` and `holdScrolling` properties. This
+ method will not force a label with a string that fits inside the label bounds (i.e. that would not automatically scroll) to begin a scroll
+ animation.
+ 
+ Upon the completion of the first forced scroll animation, the receiver will not automatically continue to scroll unless the conditions 
+ preventing scrolling have been removed.
+ 
+ @note This method has no effect if called during an already in-flight scroll animation.
+ 
+ @see restartLabel
+ @since Available in 2.2.0 and later.
+ */
+
+- (void)triggerScrollStart;
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 /// @name Animation Status
@@ -317,7 +338,7 @@ typedef NS_ENUM(NSUInteger, MarqueeType) {
 
 /** Called when the label animation is about to begin.
  
- The default implementation of this method does nothing. Subclasses may override this method in order to perform any custom actions before
+ The default implementation of this method does nothing. Subclasses may override this method in order to perform any custom actions just as
  the label animation begins. This is only called in the event that the conditions for scrolling to begin are met.
  
  @since Available in 1.5.0 and later.
@@ -328,8 +349,8 @@ typedef NS_ENUM(NSUInteger, MarqueeType) {
 
 /** Called when the label animation has finished, and the label is at the home position.
  
- The default implementation of this method does nothing. Subclasses may override this method in order to perform any custom actions after
- the label animation is complete, and before the next animation would begin (assuming the conditions are met).
+ The default implementation of this method does nothing. Subclasses may override this method in order to perform any custom actions jas as
+ the label animation completes, and before the next animation would begin (assuming the scroll conditions are met).
  
  @param finished A Boolean that indicates whether or not the scroll animation actually finished before the completion handler was called.
  @since Available in 1.5.0 and later.

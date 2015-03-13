@@ -16,7 +16,7 @@ NSString *const kMarqueeLabelAnimationCompletionBlock = @"MarqueeLabelAnimationC
 typedef void(^MLAnimationCompletionBlock)(BOOL finished);
 
 // iOS Version check for iOS 8.0.0
-#define SYSTEM_VERSION_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_IS_8_0_X ([[[UIDevice currentDevice] systemVersion] hasPrefix:@"8.0"])
 
 // Helpers
 @interface UIView (MarqueeLabelHelpers)
@@ -169,7 +169,7 @@ CGPoint MLOffsetCGPoint(CGPoint point, CGFloat offset);
     self.subLabel.text = super.text;
     self.subLabel.font = super.font;
     self.subLabel.textColor = super.textColor;
-    self.subLabel.backgroundColor = super.backgroundColor;
+    self.subLabel.backgroundColor = (super.backgroundColor == nil ? [UIColor clearColor] : super.backgroundColor);
     self.subLabel.shadowColor = super.shadowColor;
     for (NSString *property in properties) {
         id val = [super valueForKey:property];
@@ -190,10 +190,8 @@ CGPoint MLOffsetCGPoint(CGPoint point, CGFloat offset);
     self.subLabel = [[UILabel alloc] initWithFrame:self.bounds];
     self.subLabel.tag = 700;
     self.subLabel.layer.anchorPoint = CGPointMake(0.0f, 0.0f);
-    [self addSubview:self.subLabel];
     
-    // Clear superclass UILabel background
-    [super setBackgroundColor:[UIColor clearColor]];
+    [self addSubview:self.subLabel];
     
     // Setup default values
     _animationCurve = UIViewAnimationOptionCurveLinear;
@@ -528,8 +526,8 @@ CGPoint MLOffsetCGPoint(CGPoint point, CGFloat offset);
         return;
     }
     
-    [self.subLabel.layer removeAllAnimations];
-    [self.layer.mask removeAllAnimations];
+    // Return labels to home (cancel any animations)
+    [self returnLabelToOriginImmediately];
     
     // Call pre-animation method
     [self labelWillBeginScroll];
@@ -595,9 +593,8 @@ CGPoint MLOffsetCGPoint(CGPoint point, CGFloat offset);
         return;
     }
     
-    // Return labels to home frame
-    [self.subLabel.layer removeAllAnimations];
-    [self.layer.mask removeAllAnimations];
+    // Return labels to home (cancel any animations)
+    [self returnLabelToOriginImmediately];
     
     // Call pre-animation method
     [self labelWillBeginScroll];
@@ -919,13 +916,10 @@ CGPoint MLOffsetCGPoint(CGPoint point, CGFloat offset);
 #pragma mark - Label Control
 
 - (void)restartLabel {
-    [self applyGradientMaskForFadeLength:self.fadeLength animated:NO];
-    
     if (self.labelShouldScroll && !self.tapToScroll) {
         [self beginScroll];
     }
 }
-
 
 - (void)resetLabel {
     [self returnLabelToOriginImmediately];
@@ -985,6 +979,12 @@ CGPoint MLOffsetCGPoint(CGPoint point, CGFloat offset);
     }
 }
 
+- (void)triggerScrollStart {
+    if (self.labelShouldScroll && !self.awayFromHome) {
+        [self beginScroll];
+    }
+}
+
 - (void)labelWillBeginScroll {
     // Default implementation does nothing
     return;
@@ -1000,8 +1000,8 @@ CGPoint MLOffsetCGPoint(CGPoint point, CGFloat offset);
 - (void)setFrame:(CGRect)frame {
     [super setFrame:frame];
     
-    // Check if device is running iOS 8.0.0
-    if(SYSTEM_VERSION_EQUAL_TO(@"8.0.0")) {
+    // Check if device is running iOS 8.0.X
+    if(SYSTEM_VERSION_IS_8_0_X) {
         // If so, force update because layoutSubviews is not called
         [self updateSublabelAndLocationsAndBeginScroll:!self.orientationWillChange];
     }
@@ -1010,8 +1010,8 @@ CGPoint MLOffsetCGPoint(CGPoint point, CGFloat offset);
 - (void)setBounds:(CGRect)bounds {
     [super setBounds:bounds];
     
-    // Check if device is running iOS 8.0.0
-    if(SYSTEM_VERSION_EQUAL_TO(@"8.0.0")) {
+    // Check if device is running iOS 8.0.X
+    if(SYSTEM_VERSION_IS_8_0_X) {
         // If so, force update because layoutSubviews is not called
         [self updateSublabelAndLocationsAndBeginScroll:!self.orientationWillChange];
     }
@@ -1075,6 +1075,7 @@ CGPoint MLOffsetCGPoint(CGPoint point, CGFloat offset);
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor {
     [self updateSubLabelsForKey:@"backgroundColor" withValue:backgroundColor];
+    [super setBackgroundColor:backgroundColor];
 }
 
 - (UIColor *)shadowColor {
@@ -1191,7 +1192,7 @@ CGPoint MLOffsetCGPoint(CGPoint point, CGFloat offset);
     [self updateSublabelAndLocations];
 }
 
-- (void)setScrollDuration:(NSTimeInterval)lengthOfScroll {
+- (void)setScrollDuration:(CGFloat)lengthOfScroll {
     if (_scrollDuration == lengthOfScroll) {
         return;
     }

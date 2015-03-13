@@ -1,0 +1,14 @@
+$ cat .gitignore
+
+# Can ignore specific files
+.DS_Store
+
+# Can also ignore all directories and files in a directory.
+build
+*.pbxuser
+*.perspective
+*.perspectivev3
+*.mode1v3
+*.mode2v3
+xcuserdata
+Pods

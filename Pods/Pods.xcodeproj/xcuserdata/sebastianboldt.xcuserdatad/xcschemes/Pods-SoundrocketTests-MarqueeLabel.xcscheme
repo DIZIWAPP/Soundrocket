@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7E87869D6082AE0E1AE5DE70"
+               BlueprintIdentifier = "65AE925763644A8FE5C71E38"
                BuildableName = "libPods-SoundrocketTests-MarqueeLabel.a"
                BlueprintName = "Pods-SoundrocketTests-MarqueeLabel"
                ReferencedContainer = "container:Pods.xcodeproj">
