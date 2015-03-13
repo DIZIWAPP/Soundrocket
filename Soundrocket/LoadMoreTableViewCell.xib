@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="loadmorecell" rowHeight="44" id="KGk-i7-Jjw" customClass="LoadMoreTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="424" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AaW-NT-Skl">
+                        <rect key="frame" x="8" y="11" width="408" height="21"/>
+                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="15"/>
+                        <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="RQ7-F7-GEf">
+                        <rect key="frame" x="202" y="12" width="20" height="20"/>
+                        <color key="color" red="1" green="0.18039215689999999" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </activityIndicatorView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="AaW-NT-Skl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="5lM-99-DlI"/>
+                    <constraint firstItem="RQ7-F7-GEf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="194" id="E7Z-YE-pdB"/>
+                    <constraint firstItem="AaW-NT-Skl" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="McZ-u9-ms0"/>
+                    <constraint firstItem="RQ7-F7-GEf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="dus-M8-ndN"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="AaW-NT-Skl" secondAttribute="bottom" constant="4" id="hlb-a7-44z"/>
+                    <constraint firstItem="AaW-NT-Skl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="kce-AG-pun"/>
+                    <constraint firstAttribute="centerY" secondItem="RQ7-F7-GEf" secondAttribute="centerY" id="lH6-gv-nng"/>
+                    <constraint firstAttribute="centerX" secondItem="RQ7-F7-GEf" secondAttribute="centerX" id="vLN-5Q-eWK"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="RQ7-F7-GEf" secondAttribute="bottom" constant="4" id="yXo-Yi-NdP"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="RQ7-F7-GEf" secondAttribute="trailing" constant="194" id="zyp-ZU-VlW"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="E7Z-YE-pdB"/>
+                        <exclude reference="dus-M8-ndN"/>
+                        <exclude reference="yXo-Yi-NdP"/>
+                        <exclude reference="zyp-ZU-VlW"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="loadMoreLabel" destination="AaW-NT-Skl" id="dvX-AQ-CHl"/>
+                <outlet property="loadingIndicator" destination="RQ7-F7-GEf" id="nS6-MU-Lym"/>
+            </connections>
+            <point key="canvasLocation" x="242" y="194"/>
+        </tableViewCell>
+    </objects>
+</document>

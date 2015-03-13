@@ -1,0 +1,77 @@
+PODS:
+  - AFNetworking (2.5.0):
+    - AFNetworking/NSURLConnection (= 2.5.0)
+    - AFNetworking/NSURLSession (= 2.5.0)
+    - AFNetworking/Reachability (= 2.5.0)
+    - AFNetworking/Security (= 2.5.0)
+    - AFNetworking/Serialization (= 2.5.0)
+    - AFNetworking/UIKit (= 2.5.0)
+  - AFNetworking/NSURLConnection (2.5.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.0)
+  - AFNetworking/Security (2.5.0)
+  - AFNetworking/Serialization (2.5.0)
+  - AFNetworking/UIKit (2.5.0):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - FontAwesomeKit (2.1.8):
+    - FontAwesomeKit/Core (= 2.1.8)
+    - FontAwesomeKit/FontAwesome (= 2.1.8)
+    - FontAwesomeKit/FoundationIcons (= 2.1.8)
+    - FontAwesomeKit/IonIcons (= 2.1.8)
+    - FontAwesomeKit/Zocial (= 2.1.8)
+  - FontAwesomeKit/Core (2.1.8)
+  - FontAwesomeKit/FontAwesome (2.1.8):
+    - FontAwesomeKit/Core
+  - FontAwesomeKit/FoundationIcons (2.1.8):
+    - FontAwesomeKit/Core
+  - FontAwesomeKit/IonIcons (2.1.8):
+    - FontAwesomeKit/Core
+  - FontAwesomeKit/Zocial (2.1.8):
+    - FontAwesomeKit/Core
+  - HexColors (2.2.1)
+  - JSONModel (1.0.1)
+  - MarqueeLabel (2.1.1)
+  - MBProgressHUD (0.9)
+  - RESideMenu (4.0.7)
+  - SSKeychain (1.2.2)
+  - SVProgressHUD (1.1.2)
+  - SWTableViewCell (0.3.7)
+  - SZTextView (1.1.10)
+  - TSMessages (0.9.11):
+    - HexColors
+
+DEPENDENCIES:
+  - AFNetworking
+  - FontAwesomeKit (~> 2.1.0)
+  - JSONModel
+  - MarqueeLabel
+  - MBProgressHUD (~> 0.8)
+  - RESideMenu (~> 4.0.7)
+  - SSKeychain
+  - SVProgressHUD
+  - SWTableViewCell (~> 0.3.7)
+  - SZTextView (~> 1.1.1)
+  - TSMessages
+
+SPEC CHECKSUMS:
+  AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
+  FontAwesomeKit: a2edea3111dab107b4cc43b85881b404eb063385
+  HexColors: 01384d2bbe8dc4ffa43c3b4135db6e976952d153
+  JSONModel: 634100aaacbd89811bc8a03da209356e5989c569
+  MarqueeLabel: 14779243e93f5e027f130a6477bb79c238cba976
+  MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
+  RESideMenu: a9c1cd2e64e60e1d3166ddac01a83e215a0e4d30
+  SSKeychain: cc48bd3ad24fcd9125adb9e0d23dd50b8bbd08b9
+  SVProgressHUD: da7a49e789af645d9279ffbca62318945a832438
+  SWTableViewCell: 25de71898e3fcd11cf75707ef90245acf990ec03
+  SZTextView: 8f1126696c6d54e5f0d672bbecf259ef65b04aeb
+  TSMessages: e21ef5b1c7518cc590a4826c8b05b16b79b10c2c
+
+COCOAPODS: 0.35.0
