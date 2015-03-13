@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  Soundrocket
+
+  Created by Sebastian Boldt on 09.01.15.
+  Copyright (c) 2015 sebastianboldt. All rights reserved.
+*/
+
+"page1" = "swipe a track or playlist to the right to get to the user";
+"page2" = "tap the miniplayer to reveal the fullscreen player";
+"page3" = "simple swipe through comments";
+"page4" = "tap and hold the comments section to compose a comment";
+"page5" = "delete tracks or playlists by swiping to the left";
