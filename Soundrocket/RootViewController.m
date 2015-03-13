@@ -121,6 +121,10 @@
 - (void)sideMenu:(RESideMenu *)sideMenu didShowMenuViewController:(UIViewController *)menuViewController
 {
     //NSLog(@"didShowMenuViewController: %@", NSStringFromClass([menuViewController class]));
+    AppDelegate * delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+    Mixpanel * mixpanel = [Mixpanel sharedInstance];
+    // Checking how often the sidebar is being used
+    [mixpanel track:@"sidebar_menu_selected" properties:@{@"username":delegate.currentUser.username}];
 }
 
 - (void)sideMenu:(RESideMenu *)sideMenu willHideMenuViewController:(UIViewController *)menuViewController
