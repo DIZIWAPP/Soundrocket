@@ -12,6 +12,7 @@ target 'Soundrocket' do
     pod 'SVProgressHUD'
     pod 'SZTextView', '~> 1.1.1'
     pod 'SWTableViewCell', '~> 0.3.7'
+    pod 'Mixpanel'
 end
 
 target 'SoundrocketTests' do
@@ -26,4 +27,5 @@ target 'SoundrocketTests' do
     pod 'SVProgressHUD'
     pod 'SZTextView', '~> 1.1.1'
     pod 'SWTableViewCell', '~> 0.3.7'
+    pod 'Mixpanel'
 end

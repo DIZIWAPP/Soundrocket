@@ -7,8 +7,10 @@
 //
 
 #import "BaseTableViewController.h"
+#import "AppDelegate.h"
 #import <FAKIonIcons.h>
 #import <RESideMenu.h>
+#import <Mixpanel.h>
 @interface BaseTableViewController ()
 @property(nonatomic) CGFloat duration;
 @end

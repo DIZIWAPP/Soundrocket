@@ -33,6 +33,7 @@
 
 {
     [self setup];
+    [self setupMixpanel];
     [self setupUI];
     [self setUpAudioPlayback];
     [self setupReceiveRemoteControlEvents];
@@ -40,6 +41,10 @@
     [Fabric with:@[CrashlyticsKit]];
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+-(void)setupMixpanel {
+    [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
 }
 
 -(void)setFirstViewController {
