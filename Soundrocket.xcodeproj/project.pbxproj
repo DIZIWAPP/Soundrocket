@@ -15,6 +15,8 @@
 		150F58721A4FD85C00827525 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 150F58701A4FD85C00827525 /* TutorialViewController.m */; };
 		1517A6191A67F0DD00619603 /* CommentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1517A6181A67F0DD00619603 /* CommentsTableViewController.m */; };
 		1517A61A1A67F0DD00619603 /* CommentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1517A6181A67F0DD00619603 /* CommentsTableViewController.m */; };
+		154CD81C1AB380F400DF20B9 /* SRStylesheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 154CD81B1AB380F400DF20B9 /* SRStylesheet.m */; };
+		154CD81D1AB380F400DF20B9 /* SRStylesheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 154CD81B1AB380F400DF20B9 /* SRStylesheet.m */; };
 		1554AE7B1A6827B80008BFE1 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1554AE791A6827B80008BFE1 /* CommentTableViewCell.m */; };
 		1554AE7C1A6827B80008BFE1 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1554AE791A6827B80008BFE1 /* CommentTableViewCell.m */; };
 		1554AE7D1A6827B80008BFE1 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1554AE7A1A6827B80008BFE1 /* CommentTableViewCell.xib */; };
@@ -146,6 +148,8 @@
 		150F58701A4FD85C00827525 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
 		1517A6171A67F0DD00619603 /* CommentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsTableViewController.h; sourceTree = "<group>"; };
 		1517A6181A67F0DD00619603 /* CommentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsTableViewController.m; sourceTree = "<group>"; };
+		154CD81A1AB380F400DF20B9 /* SRStylesheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRStylesheet.h; sourceTree = "<group>"; };
+		154CD81B1AB380F400DF20B9 /* SRStylesheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRStylesheet.m; sourceTree = "<group>"; };
 		1554AE781A6827B80008BFE1 /* CommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableViewCell.h; sourceTree = "<group>"; };
 		1554AE791A6827B80008BFE1 /* CommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
 		1554AE7A1A6827B80008BFE1 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
@@ -474,6 +478,8 @@
 				159D89FB1A495BA7009C8078 /* Constants.h */,
 				159D89F71A495B9B009C8078 /* URLParser.h */,
 				159D89F81A495B9B009C8078 /* URLParser.m */,
+				154CD81A1AB380F400DF20B9 /* SRStylesheet.h */,
+				154CD81B1AB380F400DF20B9 /* SRStylesheet.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -748,6 +754,7 @@
 				159D8A361A495C0A009C8078 /* PlayerViewController.m in Sources */,
 				159D89CD1A495A6C009C8078 /* main.m in Sources */,
 				1554AE7B1A6827B80008BFE1 /* CommentTableViewCell.m in Sources */,
+				154CD81C1AB380F400DF20B9 /* SRStylesheet.m in Sources */,
 				159D8A7B1A4AE094009C8078 /* UserTableViewController.m in Sources */,
 				159D8A501A495C28009C8078 /* LikesTableViewController.m in Sources */,
 				150F58691A4EC6B400827525 /* UsersListTableViewController.m in Sources */,
@@ -799,6 +806,7 @@
 				159D8A1D1A495BCA009C8078 /* SoundtraceClient.m in Sources */,
 				159D8A511A495C28009C8078 /* LikesTableViewController.m in Sources */,
 				159D8A151A495BBB009C8078 /* Playlist.m in Sources */,
+				154CD81D1AB380F400DF20B9 /* SRStylesheet.m in Sources */,
 				159D8A591A495C28009C8078 /* BasicTrackTableViewCell.m in Sources */,
 				150F586E1A4ED65500827525 /* BaseTableViewController.m in Sources */,
 				15B753801A4DB4C300CC7CA0 /* HistoryTableViewController.m in Sources */,

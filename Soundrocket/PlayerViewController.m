@@ -21,6 +21,7 @@
 #import <FAKIonIcons.h>
 #import <SZTextView.h>
 #import <SVProgressHUD.h>
+#import "SRStylesheet.h"
 
 @interface PlayerViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *showVolumeFaderButton;
@@ -75,9 +76,12 @@
     self.isLoopActive = false;
     self.runTimeDetection = true;
     self.liked = false;
+    self.nextCommentButton.tintColor = [SRStylesheet mainColor];
+    self.lastCommentButton.tintColor = [SRStylesheet mainColor];
+    self.trackIDLabel.textColor = [SRStylesheet mainColor];
     // Setting up Scrollbar
     UIView *scrollbar = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, self.waveformImageView.frame.size.height)];
-    scrollbar.backgroundColor = [UIColor colorWithRed:1.000 green:0.180 blue:0.220 alpha:1.000];
+    scrollbar.backgroundColor = [SRStylesheet mainColor];
     self.scrollBar = scrollbar;
     self.scrollBar.layer.zPosition = -1;
     [self.waveformImageView addSubview:self.scrollBar];
@@ -212,7 +216,7 @@
     self.volumeControlView.alpha = 0.0;
     self.volumeControlView.layer.zPosition = 2000;
     self.volumeControlView = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height+50, self.view.frame.size.width, 60)];
-    self.volumeControlView.backgroundColor = [UIColor darkGrayColor];
+    self.volumeControlView.backgroundColor = [SRStylesheet darkGrayColor];
     
     // Setting up the Button
     UIButton * closeButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 60)];
@@ -236,8 +240,8 @@
     [visualEffectView setFrame:CGRectMake(0, 0, self.commentingView.frame.size.width, self.commentingView.frame.size.height -50)];
     [self.commentingView addSubview:visualEffectView];
     SZTextView * commentingTextView = [[SZTextView alloc]initWithFrame:CGRectMake(0, 0, self.commentingView.frame.size.width, self.commentingView.frame.size.height -50)];
-    commentingTextView.textColor = [UIColor colorWithWhite:0.250 alpha:1.000];
-    commentingTextView.placeholderTextColor = [UIColor colorWithWhite:0.500 alpha:1.000];
+    commentingTextView.textColor = [SRStylesheet darkGrayColor];
+    commentingTextView.placeholderTextColor = [SRStylesheet lightGrayColor];
     commentingTextView.placeholder = @"Enter a comment here";
     commentingTextView.backgroundColor = [UIColor clearColor];
     self.commentingView.backgroundColor = [UIColor clearColor];
@@ -246,7 +250,7 @@
     
     // Submit Button
     UIButton * cancelButton = [[UIButton alloc]initWithFrame:CGRectMake(0, self.commentingView.frame.size.height-50, self.commentingView.frame.size.width/2,50)];
-    [cancelButton setBackgroundColor:[UIColor colorWithRed:1.000 green:0.180 blue:0.220 alpha:1.000]];
+    [cancelButton setBackgroundColor:[SRStylesheet mainColor]];
     [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
     [cancelButton addTarget:self action:@selector(hideCommentingView) forControlEvents:UIControlEventTouchDown];
     cancelButton.layer.zPosition = 5000;
@@ -320,7 +324,7 @@
             if(!self.commentingCanvas){
                 
                 self.commentingCanvas = [[UIView alloc]initWithFrame:self.commentsView.frame];
-                self.commentingCanvas.backgroundColor = [UIColor darkGrayColor];
+                self.commentingCanvas.backgroundColor = [SRStylesheet darkGrayColor];
                 UIPanGestureRecognizer * panrecognizer = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(commentingCanvasPanned:)];
                 panrecognizer.maximumNumberOfTouches = 1;
                 panrecognizer.minimumNumberOfTouches = 1;
@@ -333,7 +337,7 @@
             CGPoint pt = [recognizer locationOfTouch:0 inView:recognizer.view];
             
             self.commentPlacerView = [[UIView alloc]initWithFrame:CGRectMake(pt.x, 0, 1, heightOfCommentingView)];
-            self.commentPlacerView.backgroundColor = [UIColor colorWithRed:1.000 green:0.180 blue:0.220 alpha:1.000];
+            self.commentPlacerView.backgroundColor = [SRStylesheet mainColor];
             
             [self.commentingCanvas addSubview:self.commentPlacerView];
             
@@ -450,7 +454,7 @@
             UIView * currentView = [self.currentCommentViews objectAtIndex:index];
             currentView.layer.zPosition = 1000;
             if (currentView) {
-                currentView.backgroundColor = [UIColor colorWithRed:1.000 green:0.180 blue:0.220 alpha:1.000];
+                currentView.backgroundColor = [SRStylesheet mainColor];
                 self.currentCommentView = currentView;
                 self.currentCommentIndex = index;
 
@@ -590,7 +594,7 @@
         
         
         UIView * currentCommentView = [[self currentCommentViews]objectAtIndex:self.currentCommentIndex];
-        [currentCommentView setBackgroundColor:[UIColor colorWithRed:1.000 green:0.180 blue:0.220 alpha:1.000]];
+        [currentCommentView setBackgroundColor:[SRStylesheet mainColor]];
         self.currentCommentLabel.text =  [[self.currentComments objectAtIndex:self.currentCommentIndex]objectForKey:@"body"];
         self.userNameLabel.text = [NSString stringWithFormat:@"%@",[[[self.currentComments objectAtIndex:self.currentCommentIndex] objectForKey:@"user"]objectForKey:@"username"]];
         [currentCommentView.layer setZPosition:1000];
@@ -609,7 +613,7 @@
         self.currentCommentIndex = self.currentCommentIndex -1;
         
         UIView * currentCommentView = [[self currentCommentViews]objectAtIndex:self.currentCommentIndex];
-        [currentCommentView setBackgroundColor:[UIColor colorWithRed:1.000 green:0.180 blue:0.220 alpha:1.000]];
+        [currentCommentView setBackgroundColor:[SRStylesheet mainColor]];
         self.currentCommentLabel.text =  [[self.currentComments objectAtIndex:self.currentCommentIndex]objectForKey:@"body"];
         self.userNameLabel.text = [NSString stringWithFormat:@"%@",[[[self.currentComments objectAtIndex:self.currentCommentIndex] objectForKey:@"user"]objectForKey:@"username"]];
         
@@ -840,7 +844,7 @@ Detects runtime Biatch
                     // Update Buffering zone
                     if (!self.bufferingSzone) {
                         self.bufferingSzone = [[UIView alloc]initWithFrame:CGRectMake(self.waveformImageView.frame.origin.x, self.waveformImageView.frame.origin.y,widthOfBufferingSzone, self.waveformImageView.frame.size.height)];
-                        self.bufferingSzone.backgroundColor = [UIColor colorWithWhite:0.750 alpha:1.000];
+                        self.bufferingSzone.backgroundColor = [SRStylesheet lightGrayColor];
                         self.bufferingSzone.userInteractionEnabled =NO;
                         self.waveformImageView.layer.zPosition = 200;
                         self.bufferingSzone.layer.zPosition = 100;

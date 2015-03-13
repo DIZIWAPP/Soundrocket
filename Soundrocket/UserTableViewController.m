@@ -25,6 +25,7 @@
 #import "UserTableViewController.h"
 #import <TSMessage.h>
 #import <SVProgressHUD.h>
+#import "SRStylesheet.h"
 
 @interface UserTableViewController () <SWTableViewCellDelegate>
 @property(nonatomic,strong) CredentialStore * store;
@@ -227,7 +228,7 @@
     
     self.userImageView.clipsToBounds = YES;
     self.userImageView.layer.cornerRadius = 25;
-    self.userImageView.layer.borderColor = [[UIColor colorWithRed:1.000 green:0.180 blue:0.220 alpha:1.000] CGColor];
+    self.userImageView.layer.borderColor = [[SRStylesheet mainColor] CGColor];
     self.userImageView.layer.borderWidth = 1.0;
     
     NSMutableDictionary * parameters = [[NSMutableDictionary alloc]init];
@@ -346,7 +347,7 @@
                                                                      whiteColor]];
             trackCell.delegate = self;
             NSMutableArray * leftUtilityButtons = [NSMutableArray new];
-            [leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithWhite:0.250 alpha:1.000] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
+            [leftUtilityButtons sw_addUtilityButtonWithColor:[SRStylesheet darkGrayColor] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
             trackCell.leftUtilityButtons = leftUtilityButtons;
             /***********************************************************/
             
@@ -386,7 +387,7 @@
                                                                      whiteColor]];
             listCell.delegate = self;
             NSMutableArray * leftUtilityButtons = [NSMutableArray new];
-            [leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithWhite:0.250 alpha:1.000] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
+            [leftUtilityButtons sw_addUtilityButtonWithColor:[SRStylesheet darkGrayColor] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
             listCell.leftUtilityButtons = leftUtilityButtons;
             /***********************************************************/
             return listCell;
@@ -480,19 +481,19 @@
             [segmentedControl setFrame:CGRectMake(5, 5, viewHeader.frame.size.width-10 , 30)];
             [segmentedControl setSelectedSegmentIndex:0];
             [segmentedControl addTarget:self action:@selector(scopeChanged:) forControlEvents:UIControlEventValueChanged];
-            [segmentedControl setTintColor:[UIColor colorWithWhite:0.250 alpha:1.000]];
+            [segmentedControl setTintColor:[SRStylesheet darkGrayColor]];
             [viewHeader addSubview:segmentedControl];
             
             self.indicatorLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 40, viewHeader.frame.size.width, 20)];
             [self.indicatorLabel setText:@"Tracks"];
             self.indicatorLabel.textAlignment = NSTextAlignmentCenter;
-            self.indicatorLabel.textColor = [UIColor colorWithWhite:0.374 alpha:1.000];
+            self.indicatorLabel.textColor = [SRStylesheet darkGrayColor];
             [self.indicatorLabel setFont:[UIFont systemFontOfSize:13]];
             [viewHeader addSubview:self.indicatorLabel];
             
             // Seperator
             UILabel * seperator = [[UILabel alloc]initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, 1)];
-            seperator.backgroundColor = [UIColor lightGrayColor];
+            seperator.backgroundColor = [SRStylesheet lightGrayColor];
             [viewHeader addSubview:seperator];
             self.scopeButton = segmentedControl;
             self.headerView = viewHeader;

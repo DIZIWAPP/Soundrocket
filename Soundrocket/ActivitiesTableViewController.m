@@ -20,7 +20,7 @@
 #import <TSMessage.h>
 #import <SWTableViewCell.h>
 #import "UserTableViewController.h"
-
+#import "SRStylesheet.h"
 /**
  *  Private Interface
  */
@@ -54,12 +54,6 @@
     [self setup]; // Setup everything from Navigationbar registering nib files
     [self setUpRefreshControl];
     [self fetchForTracksOfStream]; // Then fetch Tracks of Stream ..
-    /*
-    // Display a message when the table is empty
-    UIActivityIndicatorView *messageLabel = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
-    messageLabel.tintColor = [UIColor lightGrayColor];
-    self.tableView.backgroundView = messageLabel;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;*/
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -214,11 +208,10 @@
         
         /******************* SHOW USER BUTTON STUFF ****************/
         FAKIonIcons * icon = [FAKIonIcons ios7PersonIconWithSize:30];
-        [icon addAttribute:NSForegroundColorAttributeName value:[UIColor
-                                                                     whiteColor]];
+        [icon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
         trackCell.delegate = self;
         NSMutableArray * leftUtilityButtons = [NSMutableArray new];
-        [leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithWhite:0.250 alpha:1.000] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
+        [leftUtilityButtons sw_addUtilityButtonWithColor:[SRStylesheet darkGrayColor] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
         trackCell.leftUtilityButtons = leftUtilityButtons;
         /***********************************************************/
         
@@ -268,7 +261,7 @@
                                                                  whiteColor]];
         trackCell.delegate = self;
         NSMutableArray * leftUtilityButtons = [NSMutableArray new];
-        [leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithWhite:0.250 alpha:1.000] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
+        [leftUtilityButtons sw_addUtilityButtonWithColor:[SRStylesheet darkGrayColor] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
         trackCell.leftUtilityButtons = leftUtilityButtons;
         /***********************************************************/
         
@@ -319,7 +312,7 @@
                                                                  whiteColor]];
         trackCell.delegate = self;
         NSMutableArray * leftUtilityButtons = [NSMutableArray new];
-        [leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithWhite:0.250 alpha:1.000] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
+        [leftUtilityButtons sw_addUtilityButtonWithColor:[SRStylesheet darkGrayColor] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
         trackCell.leftUtilityButtons = leftUtilityButtons;
         /***********************************************************/
         
@@ -361,7 +354,7 @@
                                                                  whiteColor]];
         playlistRepostCell.delegate = self;
         NSMutableArray * leftUtilityButtons = [NSMutableArray new];
-        [leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithWhite:0.250 alpha:1.000] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
+        [leftUtilityButtons sw_addUtilityButtonWithColor:[SRStylesheet darkGrayColor] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
         playlistRepostCell.leftUtilityButtons = leftUtilityButtons;
         /***********************************************************/
         

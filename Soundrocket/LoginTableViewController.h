@@ -14,6 +14,8 @@
 @property (weak, nonatomic)     IBOutlet UIButton *loginButton;
 @property (weak, nonatomic)     IBOutlet UIActivityIndicatorView *activityIndicatorLoggingIn;
 @property (weak, nonatomic)     IBOutlet UILabel *soundrocketNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *poweredByLabel;
+@property (weak, nonatomic) IBOutlet UIView *loginButtonBackgroundView;
 
 - (IBAction)loginButtonPressed:(id)sender;
 

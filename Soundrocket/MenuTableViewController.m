@@ -23,6 +23,7 @@
 #import <FAKIonIcons.h>
 #import <FAKFontAwesome.h>
 #import <FAKFoundationIcons.h>
+#import "SRStylesheet.h"
 
 @interface MenuTableViewController ()
 @property (nonatomic,strong) CredentialStore *store;
@@ -47,7 +48,7 @@
 -(void)setupMenu{
     if (self.selectedMenuPoint) {
         if (self.selectedMenuPoint.row == -1) {
-            self.userImageView.layer.borderColor = [[UIColor colorWithRed:1.000 green:0.180 blue:0.220 alpha:1.000]CGColor];
+            self.userImageView.layer.borderColor = [[SRStylesheet mainColor]CGColor];
         } else {
             [self.tableView selectRowAtIndexPath:self.selectedMenuPoint animated:YES scrollPosition:UITableViewScrollPositionNone];
         }
@@ -63,7 +64,7 @@
 -(void)setupMenuPoints{
    
      NSDictionary *attributes = @{
-       NSForegroundColorAttributeName : [UIColor colorWithWhite:0.250 alpha:1.000],
+       NSForegroundColorAttributeName : [SRStylesheet darkGrayColor],
        };
     
     self.streamTextLabel.attributedText = [[NSAttributedString alloc]initWithString:@"Stream" attributes:attributes];
@@ -83,13 +84,21 @@
     self.searchIconLabel.attributedText=[[FAKIonIcons searchIconWithSize:iconSize]attributedString];
     self.aboutIconLabel.attributedText=[[FAKIonIcons ios7InformationIconWithSize:iconSize]attributedString];
     self.logoutIconLabel.attributedText=[[FAKIonIcons logOutIconWithSize:iconSize]attributedString];
+    
+    self.streamIconLabel.textColor = [SRStylesheet mainColor];
+    self.likesIConlabel.textColor = [SRStylesheet mainColor];
+    self.playlistIconLabel.textColor = [SRStylesheet mainColor];
+    self.searchIconLabel.textColor = [SRStylesheet mainColor];
+    self.aboutIconLabel.textColor = [SRStylesheet mainColor];
+    self.logoutIconLabel.textColor = [SRStylesheet mainColor];
+
 }
 
 -(void)setupAvatarImage {
     
     self.userImageView.clipsToBounds = YES;
     self.userImageView.layer.cornerRadius = 30;
-    self.userImageView.layer.borderColor = [[UIColor lightGrayColor]CGColor];
+    self.userImageView.layer.borderColor = [[SRStylesheet lightGrayColor]CGColor];
     self.userImageView.layer.borderWidth = 1.0;
     AppDelegate * delegate = (AppDelegate*)[[UIApplication sharedApplication ]delegate];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(){
@@ -109,7 +118,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.selectedMenuPoint = indexPath;
-    self.userImageView.layer.borderColor = [[UIColor lightGrayColor]CGColor];
+    self.userImageView.layer.borderColor = [[SRStylesheet lightGrayColor]CGColor];
 
     UINavigationController * mainNavigationController = (UINavigationController*)self.sideMenuViewController.contentViewController;
     // Stream
@@ -188,7 +197,7 @@
     userTableViewController.user_id = delegate.currentUser.id;
     userTableViewController.showMenuButton = YES;
     [mainNavigationController setViewControllers:@[userTableViewController] animated:NO];
-    self.userImageView.layer.borderColor = [[UIColor colorWithRed:1.000 green:0.180 blue:0.220 alpha:1.000]CGColor];
+    self.userImageView.layer.borderColor = [[SRStylesheet mainColor]CGColor];
 
     [self.sideMenuViewController hideMenuViewController];
 }

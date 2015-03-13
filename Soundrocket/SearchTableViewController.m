@@ -23,6 +23,7 @@
 #import "UserTableViewCell.h"
 #import "LoadMoreTableViewCell.h"
 #import <SWTableViewCell.h>
+#import "SRStylesheet.h"
 
 @interface SearchTableViewController () <UISearchBarDelegate,SWTableViewCellDelegate>
 @property (nonatomic,strong) IBOutlet UISearchBar * searchBar;
@@ -143,7 +144,7 @@
                                                                      whiteColor]];
             trackCell.delegate = self;
             NSMutableArray * leftUtilityButtons = [NSMutableArray new];
-            [leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithWhite:0.250 alpha:1.000] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
+            [leftUtilityButtons sw_addUtilityButtonWithColor:[SRStylesheet darkGrayColor] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
             trackCell.leftUtilityButtons = leftUtilityButtons;
             /***********************************************************/
             return  trackCell;
@@ -206,7 +207,7 @@
                                                                      whiteColor]];
             listCell.delegate = self;
             NSMutableArray * leftUtilityButtons = [NSMutableArray new];
-            [leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithWhite:0.250 alpha:1.000] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
+            [leftUtilityButtons sw_addUtilityButtonWithColor:[SRStylesheet darkGrayColor] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
             listCell.leftUtilityButtons = leftUtilityButtons;
             /***********************************************************/
             

@@ -9,6 +9,7 @@
 #import "MiniPlayer.h"
 #import "AppDelegate.h"
 #import "PlayerViewController.h"
+#import "SRStylesheet.h"
 @implementation MiniPlayer
 
 
@@ -17,7 +18,7 @@
     if (!self.scrollbarMiniPlayer) {
         self.scrollbarMiniPlayer = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 2, 4)];
     }
-    self.scrollbarMiniPlayer.backgroundColor = [UIColor colorWithRed:1.000 green:0.180 blue:0.220 alpha:1.000];
+    self.scrollbarMiniPlayer.backgroundColor = [SRStylesheet mainColor];
     [self addSubview:self.scrollbarMiniPlayer];
 }
 -(IBAction)playButtonPressed:(id)sender {

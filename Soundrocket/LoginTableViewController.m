@@ -16,6 +16,7 @@
 #import "Constants.h"
 #import <SVProgressHUD.h>
 #import <FAKFontAwesome.h>
+#import "SRStylesheet.h"
 @interface LoginTableViewController ()
 @property (nonatomic,strong) CredentialStore * store;
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
@@ -32,6 +33,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.loginButton setBackgroundColor:[SRStylesheet mainColor]];
     [self setupLogo];
 }
 
@@ -47,11 +49,14 @@
      attributes:
      @{
        NSFontAttributeName : [UIFont fontWithName:@"Helvetica-Bold" size:45],
-       NSForegroundColorAttributeName : [UIColor colorWithRed:1.000 green:0.180 blue:0.220 alpha:1.000],
+       NSForegroundColorAttributeName : [SRStylesheet mainColor],
        NSKernAttributeName : @(-4.0f)
        }];
     
     self.soundrocketNameLabel.attributedText = attributedString;
+    [self.poweredByLabel setTextColor:[SRStylesheet mainColor]];
+    [self.loginButtonBackgroundView setBackgroundColor:[SRStylesheet mainColor]];
+
 }
 
 

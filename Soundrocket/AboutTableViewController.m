@@ -10,7 +10,7 @@
 #import "AboutTableViewController.h"
 #import <RESideMenu.h>
 #import <FAKIonIcons.h>
-
+#import "SRStylesheet.h"
 @interface AboutTableViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *versionLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
@@ -22,14 +22,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.poweredByLabel.textColor = [SRStylesheet mainColor];
     NSAttributedString *attributedString =
     [[NSAttributedString alloc]
      initWithString:@"Soundrocket"
      attributes:
      @{
        NSFontAttributeName : [UIFont fontWithName:@"Helvetica-Bold" size:45],
-       NSForegroundColorAttributeName : [UIColor colorWithRed:1.000 green:0.180 blue:0.220 alpha:1.000],
+       NSForegroundColorAttributeName : [SRStylesheet mainColor],
        NSKernAttributeName : @(-4.0f)
        }];
     

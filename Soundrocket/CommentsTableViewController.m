@@ -16,7 +16,7 @@
 #import "LoadMoreTableViewCell.h"
 #import "AppDelegate.h"
 #import "SoundtraceClient.h"
-
+#import "SRStylesheet.h"
 @interface CommentsTableViewController ()
 @property(nonatomic,strong)NSMutableArray * comments;
 @property(nonatomic,strong)CredentialStore * store;
@@ -45,7 +45,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithWhite:0.500 alpha:1.000];
+    self.navigationController.navigationBar.barTintColor = [SRStylesheet lightGrayColor];
     [self.navigationController.navigationBar
      setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     self.navigationController.navigationBar.translucent = NO;
@@ -281,28 +281,7 @@
 
 
 - (void)setupToolbar {
-    /*[self.navigationController setToolbarHidden:NO animated:YES];
-    NSArray *segItemsArray = [NSArray arrayWithObjects:@"sort by date",@"sort by time",nil];
-    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:segItemsArray];
-    segmentedControl.frame = CGRectMake(0, 0, 200, 30);
-    segmentedControl.selectedSegmentIndex = 0;
-    UIBarButtonItem *segmentedControlButtonItem = [[UIBarButtonItem alloc] initWithCustomView:(UIView *)segmentedControl];
-    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    NSArray *barArray = [NSArray arrayWithObjects:flexibleSpace, segmentedControlButtonItem, flexibleSpace, nil];
-    
-    [segmentedControl setTintColor:[UIColor colorWithRed:0.961 green:0.176 blue:0.192 alpha:1.000]];
-    [segmentedControl addTarget:self action:@selector(segmentedValueChanged:) forControlEvents:UIControlEventValueChanged];
-    [self setToolbarItems:barArray];
-}
-
--(void)segmentedValueChanged:(UISegmentedControl*)control {
-    if (control.selectedSegmentIndex == 0) {
-        self.order = @"created_at";
-        [self refresh];
-    } else {
-        self.order = @"timestamp";
-        [self refresh];
-    }*/
+    // Todo ..
 }
 
 @end
