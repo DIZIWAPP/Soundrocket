@@ -1,5 +1,6 @@
 # Soundrocket
 
+![alt text](http://soundrocket.sebastianboldt.com/assets/mirror-017dc2cf7d1d9e8b44431501104c0b7b.png "Logo Title Text 1")
 ## Soundrocket is an unofficial SoundCloud® client for iOS
 
 ### Version 1.0
