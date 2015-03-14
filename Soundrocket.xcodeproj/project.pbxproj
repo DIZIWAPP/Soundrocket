@@ -81,10 +81,6 @@
 		159D8A591A495C28009C8078 /* BasicTrackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 159D8A471A495C28009C8078 /* BasicTrackTableViewCell.m */; };
 		159D8A5A1A495C28009C8078 /* BasicTrackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 159D8A481A495C28009C8078 /* BasicTrackTableViewCell.xib */; };
 		159D8A5B1A495C28009C8078 /* BasicTrackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 159D8A481A495C28009C8078 /* BasicTrackTableViewCell.xib */; };
-		159D8A5C1A495C28009C8078 /* PlaylistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 159D8A4A1A495C28009C8078 /* PlaylistTableViewCell.m */; };
-		159D8A5D1A495C28009C8078 /* PlaylistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 159D8A4A1A495C28009C8078 /* PlaylistTableViewCell.m */; };
-		159D8A5E1A495C28009C8078 /* PlaylistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 159D8A4B1A495C28009C8078 /* PlaylistTableViewCell.xib */; };
-		159D8A5F1A495C28009C8078 /* PlaylistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 159D8A4B1A495C28009C8078 /* PlaylistTableViewCell.xib */; };
 		159D8A601A495C28009C8078 /* PlaylistTracksListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 159D8A4D1A495C28009C8078 /* PlaylistTracksListTableViewController.m */; };
 		159D8A611A495C28009C8078 /* PlaylistTracksListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 159D8A4D1A495C28009C8078 /* PlaylistTracksListTableViewController.m */; };
 		159D8A6A1A495C3C009C8078 /* LoadMoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 159D8A631A495C3C009C8078 /* LoadMoreTableViewCell.m */; };
@@ -220,9 +216,6 @@
 		159D8A461A495C28009C8078 /* BasicTrackTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicTrackTableViewCell.h; sourceTree = "<group>"; };
 		159D8A471A495C28009C8078 /* BasicTrackTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicTrackTableViewCell.m; sourceTree = "<group>"; };
 		159D8A481A495C28009C8078 /* BasicTrackTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasicTrackTableViewCell.xib; sourceTree = "<group>"; };
-		159D8A491A495C28009C8078 /* PlaylistTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistTableViewCell.h; sourceTree = "<group>"; };
-		159D8A4A1A495C28009C8078 /* PlaylistTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistTableViewCell.m; sourceTree = "<group>"; };
-		159D8A4B1A495C28009C8078 /* PlaylistTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaylistTableViewCell.xib; sourceTree = "<group>"; };
 		159D8A4C1A495C28009C8078 /* PlaylistTracksListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistTracksListTableViewController.h; sourceTree = "<group>"; };
 		159D8A4D1A495C28009C8078 /* PlaylistTracksListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistTracksListTableViewController.m; sourceTree = "<group>"; };
 		159D8A621A495C3C009C8078 /* LoadMoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadMoreTableViewCell.h; sourceTree = "<group>"; };
@@ -418,9 +411,6 @@
 				159D8A461A495C28009C8078 /* BasicTrackTableViewCell.h */,
 				159D8A471A495C28009C8078 /* BasicTrackTableViewCell.m */,
 				159D8A481A495C28009C8078 /* BasicTrackTableViewCell.xib */,
-				159D8A491A495C28009C8078 /* PlaylistTableViewCell.h */,
-				159D8A4A1A495C28009C8078 /* PlaylistTableViewCell.m */,
-				159D8A4B1A495C28009C8078 /* PlaylistTableViewCell.xib */,
 				159D8A661A495C3C009C8078 /* LaunchScreen.xib */,
 				15B753761A4DA01800CC7CA0 /* UserTableViewCell.h */,
 				15B753771A4DA01800CC7CA0 /* UserTableViewCell.m */,
@@ -626,7 +616,6 @@
 				158041731A7B9ADD00B91864 /* page1.png in Resources */,
 				159D8A701A495C3C009C8078 /* LaunchScreen.xib in Resources */,
 				15B7537B1A4DA01800CC7CA0 /* UserTableViewCell.xib in Resources */,
-				159D8A5E1A495C28009C8078 /* PlaylistTableViewCell.xib in Resources */,
 				1580417B1A7BF71F00B91864 /* page5.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -647,7 +636,6 @@
 				1554AE7E1A6827B80008BFE1 /* CommentTableViewCell.xib in Resources */,
 				159D8A711A495C3C009C8078 /* LaunchScreen.xib in Resources */,
 				15B7537C1A4DA01800CC7CA0 /* UserTableViewCell.xib in Resources */,
-				159D8A5F1A495C28009C8078 /* PlaylistTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -752,7 +740,6 @@
 				159D8A301A495C0A009C8078 /* AppDelegate.m in Sources */,
 				150F58711A4FD85C00827525 /* TutorialViewController.m in Sources */,
 				159D8A161A495BBB009C8078 /* PlaylistRespost.m in Sources */,
-				159D8A5C1A495C28009C8078 /* PlaylistTableViewCell.m in Sources */,
 				159D8A561A495C28009C8078 /* AboutTableViewController.m in Sources */,
 				15B7537F1A4DB4C300CC7CA0 /* HistoryTableViewController.m in Sources */,
 				159D8A1C1A495BCA009C8078 /* SoundtraceClient.m in Sources */,
@@ -814,7 +801,6 @@
 				159D8A311A495C0A009C8078 /* AppDelegate.m in Sources */,
 				159D8A0D1A495BBB009C8078 /* Track.m in Sources */,
 				159D8A7C1A4AE094009C8078 /* UserTableViewController.m in Sources */,
-				159D8A5D1A495C28009C8078 /* PlaylistTableViewCell.m in Sources */,
 				15E512A61AB3A2DD00C7C3DF /* UIViewController+ShakeGesture.m in Sources */,
 				159D8A571A495C28009C8078 /* AboutTableViewController.m in Sources */,
 				159D8A1D1A495BCA009C8078 /* SoundtraceClient.m in Sources */,
