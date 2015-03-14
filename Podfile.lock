@@ -45,7 +45,6 @@ PODS:
   - RESideMenu (4.0.7)
   - SSKeychain (1.2.2)
   - SVProgressHUD (1.1.2)
-  - SWTableViewCell (0.3.7)
   - SZTextView (1.1.10)
   - TSMessages (0.9.12):
     - HexColors
@@ -60,7 +59,6 @@ DEPENDENCIES:
   - RESideMenu (~> 4.0.7)
   - SSKeychain
   - SVProgressHUD
-  - SWTableViewCell (~> 0.3.7)
   - SZTextView (~> 1.1.1)
   - TSMessages
 
@@ -75,7 +73,6 @@ SPEC CHECKSUMS:
   RESideMenu: a9c1cd2e64e60e1d3166ddac01a83e215a0e4d30
   SSKeychain: cc48bd3ad24fcd9125adb9e0d23dd50b8bbd08b9
   SVProgressHUD: da7a49e789af645d9279ffbca62318945a832438
-  SWTableViewCell: 25de71898e3fcd11cf75707ef90245acf990ec03
   SZTextView: 8f1126696c6d54e5f0d672bbecf259ef65b04aeb
   TSMessages: b2b5dc71f65146387e51f2600bb0eb8f3a6c4ab8
 

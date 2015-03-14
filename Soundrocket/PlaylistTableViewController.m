@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 sebastianboldt. All rights reserved.
 //
 
+#import "UserTableViewController.h"
 #import <MBProgressHUD.h>
 #import <FAKIonIcons.h>
 #import "PlaylistTableViewController.h"
@@ -22,7 +23,9 @@
 #import <FAKIonIcons.h>
 #import <FAKFontAwesome.h>
 #import <SVProgressHUD.h>
-@interface PlaylistTableViewController ()
+
+
+@interface PlaylistTableViewController () <BasicTrackTableViewCellDelegate>
 @property (nonatomic,strong)CredentialStore * store;
 @property (nonatomic,strong)NSMutableArray * playlists;
 @property (nonatomic,strong) NSString * tracksURL;
@@ -176,31 +179,8 @@
     
         BasicTrackTableViewCell *cell = (BasicTrackTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"basictrackcell" forIndexPath:indexPath];
         Playlist *playlist = [self.playlists objectAtIndex:indexPath.row];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.userNameLabel.text = playlist.user.username;
-        cell.firstLayerViewPlaylist.hidden = NO;
-        cell.secondLayerViewPlaylist.hidden = NO;
-        cell.trackNameLabel.text = playlist.title;
-        if (playlist.artwork_url) {
-            [cell.artworkImage setImageWithURL:[NSURL URLWithString:playlist.artwork_url] placeholderImage:nil];
-        } else {
-            [cell.artworkImage setImageWithURL:[NSURL URLWithString:playlist.user.avatar_url] placeholderImage:nil];
-        }
-        // Private not private etc
-        FAKFontAwesome * lockIcon = [FAKFontAwesome lockIconWithSize:10];
-        NSMutableAttributedString * lockString = [[NSMutableAttributedString alloc]init];
-        if ([playlist.sharing isEqualToString:@"private"]) {
-            lockString = [[lockIcon attributedString]mutableCopy];
-            [lockString appendAttributedString:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@" %@ Tracks",playlist.track_count]]];
-            
-        } else {
-            [lockString appendAttributedString:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ Tracks",playlist.track_count]]];
-        }
-        
-        cell.playbackCountLabel.attributedText = lockString;
-        
-        [cell.repostedImageView setImage:[UIImage imageNamed:@"list"]];
-        
+        cell.delegate = self;
+        cell.data = playlist;
         return cell;
     }
     
@@ -315,6 +295,13 @@
             }
         }
     }
+}
+
+#pragma mark - BasictracktableViewCellDelegate
+-(void)userButtonPressedWithUserID:(NSNumber *)user_id{
+    UserTableViewController * controller = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"user"];
+    controller.user_id = user_id;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end

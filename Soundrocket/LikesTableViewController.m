@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 sebastianboldt. All rights reserved.
 //
 
-#import <SWTableViewCell.h>
 #import <FAKIonIcons.h>
 #import "LikesTableViewController.h"
 #import "BasicTrackTableViewCell.h"
@@ -21,7 +20,7 @@
 #import <TSMessage.h>
 #import "UserTableViewController.h"
 #import "SRStylesheet.h"
-@interface LikesTableViewController ()<SWTableViewCellDelegate>
+@interface LikesTableViewController () <BasicTrackTableViewCellDelegate>
 @property (nonatomic,strong) NSMutableArray * tracks;
 @property (nonatomic,strong) CredentialStore * store;
 @property (nonatomic,strong) UIActivityIndicatorView * activityIndicator;
@@ -156,49 +155,9 @@
     
     if (indexPath.row < [self.tracks count]) {
         BasicTrackTableViewCell *cell = (BasicTrackTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"basictrackcell" forIndexPath:indexPath];
-        // Wenn das item eine Playlist ist dann zeige disclosure Indicator an
         Track * track = [self.tracks objectAtIndex:indexPath.row];
-        [cell.repostedImageView setImage:[UIImage imageNamed:@"user"]];
-        cell.userNameLabel.text = track.user.username;
-        cell.trackNameLabel.text = track.title;
-        if (track.artwork_url) {
-            [cell.artworkImage setImageWithURL:[NSURL URLWithString:track.artwork_url] placeholderImage:nil];
-        } else {
-            [cell.artworkImage setImageWithURL:[NSURL URLWithString:track.user.avatar_url] placeholderImage:nil];
-        }
-        
-        FAKIonIcons *starIcon = [FAKIonIcons playIconWithSize:10];
-        NSMutableAttributedString * playbackcount = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ ",track.playback_count]];
-        [playbackcount appendAttributedString:[starIcon attributedString]];
-        
-        
-        FAKIonIcons *likeIcon = [FAKIonIcons heartIconWithSize:10];
-        NSMutableAttributedString * likecount = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ ",track.favoritings_count]];
-        [likecount appendAttributedString:[likeIcon attributedString]];
-        
-        FAKIonIcons *commentIcon = [FAKIonIcons chatboxIconWithSize:10];
-        NSMutableAttributedString * commentCount = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ ",track.comment_count]];
-        [commentCount  appendAttributedString:[commentIcon attributedString]];
-        
-        
-        
-        
-        [playbackcount appendAttributedString:[[NSAttributedString alloc]initWithString:@"  "]];
-        [playbackcount appendAttributedString:likecount];
-        [playbackcount appendAttributedString:[[NSAttributedString alloc]initWithString:@"  "]];
-        [playbackcount appendAttributedString:commentCount];
-        cell.playbackCountLabel.attributedText = playbackcount;
-        
-        /******************* SHOW USER BUTTON STUFF ****************/
-        FAKIonIcons * icon = [FAKIonIcons ios7PersonIconWithSize:30];
-        [icon addAttribute:NSForegroundColorAttributeName value:[UIColor
-                                                                 whiteColor]];
         cell.delegate = self;
-        NSMutableArray * leftUtilityButtons = [NSMutableArray new];
-        [leftUtilityButtons sw_addUtilityButtonWithColor:[SRStylesheet lightGrayColor] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
-        cell.leftUtilityButtons = leftUtilityButtons;
-        /***********************************************************/
-        
+        cell.data = track;
         return  cell;
         
     }
@@ -257,21 +216,10 @@
     }
 }
 
-#pragma mark - SWTableViewDelegate
-
--(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index{
-    
-    NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
-    NSNumber * idOfUser = @0;
-    id currentObject = [self.tracks  objectAtIndex:indexPath.row];
-    Track * track = (Track*)currentObject;
-    idOfUser = track.user.id;
-    
-    [cell hideUtilityButtonsAnimated:YES];
-    UserTableViewController * userTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"user"];
-    userTableViewController.user_id = idOfUser;
-    userTableViewController.showMenuButton = NO;
-    [self.navigationController pushViewController:userTableViewController animated:YES];
+#pragma mark - BasictracktableViewCellDelegate
+-(void)userButtonPressedWithUserID:(NSNumber *)user_id{
+    UserTableViewController * controller = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"user"];
+    controller.user_id = user_id;
+    [self.navigationController pushViewController:controller animated:YES];
 }
-
 @end

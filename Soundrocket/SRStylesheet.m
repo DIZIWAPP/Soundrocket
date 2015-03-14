@@ -11,7 +11,7 @@
 
 @implementation SRStylesheet
 +(UIColor*)mainColor{
-    return [UIColor colorWithRed:0.179 green:0.894 blue:0.562 alpha:1.000];
+    return [UIColor colorWithRed:0.165 green:0.862 blue:0.542 alpha:1.000];
 }
 
 +(UIColor*)darkGrayColor{
@@ -20,5 +20,9 @@
 
 +(UIColor*)lightGrayColor{
     return [UIColor lightGrayColor];
+}
+
++(UIColor*)whiteColor{
+    return [UIColor whiteColor];
 }
 @end

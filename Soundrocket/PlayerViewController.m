@@ -522,6 +522,7 @@
          {
              // everything is fine
              self.liked = true;
+             [self.likeButton.layer setMinificationFilter:kCAFilterTrilinear];
              [self.likeButton setImage:[UIImage imageNamed:@"redheart"] forState:UIControlStateNormal];
              [self.likeButton setEnabled:YES];
 
@@ -530,6 +531,7 @@
                                      failure: ^(NSURLSessionDataTask *task, NSError *error)
          {
              self.liked =false;
+             [self.likeButton.layer setMinificationFilter:kCAFilterTrilinear];
              [self.likeButton setImage:[UIImage imageNamed:@"heart"] forState:UIControlStateNormal];
              [self.likeButton setEnabled:YES];
          }];
@@ -549,6 +551,7 @@
 -(void)setCurrentTrack:(Track *)currentTrack {
     
     [self.likeButton setImage:[UIImage imageNamed:@"heart"] forState:UIControlStateNormal];
+    [self.likeButton.layer setMinificationFilter:kCAFilterTrilinear];
     [self.streamingItem removeObserver:self forKeyPath:@"playbackBufferEmpty" ];
     [self.streamingItem removeObserver:self forKeyPath:@"playbackLikelyToKeepUp"];
     _currentTrack = currentTrack;
