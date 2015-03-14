@@ -155,38 +155,8 @@
     
     if (indexPath.row < [self.tracks count]) {
         BasicTrackTableViewCell *cell = (BasicTrackTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"basictrackcell" forIndexPath:indexPath];
-        // Wenn das item eine Playlist ist dann zeige disclosure Indicator an
         Track * track = [self.tracks objectAtIndex:indexPath.row];
-        [cell.repostedImageView setImage:[UIImage imageNamed:@"user"]];
-        cell.userNameLabel.text = track.user.username;
-        cell.trackNameLabel.text = track.title;
-        if (track.artwork_url) {
-            [cell.artworkImage setImageWithURL:[NSURL URLWithString:track.artwork_url] placeholderImage:nil];
-        } else {
-            [cell.artworkImage setImageWithURL:[NSURL URLWithString:track.user.avatar_url] placeholderImage:nil];
-        }
-        
-        FAKIonIcons *starIcon = [FAKIonIcons playIconWithSize:10];
-        NSMutableAttributedString * playbackcount = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ ",track.playback_count]];
-        [playbackcount appendAttributedString:[starIcon attributedString]];
-        
-        
-        FAKIonIcons *likeIcon = [FAKIonIcons heartIconWithSize:10];
-        NSMutableAttributedString * likecount = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ ",track.favoritings_count]];
-        [likecount appendAttributedString:[likeIcon attributedString]];
-        
-        FAKIonIcons *commentIcon = [FAKIonIcons chatboxIconWithSize:10];
-        NSMutableAttributedString * commentCount = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ ",track.comment_count]];
-        [commentCount  appendAttributedString:[commentIcon attributedString]];
-        
-        
-        
-        
-        [playbackcount appendAttributedString:[[NSAttributedString alloc]initWithString:@"  "]];
-        [playbackcount appendAttributedString:likecount];
-        [playbackcount appendAttributedString:[[NSAttributedString alloc]initWithString:@"  "]];
-        [playbackcount appendAttributedString:commentCount];
-        cell.playbackCountLabel.attributedText = playbackcount;
+        cell.data = track;
         return  cell;
         
     }

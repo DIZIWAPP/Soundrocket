@@ -103,98 +103,23 @@
         if (self.searchBar.selectedScopeButtonIndex == 0) {
             BasicTrackTableViewCell * trackCell = (BasicTrackTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"basictrackcell" forIndexPath:indexPath];
             Track * track = [self.dataSourceArray objectAtIndex:indexPath.row];
-            trackCell .trackNameLabel.text  = track.title;
-            trackCell .userNameLabel.text = track.user.username;
-            [trackCell .repostedImageView setImage:[UIImage imageNamed:@"user"]];
-            
-            if (track.artwork_url) {
-                [trackCell.artworkImage setImageWithURL:[NSURL URLWithString:track.artwork_url] placeholderImage:nil];
-            } else {
-                [trackCell.artworkImage setImageWithURL:[NSURL URLWithString:track.user.avatar_url] placeholderImage:nil];
-            }
-            
-            trackCell.accessoryType = UITableViewCellAccessoryNone;
-            
-            FAKIonIcons *starIcon = [FAKIonIcons playIconWithSize:10];
-            NSMutableAttributedString * playbackcount = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ ",track.playback_count]];
-            [playbackcount appendAttributedString:[starIcon attributedString]];
-            
-            
-            FAKIonIcons *likeIcon = [FAKIonIcons heartIconWithSize:10];
-            NSMutableAttributedString * likecount = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ ",track.favoritings_count]];
-            [likecount appendAttributedString:[likeIcon attributedString]];
-            
-            FAKIonIcons *commentIcon = [FAKIonIcons chatboxIconWithSize:10];
-            NSMutableAttributedString * commentCount = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ ",track.comment_count]];
-            [commentCount  appendAttributedString:[commentIcon attributedString]];
-            
-            
-            
-            
-            [playbackcount appendAttributedString:[[NSAttributedString alloc]initWithString:@"  "]];
-            [playbackcount appendAttributedString:likecount];
-            [playbackcount appendAttributedString:[[NSAttributedString alloc]initWithString:@"  "]];
-            [playbackcount appendAttributedString:commentCount];
-            trackCell.playbackCountLabel.attributedText = playbackcount;
+            trackCell.data = track;
             return  trackCell;
         } else if (self.searchBar.selectedScopeButtonIndex == 1) {
             
             UserTableViewCell * userCell = (UserTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"usercell" forIndexPath:indexPath];
             userCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             User * user = [self.dataSourceArray objectAtIndex:indexPath.row];
-            
-            if (user.country) {
-                userCell.userNameAndCoutryLabel.text = [NSString stringWithFormat:@"%@,%@",user.username,user.country];
-            } else {
-                userCell.userNameAndCoutryLabel.text = [NSString stringWithFormat:@"%@",user.username];
-            }
-            
-            userCell.numberOfSoundsLabel.text = [NSString stringWithFormat:@"%@ Sounds",user.track_count];
-            FAKIonIcons *soundsIcon = [FAKIonIcons podiumIconWithSize:10];
-            NSMutableAttributedString * soundsCount = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ ",user.track_count]];
-            [soundsCount appendAttributedString:[soundsIcon attributedString]];
-            // Number of Followers label
-            FAKIonIcons *followersIcon = [FAKIonIcons personStalkerIconWithSize:10];
-            NSMutableAttributedString * followersCount = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ ",user.followers_count]];
-            [followersCount appendAttributedString:[followersIcon attributedString]];
-            NSAttributedString * spacer = [[NSMutableAttributedString alloc]initWithString:@"    " attributes:nil];
-            [followersCount appendAttributedString:spacer];
-            [followersCount appendAttributedString:soundsCount];
-            userCell.numberOfSoundsLabel.attributedText = followersCount;
-    
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(){
-                NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:user.avatar_url]];
-                UIImage * image = [UIImage imageWithData:data];
-                
-                dispatch_async(dispatch_get_main_queue(), ^(){
-                    [userCell.userImageView setImage:image];
-                });
-                
-            });
-            
-            
+            userCell.user = user;
             return  userCell;
         } else if (self.searchBar.selectedScopeButtonIndex == 2) {
             
             BasicTrackTableViewCell * listCell = (BasicTrackTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"basictrackcell" forIndexPath:indexPath];
             Playlist * list = [self.dataSourceArray objectAtIndex:indexPath.row];
-            listCell.trackNameLabel.text  = list.title;
-            listCell.userNameLabel.text = list.user.username;
-            [listCell.repostedImageView setImage:[UIImage imageNamed:@"user"]];
-            listCell.playbackCountLabel.text = [NSString stringWithFormat:@"%@ Tracks",list.track_count];
-            if (list.artwork_url) {
-                [listCell.artworkImage setImageWithURL:[NSURL URLWithString:list.artwork_url] placeholderImage:nil];
-            } else {
-                [listCell.artworkImage setImageWithURL:[NSURL URLWithString:list.user.avatar_url] placeholderImage:nil];
-            }
-            listCell.firstLayerViewPlaylist.hidden = NO;
-            listCell.secondLayerViewPlaylist.hidden = NO;
-            listCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            
+            listCell.data = list;
             return listCell;
         }
     }
-    
     
     else if (indexPath.row >= [self.dataSourceArray count]) {
         if (indexPath.row == ([self.dataSourceArray count])) {

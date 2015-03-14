@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MarqueeLabel.h>
-
+#import "Track.h"
 @interface BasicTrackTableViewCell : UITableViewCell
 @property (nonatomic,strong) IBOutlet UILabel * userNameLabel;
 @property (nonatomic,strong) IBOutlet MarqueeLabel * trackNameLabel;
@@ -17,4 +17,8 @@
 @property (nonatomic,strong) IBOutlet MarqueeLabel * playbackCountLabel;
 @property (weak, nonatomic) IBOutlet UIView *firstLayerViewPlaylist;
 @property (weak, nonatomic) IBOutlet UIView *secondLayerViewPlaylist;
+
+//
+@property (nonatomic,strong) id data;
+
 @end

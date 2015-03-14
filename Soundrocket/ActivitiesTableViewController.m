@@ -202,113 +202,23 @@
     
     // Setting up the Tracks
     if ([currentObject class] == [Track class]) {
-        Track * track = (Track*)currentObject;
         BasicTrackTableViewCell *trackCell = (BasicTrackTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"basictrackcell" forIndexPath:indexPath];
-        
-        trackCell.userNameLabel.text = track.user.username;
-        trackCell.trackNameLabel.text = track.title;
-        
-        if (track.artwork_url) {
-            NSString  *largeUrl = [track.artwork_url stringByReplacingOccurrencesOfString:@"large" withString:@"t500x500"];
-            [trackCell.artworkImage setImageWithURL:[NSURL URLWithString:largeUrl] placeholderImage:nil];
-        } else {
-            [trackCell.artworkImage setImageWithURL:[NSURL URLWithString:track.user.avatar_url] placeholderImage:nil];
-        }
-        
-        FAKIonIcons *playIcon = [FAKIonIcons playIconWithSize:10];
-        NSMutableAttributedString * playbackcount = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ ",track.playback_count]];
-        [playbackcount appendAttributedString:[playIcon attributedString]];
-        
-        FAKIonIcons *likeIcon = [FAKIonIcons heartIconWithSize:10];
-        NSMutableAttributedString * likecount = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ ",track.favoritings_count]];
-        [likecount appendAttributedString:[likeIcon attributedString]];
-        
-        FAKIonIcons *commentIcon = [FAKIonIcons chatboxIconWithSize:10];
-        NSMutableAttributedString * commentCount = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ ",track.comment_count]];
-        [commentCount  appendAttributedString:[commentIcon attributedString]];
-        
-        
-        
-        
-        [playbackcount appendAttributedString:[[NSAttributedString alloc]initWithString:@"  "]];
-        [playbackcount appendAttributedString:likecount];
-        [playbackcount appendAttributedString:[[NSAttributedString alloc]initWithString:@"  "]];
-        [playbackcount appendAttributedString:commentCount];
-        trackCell.playbackCountLabel.attributedText = playbackcount;
-        
-        [trackCell.repostedImageView setImage:[UIImage imageNamed:@"upload"]];
+        trackCell.data = currentObject;
         return  trackCell;
     }
     // Track Reposts
     
     else if ([currentObject class] == [TrackRespost class]) {
-        TrackRespost * track = (TrackRespost*)currentObject;
+        TrackRespost * trackRepost = (TrackRespost*)currentObject;
         BasicTrackTableViewCell *trackCell = (BasicTrackTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"basictrackcell" forIndexPath:indexPath];
-        
-        trackCell.userNameLabel.text = track.user.username;
-        trackCell.trackNameLabel.text = track.title;
-        if (track.artwork_url) {
-            NSString  *largeUrl = [track.artwork_url stringByReplacingOccurrencesOfString:@"large" withString:@"t500x500"];
-            [trackCell.artworkImage setImageWithURL:[NSURL URLWithString:largeUrl] placeholderImage:nil];
-        } else {
-            [trackCell.artworkImage setImageWithURL:[NSURL URLWithString:track.user.avatar_url] placeholderImage:nil];
-        }
-        
-        FAKIonIcons *starIcon = [FAKIonIcons playIconWithSize:10];
-        NSMutableAttributedString * playbackcount = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ ",track.playback_count]];
-        [playbackcount appendAttributedString:[starIcon attributedString]];
-        
-        
-        FAKIonIcons *likeIcon = [FAKIonIcons heartIconWithSize:10];
-        NSMutableAttributedString * likecount = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ ",track.favoritings_count]];
-        [likecount appendAttributedString:[likeIcon attributedString]];
-        
-        FAKIonIcons *commentIcon = [FAKIonIcons chatboxIconWithSize:10];
-        NSMutableAttributedString * commentCount = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ ",track.comment_count]];
-        [commentCount  appendAttributedString:[commentIcon attributedString]];
-        
-        
-        
-        
-        [playbackcount appendAttributedString:[[NSAttributedString alloc]initWithString:@"  "]];
-        [playbackcount appendAttributedString:likecount];
-        [playbackcount appendAttributedString:[[NSAttributedString alloc]initWithString:@"  "]];
-        [playbackcount appendAttributedString:commentCount];
-        trackCell.playbackCountLabel.attributedText = playbackcount;
-
-        
-        [trackCell.repostedImageView setImage:[UIImage imageNamed:@"repost"]];
+        trackCell.data = trackRepost;
         return  trackCell;
     }
     // Playlist
     else if ([currentObject class] == [Playlist class]) {
         Playlist * playlist = (Playlist*)currentObject;
         BasicTrackTableViewCell *trackCell = (BasicTrackTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"basictrackcell" forIndexPath:indexPath];
-        trackCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        
-        trackCell.userNameLabel.text = playlist.user.username;
-        trackCell.trackNameLabel.text = playlist.title;
-        if (playlist.artwork_url) {
-            NSString  *largeUrl = [playlist.artwork_url stringByReplacingOccurrencesOfString:@"large" withString:@"t500x500"];
-            [trackCell.artworkImage setImageWithURL:[NSURL URLWithString:largeUrl] placeholderImage:nil];
-        } else {
-            [trackCell.artworkImage setImageWithURL:[NSURL URLWithString:playlist.user.avatar_url] placeholderImage:nil];
-        }
-        
-        // Private not private etc
-        FAKFontAwesome * lockIcon = [FAKFontAwesome lockIconWithSize:10];
-        NSMutableAttributedString * lockString = [[NSMutableAttributedString alloc]init];
-        if ([playlist.sharing isEqualToString:@"private"]) {
-             lockString = [[lockIcon attributedString]mutableCopy];
-            [lockString appendAttributedString:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@" %@ Tracks",playlist.track_count]]];
-
-        } else {
-            [lockString appendAttributedString:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ Tracks",playlist.track_count]]];
-        }
-        trackCell.playbackCountLabel.attributedText = lockString;
-        [trackCell.repostedImageView setImage:[UIImage imageNamed:@"list"]];
-        trackCell.firstLayerViewPlaylist.hidden = NO;
-        trackCell.secondLayerViewPlaylist.hidden = NO;
+        trackCell.data = playlist;
         return  trackCell;
     }
     
@@ -316,31 +226,7 @@
     else if ([currentObject class] == [PlaylistRespost class]) {
         PlaylistRespost * playlistRepost = (PlaylistRespost*)currentObject;
         BasicTrackTableViewCell *playlistRepostCell = (BasicTrackTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"basictrackcell" forIndexPath:indexPath];
-        playlistRepostCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        playlistRepostCell.userNameLabel.text = playlistRepost.user.username;
-        playlistRepostCell.trackNameLabel.text = playlistRepost.title;
-        if (playlistRepost.artwork_url) {
-            NSString  *largeUrl = [playlistRepost.artwork_url stringByReplacingOccurrencesOfString:@"large" withString:@"t500x500"];
-            [playlistRepostCell.artworkImage setImageWithURL:[NSURL URLWithString:largeUrl] placeholderImage:nil];
-        } else {
-            [playlistRepostCell.artworkImage setImageWithURL:[NSURL URLWithString:playlistRepost.user.avatar_url] placeholderImage:nil];
-        }
-        
-        // Private not private etc
-        FAKFontAwesome * lockIcon = [FAKFontAwesome lockIconWithSize:10];
-        NSMutableAttributedString * lockString = [[NSMutableAttributedString alloc]init];
-        if ([playlistRepost.sharing isEqualToString:@"private"]) {
-            lockString = [[lockIcon attributedString]mutableCopy];
-            [lockString appendAttributedString:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@" %@ Tracks",playlistRepost.track_count]]];
-            
-        } else {
-            [lockString appendAttributedString:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ Tracks",playlistRepost.track_count]]];
-        }
-        playlistRepostCell.playbackCountLabel.attributedText = lockString;
-        
-        [playlistRepostCell.repostedImageView setImage:[UIImage imageNamed:@"repost"]];
-        playlistRepostCell.firstLayerViewPlaylist.hidden = NO;
-        playlistRepostCell.secondLayerViewPlaylist.hidden = NO;
+        playlistRepostCell.data = playlistRepost;
         return  playlistRepostCell;
     }
     
