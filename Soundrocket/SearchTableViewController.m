@@ -22,10 +22,9 @@
 #import"UIImageView+AFNetworking.h"
 #import "UserTableViewCell.h"
 #import "LoadMoreTableViewCell.h"
-#import <SWTableViewCell.h>
 #import "SRStylesheet.h"
 
-@interface SearchTableViewController () <UISearchBarDelegate,SWTableViewCellDelegate>
+@interface SearchTableViewController () <UISearchBarDelegate>
 @property (nonatomic,strong) IBOutlet UISearchBar * searchBar;
 @property (nonatomic, strong) NSMutableArray *dataSourceArray;
 @property (nonatomic, strong) CredentialStore *store;
@@ -137,16 +136,6 @@
             [playbackcount appendAttributedString:[[NSAttributedString alloc]initWithString:@"  "]];
             [playbackcount appendAttributedString:commentCount];
             trackCell.playbackCountLabel.attributedText = playbackcount;
-            
-            /******************* SHOW USER BUTTON STUFF ****************/
-            FAKIonIcons * icon = [FAKIonIcons ios7PersonIconWithSize:30];
-            [icon addAttribute:NSForegroundColorAttributeName value:[UIColor
-                                                                     whiteColor]];
-            trackCell.delegate = self;
-            NSMutableArray * leftUtilityButtons = [NSMutableArray new];
-            [leftUtilityButtons sw_addUtilityButtonWithColor:[SRStylesheet darkGrayColor] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
-            trackCell.leftUtilityButtons = leftUtilityButtons;
-            /***********************************************************/
             return  trackCell;
         } else if (self.searchBar.selectedScopeButtonIndex == 1) {
             
@@ -201,15 +190,6 @@
             listCell.firstLayerViewPlaylist.hidden = NO;
             listCell.secondLayerViewPlaylist.hidden = NO;
             listCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            /******************* SHOW USER BUTTON STUFF ****************/
-            FAKIonIcons * icon = [FAKIonIcons ios7PersonIconWithSize:30];
-            [icon addAttribute:NSForegroundColorAttributeName value:[UIColor
-                                                                     whiteColor]];
-            listCell.delegate = self;
-            NSMutableArray * leftUtilityButtons = [NSMutableArray new];
-            [leftUtilityButtons sw_addUtilityButtonWithColor:[SRStylesheet darkGrayColor] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
-            listCell.leftUtilityButtons = leftUtilityButtons;
-            /***********************************************************/
             
             return listCell;
         }
@@ -493,22 +473,5 @@
             }
         }
     }
-}
-
-#pragma mark - SWTableViewDelegate
-
--(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index{
-    
-    NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
-    NSNumber * idOfUser = @0;
-    id currentObject = [self.dataSourceArray  objectAtIndex:indexPath.row];
-    Track * track = (Track*)currentObject;
-    idOfUser = track.user.id;
-    
-    [cell hideUtilityButtonsAnimated:YES];
-    UserTableViewController * userTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"user"];
-    userTableViewController.user_id = idOfUser;
-    userTableViewController.showMenuButton = NO;
-    [self.navigationController pushViewController:userTableViewController animated:YES];
 }
 @end

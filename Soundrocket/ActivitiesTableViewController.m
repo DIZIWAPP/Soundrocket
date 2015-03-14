@@ -18,13 +18,12 @@
 #import <MBProgressHUD.h>
 #import <RESideMenu.h>
 #import <TSMessage.h>
-#import <SWTableViewCell.h>
 #import "UserTableViewController.h"
 #import "SRStylesheet.h"
 /**
  *  Private Interface
  */
-@interface ActivitiesTableViewController () <SWTableViewCellDelegate>
+@interface ActivitiesTableViewController ()
 
 @property (nonatomic,strong) NSMutableArray * activities; // Track - Track Sharing - Comment - Favoriting
 @property (nonatomic,strong) CredentialStore * store;
@@ -206,15 +205,6 @@
         Track * track = (Track*)currentObject;
         BasicTrackTableViewCell *trackCell = (BasicTrackTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"basictrackcell" forIndexPath:indexPath];
         
-        /******************* SHOW USER BUTTON STUFF ****************/
-        FAKIonIcons * icon = [FAKIonIcons ios7PersonIconWithSize:30];
-        [icon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
-        trackCell.delegate = self;
-        NSMutableArray * leftUtilityButtons = [NSMutableArray new];
-        [leftUtilityButtons sw_addUtilityButtonWithColor:[SRStylesheet darkGrayColor] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
-        trackCell.leftUtilityButtons = leftUtilityButtons;
-        /***********************************************************/
-        
         trackCell.userNameLabel.text = track.user.username;
         trackCell.trackNameLabel.text = track.title;
         
@@ -254,16 +244,6 @@
     else if ([currentObject class] == [TrackRespost class]) {
         TrackRespost * track = (TrackRespost*)currentObject;
         BasicTrackTableViewCell *trackCell = (BasicTrackTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"basictrackcell" forIndexPath:indexPath];
-        
-        /******************* SHOW USER BUTTON STUFF ****************/
-        FAKIonIcons * icon = [FAKIonIcons ios7PersonIconWithSize:30];
-        [icon addAttribute:NSForegroundColorAttributeName value:[UIColor
-                                                                 whiteColor]];
-        trackCell.delegate = self;
-        NSMutableArray * leftUtilityButtons = [NSMutableArray new];
-        [leftUtilityButtons sw_addUtilityButtonWithColor:[SRStylesheet darkGrayColor] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
-        trackCell.leftUtilityButtons = leftUtilityButtons;
-        /***********************************************************/
         
         trackCell.userNameLabel.text = track.user.username;
         trackCell.trackNameLabel.text = track.title;
@@ -306,16 +286,6 @@
         BasicTrackTableViewCell *trackCell = (BasicTrackTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"basictrackcell" forIndexPath:indexPath];
         trackCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
-        /******************* SHOW USER BUTTON STUFF ****************/
-        FAKIonIcons * icon = [FAKIonIcons ios7PersonIconWithSize:30];
-        [icon addAttribute:NSForegroundColorAttributeName value:[UIColor
-                                                                 whiteColor]];
-        trackCell.delegate = self;
-        NSMutableArray * leftUtilityButtons = [NSMutableArray new];
-        [leftUtilityButtons sw_addUtilityButtonWithColor:[SRStylesheet darkGrayColor] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
-        trackCell.leftUtilityButtons = leftUtilityButtons;
-        /***********************************************************/
-        
         trackCell.userNameLabel.text = playlist.user.username;
         trackCell.trackNameLabel.text = playlist.title;
         if (playlist.artwork_url) {
@@ -347,17 +317,6 @@
         PlaylistRespost * playlistRepost = (PlaylistRespost*)currentObject;
         BasicTrackTableViewCell *playlistRepostCell = (BasicTrackTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"basictrackcell" forIndexPath:indexPath];
         playlistRepostCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        
-        /******************* SHOW USER BUTTON STUFF ****************/
-        FAKIonIcons * icon = [FAKIonIcons ios7PersonIconWithSize:30];
-        [icon addAttribute:NSForegroundColorAttributeName value:[UIColor
-                                                                 whiteColor]];
-        playlistRepostCell.delegate = self;
-        NSMutableArray * leftUtilityButtons = [NSMutableArray new];
-        [leftUtilityButtons sw_addUtilityButtonWithColor:[SRStylesheet darkGrayColor] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
-        playlistRepostCell.leftUtilityButtons = leftUtilityButtons;
-        /***********************************************************/
-        
         playlistRepostCell.userNameLabel.text = playlistRepost.user.username;
         playlistRepostCell.trackNameLabel.text = playlistRepost.title;
         if (playlistRepost.artwork_url) {
@@ -504,52 +463,5 @@
             }
         }
     }
-}
-
-
-#pragma mark - SWTableViewDelegate 
-
--(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index{
-    
-    NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
-    NSNumber * idOfUser = @0;
-    if (indexPath.row < [self.activities count]) {
-        id currentObject = [self.activities  objectAtIndex:indexPath.row];
-        
-        // Setting up the Tracks
-        if ([currentObject class] == [Track class]) {
-            Track * track = (Track*)currentObject;
-            idOfUser = track.user.id;
-        }
-        // Track Reposts
-        
-        else if ([currentObject class] == [TrackRespost class]) {
-            TrackRespost * track = (TrackRespost*)currentObject;
-            idOfUser = track.user.id;
-
-        }
-        // Playlist
-        else if ([currentObject class] == [Playlist class]) {
-            Playlist * playlist = (Playlist*)currentObject;
-            idOfUser = playlist.user.id;
-
-        }
-        
-        // PlaylistRespost
-        else if ([currentObject class] == [PlaylistRespost class]) {
-            PlaylistRespost * playlistRepost = (PlaylistRespost*)currentObject;
-            idOfUser = playlistRepost.user.id;
-        }
-        
-    }
-
-
-    
-    [cell hideUtilityButtonsAnimated:YES];
-        
-    UserTableViewController * userTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"user"];
-    userTableViewController.user_id = idOfUser;
-    userTableViewController.showMenuButton = NO;
-    [self.navigationController pushViewController:userTableViewController animated:YES];
 }
 @end

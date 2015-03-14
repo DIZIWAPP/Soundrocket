@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <MarqueeLabel.h>
-#import <SWTableViewCell.h>
 
-@interface BasicTrackTableViewCell : SWTableViewCell
+@interface BasicTrackTableViewCell : UITableViewCell
 @property (nonatomic,strong) IBOutlet UILabel * userNameLabel;
 @property (nonatomic,strong) IBOutlet MarqueeLabel * trackNameLabel;
 @property (nonatomic,strong) IBOutlet UIImageView * artworkImage;

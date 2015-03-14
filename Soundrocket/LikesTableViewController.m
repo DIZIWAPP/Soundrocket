@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 sebastianboldt. All rights reserved.
 //
 
-#import <SWTableViewCell.h>
 #import <FAKIonIcons.h>
 #import "LikesTableViewController.h"
 #import "BasicTrackTableViewCell.h"
@@ -21,7 +20,7 @@
 #import <TSMessage.h>
 #import "UserTableViewController.h"
 #import "SRStylesheet.h"
-@interface LikesTableViewController ()<SWTableViewCellDelegate>
+@interface LikesTableViewController ()
 @property (nonatomic,strong) NSMutableArray * tracks;
 @property (nonatomic,strong) CredentialStore * store;
 @property (nonatomic,strong) UIActivityIndicatorView * activityIndicator;
@@ -188,17 +187,6 @@
         [playbackcount appendAttributedString:[[NSAttributedString alloc]initWithString:@"  "]];
         [playbackcount appendAttributedString:commentCount];
         cell.playbackCountLabel.attributedText = playbackcount;
-        
-        /******************* SHOW USER BUTTON STUFF ****************/
-        FAKIonIcons * icon = [FAKIonIcons ios7PersonIconWithSize:30];
-        [icon addAttribute:NSForegroundColorAttributeName value:[UIColor
-                                                                 whiteColor]];
-        cell.delegate = self;
-        NSMutableArray * leftUtilityButtons = [NSMutableArray new];
-        [leftUtilityButtons sw_addUtilityButtonWithColor:[SRStylesheet lightGrayColor] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
-        cell.leftUtilityButtons = leftUtilityButtons;
-        /***********************************************************/
-        
         return  cell;
         
     }
@@ -256,22 +244,4 @@
         }
     }
 }
-
-#pragma mark - SWTableViewDelegate
-
--(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index{
-    
-    NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
-    NSNumber * idOfUser = @0;
-    id currentObject = [self.tracks  objectAtIndex:indexPath.row];
-    Track * track = (Track*)currentObject;
-    idOfUser = track.user.id;
-    
-    [cell hideUtilityButtonsAnimated:YES];
-    UserTableViewController * userTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"user"];
-    userTableViewController.user_id = idOfUser;
-    userTableViewController.showMenuButton = NO;
-    [self.navigationController pushViewController:userTableViewController animated:YES];
-}
-
 @end

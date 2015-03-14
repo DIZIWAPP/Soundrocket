@@ -42,7 +42,6 @@
     self.firstLayerViewPlaylist.hidden = YES;
     self.secondLayerViewPlaylist.hidden = YES;
     self.backgroundColor = [UIColor whiteColor];
-    [self hideUtilityButtonsAnimated:NO];
 }
 
 @end

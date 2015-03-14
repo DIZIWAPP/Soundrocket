@@ -957,8 +957,7 @@
 					"\"${PODS_ROOT}/Headers/Public/SWTableViewCell\"",
 					"\"${PODS_ROOT}/Headers/Public/SZTextView\"",
 					"\"${PODS_ROOT}/Headers/Public/TSMessages\"",
-					"$(SRCROOT)",
-					"$(PROJECT_DIR)",
+					"$(inherited)",
 				);
 				INFOPLIST_FILE = Soundrocket/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -994,8 +993,7 @@
 					"\"${PODS_ROOT}/Headers/Public/SWTableViewCell\"",
 					"\"${PODS_ROOT}/Headers/Public/SZTextView\"",
 					"\"${PODS_ROOT}/Headers/Public/TSMessages\"",
-					"$(SRCROOT)",
-					"$(PROJECT_DIR)",
+					"$(inherited)",
 				);
 				INFOPLIST_FILE = Soundrocket/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

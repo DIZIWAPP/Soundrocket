@@ -17,10 +17,9 @@
 #import <TSMessage.h>
 #import <SVProgressHUD.h>
 #import "CreatePlaylistTableTableViewController.h"
-#import <SWTableViewCell.h>
 #import "UserTableViewController.h"
 #import "SRStylesheet.h"
-@interface PlaylistTracksListTableViewController() <SWTableViewCellDelegate>
+@interface PlaylistTracksListTableViewController()
 @property (nonatomic,strong)CredentialStore * store;
 @property (nonatomic,strong)NSMutableArray * tracks;
 
@@ -191,16 +190,6 @@
         [playbackcount appendAttributedString:commentCount];
         cell.playbackCountLabel.attributedText = playbackcount;
         
-        /******************* SHOW USER BUTTON STUFF ****************/
-        FAKIonIcons * icon = [FAKIonIcons ios7PersonIconWithSize:30];
-        [icon addAttribute:NSForegroundColorAttributeName value:[UIColor
-                                                                 whiteColor]];
-        cell.delegate = self;
-        NSMutableArray * leftUtilityButtons = [NSMutableArray new];
-        [leftUtilityButtons sw_addUtilityButtonWithColor:[SRStylesheet darkGrayColor] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
-        cell.leftUtilityButtons = leftUtilityButtons;
-        /***********************************************************/
-        
         return  cell;
         
     }
@@ -344,23 +333,5 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }
 }
-
-#pragma mark - SWTableViewDelegate
-
--(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index{
-    
-    NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
-    NSNumber * idOfUser = @0;
-    id currentObject = [self.tracks  objectAtIndex:indexPath.row];
-    Track * track = (Track*)currentObject;
-    idOfUser = track.user.id;
-    
-    [cell hideUtilityButtonsAnimated:YES];
-    UserTableViewController * userTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"user"];
-    userTableViewController.user_id = idOfUser;
-    userTableViewController.showMenuButton = NO;
-    [self.navigationController pushViewController:userTableViewController animated:YES];
-}
-
 
 @end
