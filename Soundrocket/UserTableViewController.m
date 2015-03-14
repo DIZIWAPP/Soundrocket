@@ -26,7 +26,7 @@
 #import <SVProgressHUD.h>
 #import "SRStylesheet.h"
 
-@interface UserTableViewController ()
+@interface UserTableViewController () <BasicTrackTableViewCellDelegate>
 @property(nonatomic,strong) CredentialStore * store;
 @property(nonatomic,strong) UISegmentedControl * scopeButton;
 @property (nonatomic,strong)UIView * headerView;
@@ -312,12 +312,14 @@
         if ((self.scopeButton.selectedSegmentIndex == 0) || (self.scopeButton.selectedSegmentIndex == 2)) {
             BasicTrackTableViewCell * trackCell = (BasicTrackTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"basictrackcell" forIndexPath:indexPath];
             Track * track = [self.dataSourceArray objectAtIndex:indexPath.row];
+            trackCell.delegate = self;
             trackCell.data = track;
             return  trackCell;
         } else if (self.scopeButton.selectedSegmentIndex == 1) {
             
             BasicTrackTableViewCell * listCell = (BasicTrackTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"basictrackcell" forIndexPath:indexPath];
             Playlist * list = [self.dataSourceArray objectAtIndex:indexPath.row];
+            listCell.delegate = self;
             listCell.data = list;
             return listCell;
             
@@ -788,5 +790,12 @@
             }
         }
     }
+}
+
+#pragma mark - BasictracktableViewCellDelegate
+-(void)userButtonPressedWithUserID:(NSNumber *)user_id{
+    UserTableViewController * controller = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"user"];
+    controller.user_id = user_id;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 @end

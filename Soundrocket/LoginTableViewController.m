@@ -58,8 +58,8 @@
      initWithString:@"Soundrocket"
      attributes:
      @{
-       NSFontAttributeName : [UIFont fontWithName:@"Helvetica-Bold" size:45],
-       NSForegroundColorAttributeName : [SRStylesheet whiteColor],
+       NSFontAttributeName : [UIFont fontWithName:@"Helvetica-Bold" size:50],
+       NSForegroundColorAttributeName : [SRStylesheet mainColor],
        NSKernAttributeName : @(-4.0f)
        }];
     
