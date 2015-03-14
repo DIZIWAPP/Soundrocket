@@ -45,23 +45,24 @@
                         <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Agt-Az-5l5">
-                        <rect key="frame" x="78" y="13" width="218" height="19"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0U-Br-4AX">
+                        <rect key="frame" x="78" y="8" width="218" height="33"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="19" id="1lk-GM-Bnh"/>
+                            <constraint firstAttribute="height" constant="33" id="Vem-3g-Hn7"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <color key="textColor" red="1" green="0.18039215689999999" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" title="Button">
+                            <color key="titleShadowColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="B0U-Br-4AX" secondAttribute="trailing" constant="16" id="0Ca-qc-qkR"/>
                     <constraint firstItem="cHa-hT-u0b" firstAttribute="top" secondItem="YXb-2R-h12" secondAttribute="bottom" constant="1" id="0vP-Nu-h4u"/>
-                    <constraint firstItem="YXb-2R-h12" firstAttribute="top" secondItem="Agt-Az-5l5" secondAttribute="bottom" id="7sw-Nq-Lvq"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="Agt-Az-5l5" secondAttribute="trailing" constant="16" id="BfT-8J-V6N"/>
+                    <constraint firstItem="B0U-Br-4AX" firstAttribute="top" secondItem="JZ3-3R-gan" secondAttribute="top" constant="-8" id="11F-i4-Bmk"/>
                     <constraint firstItem="cHa-hT-u0b" firstAttribute="leading" secondItem="JZ3-3R-gan" secondAttribute="trailing" constant="20" id="E4n-MT-am0"/>
                     <constraint firstAttribute="centerY" secondItem="JZ3-3R-gan" secondAttribute="centerY" id="FF6-ll-0fn"/>
-                    <constraint firstItem="Agt-Az-5l5" firstAttribute="leading" secondItem="JZ3-3R-gan" secondAttribute="trailing" constant="20" id="Fm4-uA-A8r"/>
+                    <constraint firstItem="B0U-Br-4AX" firstAttribute="leading" secondItem="JZ3-3R-gan" secondAttribute="trailing" constant="20" id="J5V-05-Chd"/>
                     <constraint firstItem="JZ3-3R-gan" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Y9q-3d-eOo"/>
                     <constraint firstItem="YXb-2R-h12" firstAttribute="leading" secondItem="JZ3-3R-gan" secondAttribute="trailing" constant="20" id="a30-4n-yGf"/>
                     <constraint firstAttribute="trailingMargin" secondItem="cHa-hT-u0b" secondAttribute="trailing" constant="16" id="eoQ-p8-bKo"/>
@@ -75,9 +76,9 @@
                 <outlet property="playbackCountLabel" destination="cHa-hT-u0b" id="HdU-YQ-OJw"/>
                 <outlet property="secondLayerViewPlaylist" destination="7nA-yL-mDZ" id="SED-VG-r6X"/>
                 <outlet property="trackNameLabel" destination="YXb-2R-h12" id="NMp-1w-8r9"/>
-                <outlet property="userNameLabel" destination="Agt-Az-5l5" id="ukX-rg-0Tn"/>
+                <outlet property="userNameLabel" destination="B0U-Br-4AX" id="BDh-zT-mhB"/>
             </connections>
-            <point key="canvasLocation" x="276" y="226"/>
+            <point key="canvasLocation" x="276" y="224"/>
         </tableViewCell>
     </objects>
 </document>

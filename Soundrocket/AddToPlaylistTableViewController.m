@@ -156,31 +156,7 @@
         
         BasicTrackTableViewCell *cell = (BasicTrackTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"basictrackcell" forIndexPath:indexPath];
         Playlist *playlist = [self.playlists objectAtIndex:indexPath.row];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.userNameLabel.text = playlist.user.username;
-        cell.firstLayerViewPlaylist.hidden = NO;
-        cell.secondLayerViewPlaylist.hidden = NO;
-        cell.trackNameLabel.text = playlist.title;
-        if (playlist.artwork_url) {
-            [cell.artworkImage setImageWithURL:[NSURL URLWithString:playlist.artwork_url] placeholderImage:nil];
-        } else {
-            [cell.artworkImage setImageWithURL:[NSURL URLWithString:playlist.user.avatar_url] placeholderImage:nil];
-        }
-        
-        // Private not private etc
-        FAKFontAwesome * lockIcon = [FAKFontAwesome lockIconWithSize:10];
-        NSMutableAttributedString * lockString = [[NSMutableAttributedString alloc]init];
-        if ([playlist.sharing isEqualToString:@"private"]) {
-            lockString = [[lockIcon attributedString]mutableCopy];
-            [lockString appendAttributedString:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@" %@ Tracks",playlist.track_count]]];
-            
-        } else {
-            [lockString appendAttributedString:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ Tracks",playlist.track_count]]];
-        }
-        
-        cell.playbackCountLabel.attributedText = lockString;
-        [cell.repostedImageView setImage:[UIImage imageNamed:@"list"]];
-        
+        cell.data = playlist;
         return cell;
     }
     

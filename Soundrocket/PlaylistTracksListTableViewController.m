@@ -19,7 +19,7 @@
 #import "CreatePlaylistTableTableViewController.h"
 #import "UserTableViewController.h"
 #import "SRStylesheet.h"
-@interface PlaylistTracksListTableViewController()
+@interface PlaylistTracksListTableViewController() <BasicTrackTableViewCellDelegate>
 @property (nonatomic,strong)CredentialStore * store;
 @property (nonatomic,strong)NSMutableArray * tracks;
 
@@ -163,6 +163,7 @@
         BasicTrackTableViewCell *cell = (BasicTrackTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"basictrackcell" forIndexPath:indexPath];
         // Wenn das item eine Playlist ist dann zeige disclosure Indicator an
         Track * track = [self.tracks objectAtIndex:indexPath.row];
+        cell.delegate = self;
         cell.data = track;
         return  cell;
         
@@ -306,6 +307,13 @@
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }
+}
+
+#pragma mark - BasictracktableViewCellDelegate
+-(void)userButtonPressedWithUserID:(NSNumber *)user_id{
+    UserTableViewController * controller = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"user"];
+    controller.user_id = user_id;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end

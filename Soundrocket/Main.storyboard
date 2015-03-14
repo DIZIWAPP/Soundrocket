@@ -1302,60 +1302,57 @@
                                                     <rect key="frame" x="0.0" y="1" width="320" height="180"/>
                                                 </imageView>
                                                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QyN-qH-j6j">
-                                                    <rect key="frame" x="0.0" y="56" width="320" height="69"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="bt5-qe-vuo">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00B-K5-0H6">
-                                                                <rect key="frame" x="0.0" y="5" width="320" height="46"/>
-                                                                <attributedString key="attributedText">
-                                                                    <fragment content="Soundrocket">
-                                                                        <attributes>
-                                                                            <color key="NSColor" red="1" green="0.18039215689999999" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                                            <font key="NSFont" size="38" name="HelveticaNeue-Bold"/>
-                                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                        </attributes>
-                                                                    </fragment>
-                                                                </attributedString>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="powered by SoundCloud®" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ybu-BR-2AZ">
-                                                                <rect key="frame" x="8" y="44" width="304" height="21"/>
-                                                                <color key="tintColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                <color key="textColor" red="1" green="0.18039215689999999" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="©2015 Sebastian Boldt" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQ9-78-jXs">
+                                                                <rect key="frame" x="40" y="148" width="240" height="24"/>
+                                                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="textColor" red="0.1333333333" green="0.86666666670000003" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            </textView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Okd-5J-uFG">
+                                                                <rect key="frame" x="8" y="134" width="304" height="22"/>
+                                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                <color key="textColor" red="0.1333333333" green="0.86666666670000003" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
                                                     </view>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="69" id="vTo-9v-HLn"/>
-                                                    </constraints>
                                                     <blurEffect style="light"/>
                                                 </visualEffectView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="©2015 Sebastian Boldt" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQ9-78-jXs">
-                                                    <rect key="frame" x="40" y="154" width="240" height="24"/>
-                                                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Okd-5J-uFG">
-                                                    <rect key="frame" x="8" y="140" width="304" height="22"/>
-                                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00B-K5-0H6">
+                                                    <rect key="frame" x="0.0" y="54" width="320" height="46"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Soundrocket">
+                                                            <attributes>
+                                                                <color key="NSColor" red="1" green="0.18039215689999999" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <font key="NSFont" size="38" name="HelveticaNeue-Bold"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="powered by SoundCloud®" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ybu-BR-2AZ">
+                                                    <rect key="frame" x="8" y="92" width="304" height="21"/>
+                                                    <color key="tintColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="1" green="0.18039215689999999" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.88286713289999996" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="QyN-qH-j6j" secondAttribute="trailing" id="6Gw-wo-5BI"/>
-                                                <constraint firstItem="QyN-qH-j6j" firstAttribute="leading" secondItem="9ix-FY-83g" secondAttribute="leading" id="HBL-QN-kRr"/>
-                                                <constraint firstAttribute="centerY" secondItem="QyN-qH-j6j" secondAttribute="centerY" id="h9T-C3-tDd"/>
-                                                <constraint firstAttribute="centerX" secondItem="QyN-qH-j6j" secondAttribute="centerX" id="uFc-se-8Dg"/>
+                                                <constraint firstAttribute="bottom" secondItem="QyN-qH-j6j" secondAttribute="bottom" id="BrJ-zr-b6c"/>
+                                                <constraint firstAttribute="trailing" secondItem="QyN-qH-j6j" secondAttribute="trailing" id="KAa-0E-uxS"/>
+                                                <constraint firstItem="QyN-qH-j6j" firstAttribute="top" secondItem="9ix-FY-83g" secondAttribute="top" id="TqU-C3-xuZ"/>
+                                                <constraint firstItem="QyN-qH-j6j" firstAttribute="leading" secondItem="9ix-FY-83g" secondAttribute="leading" id="ywa-GA-fa3"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1484,7 +1481,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8E5-Sa-Lco" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="738" y="730"/>
+            <point key="canvasLocation" x="738" y="727"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VBH-Nz-65I">

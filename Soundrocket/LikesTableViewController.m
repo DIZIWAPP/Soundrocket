@@ -20,7 +20,7 @@
 #import <TSMessage.h>
 #import "UserTableViewController.h"
 #import "SRStylesheet.h"
-@interface LikesTableViewController ()
+@interface LikesTableViewController () <BasicTrackTableViewCellDelegate>
 @property (nonatomic,strong) NSMutableArray * tracks;
 @property (nonatomic,strong) CredentialStore * store;
 @property (nonatomic,strong) UIActivityIndicatorView * activityIndicator;
@@ -156,6 +156,7 @@
     if (indexPath.row < [self.tracks count]) {
         BasicTrackTableViewCell *cell = (BasicTrackTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"basictrackcell" forIndexPath:indexPath];
         Track * track = [self.tracks objectAtIndex:indexPath.row];
+        cell.delegate = self;
         cell.data = track;
         return  cell;
         
@@ -213,5 +214,12 @@
             }
         }
     }
+}
+
+#pragma mark - BasictracktableViewCellDelegate
+-(void)userButtonPressedWithUserID:(NSNumber *)user_id{
+    UserTableViewController * controller = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"user"];
+    controller.user_id = user_id;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 @end

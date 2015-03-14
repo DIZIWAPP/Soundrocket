@@ -12,13 +12,21 @@
 #import <FAKFontAwesome.h>
 #import <UIImageView+AFNetworking.h>
 #import "Playlist.h"
-
 @implementation BasicTrackTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
     [self setupUI];
     [self setupData];
+    self.userNameLabel.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [self.userNameLabel addTarget:self action:@selector(userButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(void)userButtonPressed:(id)sender {
+    if([self.data  respondsToSelector:@selector(user)]){
+        User * user = (User*)[self.data performSelector:@selector(user) withObject:nil];
+        [self.delegate userButtonPressedWithUserID:user.id];
+    }
 }
 
 -(void)setData:(id)data {
@@ -41,7 +49,8 @@
 
 #pragma mark - Setup Functions
 -(void)setupCellWithTrack:(Track*)track {
-    self.userNameLabel.text = track.user.username;
+    
+    [self.userNameLabel setTitle:track.user.username forState:UIControlStateNormal];
     self.trackNameLabel.text = track.title;
     
     if (track.artwork_url) {
@@ -74,7 +83,7 @@
 
 -(void)setupCellWithRepost:(TrackRespost*)trackRepost {
     TrackRespost * track = (TrackRespost*)trackRepost;
-    self.userNameLabel.text = track.user.username;
+    [self.userNameLabel setTitle:track.user.username forState:UIControlStateNormal];
     self.trackNameLabel.text = track.title;
     if (track.artwork_url) {
         NSString  *largeUrl = [track.artwork_url stringByReplacingOccurrencesOfString:@"large" withString:@"t500x500"];
@@ -109,7 +118,8 @@
 -(void)setupCellWithPlaylist:(Playlist*)playlist {
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
-    self.userNameLabel.text = playlist.user.username;
+    [self.userNameLabel setTitle:playlist.user.username forState:UIControlStateNormal];
+
     self.trackNameLabel.text = playlist.title;
     if (playlist.artwork_url) {
         NSString  *largeUrl = [playlist.artwork_url stringByReplacingOccurrencesOfString:@"large" withString:@"t500x500"];
@@ -139,7 +149,8 @@
 
 -(void)setupCellWithPlaylistRepost:(PlaylistRespost*)playlistRepost {
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    self.userNameLabel.text = playlistRepost.user.username;
+    [self.userNameLabel setTitle:playlistRepost.user.username forState:UIControlStateNormal];
+
     self.trackNameLabel.text = playlistRepost.title;
     if (playlistRepost.artwork_url) {
         NSString  *largeUrl = [playlistRepost.artwork_url stringByReplacingOccurrencesOfString:@"large" withString:@"t500x500"];
@@ -183,13 +194,13 @@
     self.secondLayerViewPlaylist.layer.borderWidth = 1.0;
     [self.secondLayerViewPlaylist setHidden:YES];
     
-    self.userNameLabel.textColor = [SRStylesheet mainColor];
+    [self.userNameLabel setTitleColor:[SRStylesheet mainColor] forState:UIControlStateNormal];
 }
 
 -(void)prepareForReuse {
     self.accessoryType = UITableViewCellAccessoryNone;
     self.artworkImage.image = nil;
-    self.userNameLabel.text = @"";
+    [self.userNameLabel setTitle:@"" forState:UIControlStateNormal];
     self.firstLayerViewPlaylist.hidden = YES;
     self.secondLayerViewPlaylist.hidden = YES;
     self.backgroundColor = [UIColor whiteColor];

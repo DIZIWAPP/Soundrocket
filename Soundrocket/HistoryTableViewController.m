@@ -12,7 +12,8 @@
 #import"UIImageView+AFNetworking.h"
 #import <FAKIonIcons.h>
 #import "SRStylesheet.h"
-@interface HistoryTableViewController ()
+#import "UserTableViewController.h"
+@interface HistoryTableViewController () <BasicTrackTableViewCellDelegate>
 @property (nonatomic,strong)NSIndexPath * currentTrackIndexPath;
 @end
 
@@ -59,35 +60,8 @@
         AppDelegate * delegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
         
         Track * track = [delegate.upNext objectAtIndex:indexPath.row];
-        cell.userNameLabel.text = track.user.username;
-        cell.trackNameLabel.text = track.title;
-        [cell.artworkImage setImageWithURL:[NSURL URLWithString:track.artwork_url] placeholderImage:nil];
-        FAKIonIcons *starIcon = [FAKIonIcons playIconWithSize:10];
-        NSMutableAttributedString * playbackcount = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ ",track.playback_count]];
-        [playbackcount appendAttributedString:[starIcon attributedString]];
-        
-        
-        FAKIonIcons *likeIcon = [FAKIonIcons heartIconWithSize:10];
-        NSMutableAttributedString * likecount = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ ",track.favoritings_count]];
-        [likecount appendAttributedString:[likeIcon attributedString]];
-        
-        FAKIonIcons *commentIcon = [FAKIonIcons chatboxIconWithSize:10];
-        NSMutableAttributedString * commentCount = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ ",track.comment_count]];
-        [commentCount  appendAttributedString:[commentIcon attributedString]];
-        
-        
-        
-        
-        [playbackcount appendAttributedString:[[NSAttributedString alloc]initWithString:@"  "]];
-        [playbackcount appendAttributedString:likecount];
-        [playbackcount appendAttributedString:[[NSAttributedString alloc]initWithString:@"  "]];
-        [playbackcount appendAttributedString:commentCount];
-        
-        if (delegate.playingIndex.row == indexPath.row) {
-            cell.backgroundColor = [SRStylesheet lightGrayColor];
-            self.currentTrackIndexPath = indexPath;
-        }
-        cell.playbackCountLabel.attributedText = playbackcount;
+        cell.delegate = self;
+        cell.data = track;
         
         return cell;
     } else {
@@ -152,6 +126,13 @@
         return  45;
     } else
     return 80;
+}
+
+#pragma mark - BasictracktableViewCellDelegate
+-(void)userButtonPressedWithUserID:(NSNumber *)user_id{
+    UserTableViewController * controller = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"user"];
+    controller.user_id = user_id;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 /*

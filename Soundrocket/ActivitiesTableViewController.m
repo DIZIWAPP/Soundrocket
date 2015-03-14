@@ -23,7 +23,7 @@
 /**
  *  Private Interface
  */
-@interface ActivitiesTableViewController ()
+@interface ActivitiesTableViewController () <BasicTrackTableViewCellDelegate>
 
 @property (nonatomic,strong) NSMutableArray * activities; // Track - Track Sharing - Comment - Favoriting
 @property (nonatomic,strong) CredentialStore * store;
@@ -204,6 +204,7 @@
     if ([currentObject class] == [Track class]) {
         BasicTrackTableViewCell *trackCell = (BasicTrackTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"basictrackcell" forIndexPath:indexPath];
         trackCell.data = currentObject;
+        trackCell.delegate = self;
         return  trackCell;
     }
     // Track Reposts
@@ -212,6 +213,7 @@
         TrackRespost * trackRepost = (TrackRespost*)currentObject;
         BasicTrackTableViewCell *trackCell = (BasicTrackTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"basictrackcell" forIndexPath:indexPath];
         trackCell.data = trackRepost;
+        trackCell.delegate = self;
         return  trackCell;
     }
     // Playlist
@@ -219,6 +221,7 @@
         Playlist * playlist = (Playlist*)currentObject;
         BasicTrackTableViewCell *trackCell = (BasicTrackTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"basictrackcell" forIndexPath:indexPath];
         trackCell.data = playlist;
+        trackCell.delegate = self;
         return  trackCell;
     }
     
@@ -227,6 +230,7 @@
         PlaylistRespost * playlistRepost = (PlaylistRespost*)currentObject;
         BasicTrackTableViewCell *playlistRepostCell = (BasicTrackTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"basictrackcell" forIndexPath:indexPath];
         playlistRepostCell.data = playlistRepost;
+        playlistRepostCell.delegate = self;
         return  playlistRepostCell;
     }
     
@@ -349,5 +353,12 @@
             }
         }
     }
+}
+
+#pragma mark - BasictracktableViewCellDelegate 
+-(void)userButtonPressedWithUserID:(NSNumber *)user_id{
+    UserTableViewController * controller = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"user"];
+    controller.user_id = user_id;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 @end

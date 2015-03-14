@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 sebastianboldt. All rights reserved.
 //
 
+#import "UserTableViewController.h"
 #import <MBProgressHUD.h>
 #import <FAKIonIcons.h>
 #import "PlaylistTableViewController.h"
@@ -22,7 +23,9 @@
 #import <FAKIonIcons.h>
 #import <FAKFontAwesome.h>
 #import <SVProgressHUD.h>
-@interface PlaylistTableViewController ()
+
+
+@interface PlaylistTableViewController () <BasicTrackTableViewCellDelegate>
 @property (nonatomic,strong)CredentialStore * store;
 @property (nonatomic,strong)NSMutableArray * playlists;
 @property (nonatomic,strong) NSString * tracksURL;
@@ -176,6 +179,7 @@
     
         BasicTrackTableViewCell *cell = (BasicTrackTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"basictrackcell" forIndexPath:indexPath];
         Playlist *playlist = [self.playlists objectAtIndex:indexPath.row];
+        cell.delegate = self;
         cell.data = playlist;
         return cell;
     }
@@ -291,6 +295,13 @@
             }
         }
     }
+}
+
+#pragma mark - BasictracktableViewCellDelegate
+-(void)userButtonPressedWithUserID:(NSNumber *)user_id{
+    UserTableViewController * controller = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"user"];
+    controller.user_id = user_id;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end
