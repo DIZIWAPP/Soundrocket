@@ -22,14 +22,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.poweredByLabel.textColor = [SRStylesheet mainColor];
+    self.poweredByLabel.textColor = [SRStylesheet whiteColor];
     NSAttributedString *attributedString =
     [[NSAttributedString alloc]
      initWithString:@"Soundrocket"
      attributes:
      @{
        NSFontAttributeName : [UIFont fontWithName:@"Helvetica-Bold" size:45],
-       NSForegroundColorAttributeName : [SRStylesheet mainColor],
+       NSForegroundColorAttributeName : [SRStylesheet whiteColor],
        NSKernAttributeName : @(-4.0f)
        }];
     

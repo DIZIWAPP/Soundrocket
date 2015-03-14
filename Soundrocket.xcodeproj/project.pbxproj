@@ -105,6 +105,8 @@
 		159D8A7C1A4AE094009C8078 /* UserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 159D8A7A1A4AE094009C8078 /* UserTableViewController.m */; };
 		159D8A7F1A4AE8FE009C8078 /* LibariesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 159D8A7E1A4AE8FE009C8078 /* LibariesTableViewController.m */; };
 		159D8A801A4AE8FE009C8078 /* LibariesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 159D8A7E1A4AE8FE009C8078 /* LibariesTableViewController.m */; };
+		15A2FD8B1AB4423100D9D41F /* background-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 15A2FD8A1AB4423100D9D41F /* background-image.png */; };
+		15A2FD8C1AB4423100D9D41F /* background-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 15A2FD8A1AB4423100D9D41F /* background-image.png */; };
 		15B30DA71A58094300CCA433 /* CreatePlaylistTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B30DA61A58094300CCA433 /* CreatePlaylistTableTableViewController.m */; };
 		15B30DA81A58094300CCA433 /* CreatePlaylistTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B30DA61A58094300CCA433 /* CreatePlaylistTableTableViewController.m */; };
 		15B30DAF1A582F8800CCA433 /* AddToPlaylistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B30DAE1A582F8800CCA433 /* AddToPlaylistTableViewController.m */; };
@@ -236,6 +238,7 @@
 		159D8A7A1A4AE094009C8078 /* UserTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTableViewController.m; sourceTree = "<group>"; };
 		159D8A7D1A4AE8FE009C8078 /* LibariesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibariesTableViewController.h; sourceTree = "<group>"; };
 		159D8A7E1A4AE8FE009C8078 /* LibariesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibariesTableViewController.m; sourceTree = "<group>"; };
+		15A2FD8A1AB4423100D9D41F /* background-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-image.png"; sourceTree = "<group>"; };
 		15B30DA51A58094300CCA433 /* CreatePlaylistTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatePlaylistTableTableViewController.h; sourceTree = "<group>"; };
 		15B30DA61A58094300CCA433 /* CreatePlaylistTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatePlaylistTableTableViewController.m; sourceTree = "<group>"; };
 		15B30DAD1A582F8800CCA433 /* AddToPlaylistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddToPlaylistTableViewController.h; sourceTree = "<group>"; };
@@ -310,6 +313,7 @@
 		159D89BE1A495A6C009C8078 = {
 			isa = PBXGroup;
 			children = (
+				15A2FD8A1AB4423100D9D41F /* background-image.png */,
 				15E840B31A60593C00BDB21F /* Localizable.strings */,
 				159D89C91A495A6C009C8078 /* Soundrocket */,
 				159D89E61A495A6C009C8078 /* SoundrocketTests */,
@@ -615,6 +619,7 @@
 				159D8A6E1A495C3C009C8078 /* Main.storyboard in Resources */,
 				159D8A5A1A495C28009C8078 /* BasicTrackTableViewCell.xib in Resources */,
 				158041751A7B9CF700B91864 /* page2.png in Resources */,
+				15A2FD8B1AB4423100D9D41F /* background-image.png in Resources */,
 				159D8A221A495BF5009C8078 /* background.png in Resources */,
 				159D8A741A495C3C009C8078 /* MiniPlayer.xib in Resources */,
 				1554AE7D1A6827B80008BFE1 /* CommentTableViewCell.xib in Resources */,
@@ -632,6 +637,7 @@
 			files = (
 				15E840B11A60593C00BDB21F /* Localizable.strings in Resources */,
 				159D8A6D1A495C3C009C8078 /* LoadMoreTableViewCell.xib in Resources */,
+				15A2FD8C1AB4423100D9D41F /* background-image.png in Resources */,
 				159D8A781A495C50009C8078 /* Images.xcassets in Resources */,
 				15E840C01A61CC6600BDB21F /* page0.png in Resources */,
 				159D8A6F1A495C3C009C8078 /* Main.storyboard in Resources */,
