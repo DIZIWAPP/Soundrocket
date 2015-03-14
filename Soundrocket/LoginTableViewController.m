@@ -28,13 +28,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.store = [[CredentialStore alloc]init];
-    [self.logoImageView .layer setMinificationFilter:kCAFilterTrilinear];
+    [self.logoImageView.layer setMinificationFilter:kCAFilterTrilinear];
+    [self.loginButton setTitleColor:[SRStylesheet mainColor] forState:UIControlStateNormal];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.loginButton setBackgroundColor:[SRStylesheet mainColor]];
+    [self.loginButton setBackgroundColor:[UIColor clearColor]];
+    [self setupBackgroundImage];
     [self setupLogo];
+}
+
+-(void)setupBackgroundImage {
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.opaque = NO;
+    UIImageView * view = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"background-image.png"]];
+    view.contentMode = UIViewContentModeScaleAspectFill;
+    self.tableView.backgroundView = view;
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -48,14 +58,14 @@
      initWithString:@"Soundrocket"
      attributes:
      @{
-       NSFontAttributeName : [UIFont fontWithName:@"Helvetica-Bold" size:45],
+       NSFontAttributeName : [UIFont fontWithName:@"Helvetica-Bold" size:50],
        NSForegroundColorAttributeName : [SRStylesheet mainColor],
        NSKernAttributeName : @(-4.0f)
        }];
     
     self.soundrocketNameLabel.attributedText = attributedString;
-    [self.poweredByLabel setTextColor:[SRStylesheet mainColor]];
-    [self.loginButtonBackgroundView setBackgroundColor:[SRStylesheet mainColor]];
+    [self.poweredByLabel setTextColor:[SRStylesheet whiteColor]];
+    [self.loginButtonBackgroundView setBackgroundColor:[UIColor clearColor]];
 
 }
 

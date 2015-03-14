@@ -12,4 +12,5 @@
 +(UIColor*)mainColor;
 +(UIColor*)darkGrayColor;
 +(UIColor*)lightGrayColor;
++(UIColor*)whiteColor;
 @end

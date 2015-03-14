@@ -81,10 +81,6 @@
 		159D8A591A495C28009C8078 /* BasicTrackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 159D8A471A495C28009C8078 /* BasicTrackTableViewCell.m */; };
 		159D8A5A1A495C28009C8078 /* BasicTrackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 159D8A481A495C28009C8078 /* BasicTrackTableViewCell.xib */; };
 		159D8A5B1A495C28009C8078 /* BasicTrackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 159D8A481A495C28009C8078 /* BasicTrackTableViewCell.xib */; };
-		159D8A5C1A495C28009C8078 /* PlaylistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 159D8A4A1A495C28009C8078 /* PlaylistTableViewCell.m */; };
-		159D8A5D1A495C28009C8078 /* PlaylistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 159D8A4A1A495C28009C8078 /* PlaylistTableViewCell.m */; };
-		159D8A5E1A495C28009C8078 /* PlaylistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 159D8A4B1A495C28009C8078 /* PlaylistTableViewCell.xib */; };
-		159D8A5F1A495C28009C8078 /* PlaylistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 159D8A4B1A495C28009C8078 /* PlaylistTableViewCell.xib */; };
 		159D8A601A495C28009C8078 /* PlaylistTracksListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 159D8A4D1A495C28009C8078 /* PlaylistTracksListTableViewController.m */; };
 		159D8A611A495C28009C8078 /* PlaylistTracksListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 159D8A4D1A495C28009C8078 /* PlaylistTracksListTableViewController.m */; };
 		159D8A6A1A495C3C009C8078 /* LoadMoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 159D8A631A495C3C009C8078 /* LoadMoreTableViewCell.m */; };
@@ -105,6 +101,8 @@
 		159D8A7C1A4AE094009C8078 /* UserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 159D8A7A1A4AE094009C8078 /* UserTableViewController.m */; };
 		159D8A7F1A4AE8FE009C8078 /* LibariesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 159D8A7E1A4AE8FE009C8078 /* LibariesTableViewController.m */; };
 		159D8A801A4AE8FE009C8078 /* LibariesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 159D8A7E1A4AE8FE009C8078 /* LibariesTableViewController.m */; };
+		15A2FD8B1AB4423100D9D41F /* background-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 15A2FD8A1AB4423100D9D41F /* background-image.png */; };
+		15A2FD8C1AB4423100D9D41F /* background-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 15A2FD8A1AB4423100D9D41F /* background-image.png */; };
 		15B30DA71A58094300CCA433 /* CreatePlaylistTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B30DA61A58094300CCA433 /* CreatePlaylistTableTableViewController.m */; };
 		15B30DA81A58094300CCA433 /* CreatePlaylistTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B30DA61A58094300CCA433 /* CreatePlaylistTableTableViewController.m */; };
 		15B30DAF1A582F8800CCA433 /* AddToPlaylistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B30DAE1A582F8800CCA433 /* AddToPlaylistTableViewController.m */; };
@@ -119,6 +117,8 @@
 		15B96A0E1AAA524A00B26BAA /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B96A0B1AAA524A00B26BAA /* Crashlytics.framework */; };
 		15B96A0F1AAA524A00B26BAA /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B96A0C1AAA524A00B26BAA /* Fabric.framework */; };
 		15B96A101AAA524A00B26BAA /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B96A0C1AAA524A00B26BAA /* Fabric.framework */; };
+		15E512A51AB3A2DD00C7C3DF /* UIViewController+ShakeGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E512A41AB3A2DD00C7C3DF /* UIViewController+ShakeGesture.m */; };
+		15E512A61AB3A2DD00C7C3DF /* UIViewController+ShakeGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E512A41AB3A2DD00C7C3DF /* UIViewController+ShakeGesture.m */; };
 		15E840AB1A60305200BDB21F /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E840AA1A60305200BDB21F /* MenuTableViewCell.m */; };
 		15E840AC1A60305200BDB21F /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E840AA1A60305200BDB21F /* MenuTableViewCell.m */; };
 		15E840B01A60593C00BDB21F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15E840B31A60593C00BDB21F /* Localizable.strings */; };
@@ -216,9 +216,6 @@
 		159D8A461A495C28009C8078 /* BasicTrackTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicTrackTableViewCell.h; sourceTree = "<group>"; };
 		159D8A471A495C28009C8078 /* BasicTrackTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicTrackTableViewCell.m; sourceTree = "<group>"; };
 		159D8A481A495C28009C8078 /* BasicTrackTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasicTrackTableViewCell.xib; sourceTree = "<group>"; };
-		159D8A491A495C28009C8078 /* PlaylistTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistTableViewCell.h; sourceTree = "<group>"; };
-		159D8A4A1A495C28009C8078 /* PlaylistTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistTableViewCell.m; sourceTree = "<group>"; };
-		159D8A4B1A495C28009C8078 /* PlaylistTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaylistTableViewCell.xib; sourceTree = "<group>"; };
 		159D8A4C1A495C28009C8078 /* PlaylistTracksListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistTracksListTableViewController.h; sourceTree = "<group>"; };
 		159D8A4D1A495C28009C8078 /* PlaylistTracksListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistTracksListTableViewController.m; sourceTree = "<group>"; };
 		159D8A621A495C3C009C8078 /* LoadMoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadMoreTableViewCell.h; sourceTree = "<group>"; };
@@ -234,6 +231,7 @@
 		159D8A7A1A4AE094009C8078 /* UserTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTableViewController.m; sourceTree = "<group>"; };
 		159D8A7D1A4AE8FE009C8078 /* LibariesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibariesTableViewController.h; sourceTree = "<group>"; };
 		159D8A7E1A4AE8FE009C8078 /* LibariesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibariesTableViewController.m; sourceTree = "<group>"; };
+		15A2FD8A1AB4423100D9D41F /* background-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-image.png"; sourceTree = "<group>"; };
 		15B30DA51A58094300CCA433 /* CreatePlaylistTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatePlaylistTableTableViewController.h; sourceTree = "<group>"; };
 		15B30DA61A58094300CCA433 /* CreatePlaylistTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatePlaylistTableTableViewController.m; sourceTree = "<group>"; };
 		15B30DAD1A582F8800CCA433 /* AddToPlaylistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddToPlaylistTableViewController.h; sourceTree = "<group>"; };
@@ -245,6 +243,8 @@
 		15B7537E1A4DB4C300CC7CA0 /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = "<group>"; };
 		15B96A0B1AAA524A00B26BAA /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		15B96A0C1AAA524A00B26BAA /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		15E512A31AB3A2DD00C7C3DF /* UIViewController+ShakeGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ShakeGesture.h"; sourceTree = "<group>"; };
+		15E512A41AB3A2DD00C7C3DF /* UIViewController+ShakeGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ShakeGesture.m"; sourceTree = "<group>"; };
 		15E840A91A60305200BDB21F /* MenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewCell.h; sourceTree = "<group>"; };
 		15E840AA1A60305200BDB21F /* MenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewCell.m; sourceTree = "<group>"; };
 		15E840B21A60593C00BDB21F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -306,6 +306,7 @@
 		159D89BE1A495A6C009C8078 = {
 			isa = PBXGroup;
 			children = (
+				15A2FD8A1AB4423100D9D41F /* background-image.png */,
 				15E840B31A60593C00BDB21F /* Localizable.strings */,
 				159D89C91A495A6C009C8078 /* Soundrocket */,
 				159D89E61A495A6C009C8078 /* SoundrocketTests */,
@@ -410,9 +411,6 @@
 				159D8A461A495C28009C8078 /* BasicTrackTableViewCell.h */,
 				159D8A471A495C28009C8078 /* BasicTrackTableViewCell.m */,
 				159D8A481A495C28009C8078 /* BasicTrackTableViewCell.xib */,
-				159D8A491A495C28009C8078 /* PlaylistTableViewCell.h */,
-				159D8A4A1A495C28009C8078 /* PlaylistTableViewCell.m */,
-				159D8A4B1A495C28009C8078 /* PlaylistTableViewCell.xib */,
 				159D8A661A495C3C009C8078 /* LaunchScreen.xib */,
 				15B753761A4DA01800CC7CA0 /* UserTableViewCell.h */,
 				15B753771A4DA01800CC7CA0 /* UserTableViewCell.m */,
@@ -480,6 +478,8 @@
 				159D89F81A495B9B009C8078 /* URLParser.m */,
 				154CD81A1AB380F400DF20B9 /* SRStylesheet.h */,
 				154CD81B1AB380F400DF20B9 /* SRStylesheet.m */,
+				15E512A31AB3A2DD00C7C3DF /* UIViewController+ShakeGesture.h */,
+				15E512A41AB3A2DD00C7C3DF /* UIViewController+ShakeGesture.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -609,13 +609,13 @@
 				159D8A6E1A495C3C009C8078 /* Main.storyboard in Resources */,
 				159D8A5A1A495C28009C8078 /* BasicTrackTableViewCell.xib in Resources */,
 				158041751A7B9CF700B91864 /* page2.png in Resources */,
+				15A2FD8B1AB4423100D9D41F /* background-image.png in Resources */,
 				159D8A221A495BF5009C8078 /* background.png in Resources */,
 				159D8A741A495C3C009C8078 /* MiniPlayer.xib in Resources */,
 				1554AE7D1A6827B80008BFE1 /* CommentTableViewCell.xib in Resources */,
 				158041731A7B9ADD00B91864 /* page1.png in Resources */,
 				159D8A701A495C3C009C8078 /* LaunchScreen.xib in Resources */,
 				15B7537B1A4DA01800CC7CA0 /* UserTableViewCell.xib in Resources */,
-				159D8A5E1A495C28009C8078 /* PlaylistTableViewCell.xib in Resources */,
 				1580417B1A7BF71F00B91864 /* page5.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -626,6 +626,7 @@
 			files = (
 				15E840B11A60593C00BDB21F /* Localizable.strings in Resources */,
 				159D8A6D1A495C3C009C8078 /* LoadMoreTableViewCell.xib in Resources */,
+				15A2FD8C1AB4423100D9D41F /* background-image.png in Resources */,
 				159D8A781A495C50009C8078 /* Images.xcassets in Resources */,
 				15E840C01A61CC6600BDB21F /* page0.png in Resources */,
 				159D8A6F1A495C3C009C8078 /* Main.storyboard in Resources */,
@@ -635,7 +636,6 @@
 				1554AE7E1A6827B80008BFE1 /* CommentTableViewCell.xib in Resources */,
 				159D8A711A495C3C009C8078 /* LaunchScreen.xib in Resources */,
 				15B7537C1A4DA01800CC7CA0 /* UserTableViewCell.xib in Resources */,
-				159D8A5F1A495C28009C8078 /* PlaylistTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -740,7 +740,6 @@
 				159D8A301A495C0A009C8078 /* AppDelegate.m in Sources */,
 				150F58711A4FD85C00827525 /* TutorialViewController.m in Sources */,
 				159D8A161A495BBB009C8078 /* PlaylistRespost.m in Sources */,
-				159D8A5C1A495C28009C8078 /* PlaylistTableViewCell.m in Sources */,
 				159D8A561A495C28009C8078 /* AboutTableViewController.m in Sources */,
 				15B7537F1A4DB4C300CC7CA0 /* HistoryTableViewController.m in Sources */,
 				159D8A1C1A495BCA009C8078 /* SoundtraceClient.m in Sources */,
@@ -759,6 +758,7 @@
 				159D8A501A495C28009C8078 /* LikesTableViewController.m in Sources */,
 				150F58691A4EC6B400827525 /* UsersListTableViewController.m in Sources */,
 				159D8A3A1A495C0A009C8078 /* MenuTableViewController.m in Sources */,
+				15E512A51AB3A2DD00C7C3DF /* UIViewController+ShakeGesture.m in Sources */,
 				159D8A4E1A495C28009C8078 /* ActivitiesTableViewController.m in Sources */,
 				15B30DAF1A582F8800CCA433 /* AddToPlaylistTableViewController.m in Sources */,
 				159D8A341A495C0A009C8078 /* RootViewController.m in Sources */,
@@ -801,7 +801,7 @@
 				159D8A311A495C0A009C8078 /* AppDelegate.m in Sources */,
 				159D8A0D1A495BBB009C8078 /* Track.m in Sources */,
 				159D8A7C1A4AE094009C8078 /* UserTableViewController.m in Sources */,
-				159D8A5D1A495C28009C8078 /* PlaylistTableViewCell.m in Sources */,
+				15E512A61AB3A2DD00C7C3DF /* UIViewController+ShakeGesture.m in Sources */,
 				159D8A571A495C28009C8078 /* AboutTableViewController.m in Sources */,
 				159D8A1D1A495BCA009C8078 /* SoundtraceClient.m in Sources */,
 				159D8A511A495C28009C8078 /* LikesTableViewController.m in Sources */,
@@ -949,8 +949,7 @@
 					"\"${PODS_ROOT}/Headers/Public/SWTableViewCell\"",
 					"\"${PODS_ROOT}/Headers/Public/SZTextView\"",
 					"\"${PODS_ROOT}/Headers/Public/TSMessages\"",
-					"$(SRCROOT)",
-					"$(PROJECT_DIR)",
+					"$(inherited)",
 				);
 				INFOPLIST_FILE = Soundrocket/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -986,8 +985,7 @@
 					"\"${PODS_ROOT}/Headers/Public/SWTableViewCell\"",
 					"\"${PODS_ROOT}/Headers/Public/SZTextView\"",
 					"\"${PODS_ROOT}/Headers/Public/TSMessages\"",
-					"$(SRCROOT)",
-					"$(PROJECT_DIR)",
+					"$(inherited)",
 				);
 				INFOPLIST_FILE = Soundrocket/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

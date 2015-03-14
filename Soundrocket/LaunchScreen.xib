@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -10,32 +10,44 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-image.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ain-v1-P82">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                </imageView>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qM4-G1-ykd">
+                    <rect key="frame" x="0.0" y="420" width="480" height="60"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="xns-Dl-AKe">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="60"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="PpR-Uk-uq9"/>
+                    </constraints>
+                    <blurEffect style="light"/>
+                </visualEffectView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2014 sebastianboldt. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
                     <rect key="frame" x="20" y="439" width="441" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="dFI-Vv-q3E"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soundrocket_logo" translatesAutoresizingMaskIntoConstraints="NO" id="yk5-5o-EPP">
-                    <rect key="frame" x="120" y="120" width="240" height="240"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="240" id="mxJ-eq-ATa"/>
-                    </constraints>
-                </imageView>
             </subviews>
             <color key="backgroundColor" white="0.88286713289999996" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="0Ug-ML-thb"/>
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Abb-Qv-icb"/>
+                <constraint firstItem="Ain-v1-P82" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="CGJ-jU-3yt"/>
+                <constraint firstItem="qM4-G1-ykd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ep1-FB-frr"/>
+                <constraint firstAttribute="trailing" secondItem="Ain-v1-P82" secondAttribute="trailing" id="HtC-qy-Qwu"/>
                 <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
-                <constraint firstAttribute="centerY" secondItem="yk5-5o-EPP" secondAttribute="centerY" id="Trw-DS-NfD"/>
-                <constraint firstItem="8ie-xW-0ye" firstAttribute="top" secondItem="yk5-5o-EPP" secondAttribute="bottom" constant="79" id="Up8-gY-w8o"/>
+                <constraint firstAttribute="bottom" secondItem="qM4-G1-ykd" secondAttribute="bottom" id="Vrk-CZ-4MR"/>
                 <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
-                <constraint firstAttribute="centerX" secondItem="yk5-5o-EPP" secondAttribute="centerX" id="qYC-yY-VcC"/>
+                <constraint firstAttribute="trailing" secondItem="qM4-G1-ykd" secondAttribute="trailing" id="cHF-gQ-ijA"/>
+                <constraint firstItem="Ain-v1-P82" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hlL-4i-cOp"/>
+                <constraint firstAttribute="bottom" secondItem="Ain-v1-P82" secondAttribute="bottom" id="qUB-K3-Kvz"/>
                 <constraint firstAttribute="trailing" secondItem="8ie-xW-0ye" secondAttribute="trailing" constant="19" id="x1W-hH-DzE"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
@@ -44,6 +56,6 @@
         </view>
     </objects>
     <resources>
-        <image name="soundrocket_logo" width="400" height="400"/>
+        <image name="background-image.png" width="951" height="989"/>
     </resources>
 </document>

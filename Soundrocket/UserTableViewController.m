@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 sebastianboldt. All rights reserved.
 //
 
-#import <SWTableViewCell.h>
 #import <FAKFontAwesome.h>
 #import "UserTableViewController.h"
 #import "CredentialStore.h"
@@ -27,7 +26,7 @@
 #import <SVProgressHUD.h>
 #import "SRStylesheet.h"
 
-@interface UserTableViewController () <SWTableViewCellDelegate>
+@interface UserTableViewController () <BasicTrackTableViewCellDelegate>
 @property(nonatomic,strong) CredentialStore * store;
 @property(nonatomic,strong) UISegmentedControl * scopeButton;
 @property (nonatomic,strong)UIView * headerView;
@@ -227,7 +226,7 @@
 -(void)setupUserInfo {
     
     self.userImageView.clipsToBounds = YES;
-    self.userImageView.layer.cornerRadius = 25;
+    self.userImageView.layer.cornerRadius = 40;
     self.userImageView.layer.borderColor = [[SRStylesheet mainColor] CGColor];
     self.userImageView.layer.borderWidth = 1.0;
     
@@ -264,7 +263,12 @@
          self.numberOfSoundsLabel.attributedText = followersCount;
          
          dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(){
-             NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:user.avatar_url]];
+             
+
+            NSString*largeUrl = [user.avatar_url stringByReplacingOccurrencesOfString:@"large" withString:@"t500x500"];
+
+             
+             NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:largeUrl]];
              UIImage * image = [UIImage imageWithData:data];
              
              dispatch_async(dispatch_get_main_queue(), ^(){
@@ -313,83 +317,15 @@
         if ((self.scopeButton.selectedSegmentIndex == 0) || (self.scopeButton.selectedSegmentIndex == 2)) {
             BasicTrackTableViewCell * trackCell = (BasicTrackTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"basictrackcell" forIndexPath:indexPath];
             Track * track = [self.dataSourceArray objectAtIndex:indexPath.row];
-            trackCell .trackNameLabel.text  = track.title;
-            trackCell .userNameLabel.text = track.user.username;
-            [trackCell .repostedImageView setImage:[UIImage imageNamed:@"user"]];
-            [trackCell.artworkImage setImageWithURL:[NSURL URLWithString:track.artwork_url] placeholderImage:nil];
-            trackCell.accessoryType = UITableViewCellEditingStyleNone;
-            
-            FAKIonIcons *starIcon = [FAKIonIcons playIconWithSize:10];
-            NSMutableAttributedString * playbackcount = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ ",track.playback_count]];
-            [playbackcount appendAttributedString:[starIcon attributedString]];
-            
-            
-            FAKIonIcons *likeIcon = [FAKIonIcons heartIconWithSize:10];
-            NSMutableAttributedString * likecount = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ ",track.favoritings_count]];
-            [likecount appendAttributedString:[likeIcon attributedString]];
-            
-            FAKIonIcons *commentIcon = [FAKIonIcons chatboxIconWithSize:10];
-            NSMutableAttributedString * commentCount = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ ",track.comment_count]];
-            [commentCount  appendAttributedString:[commentIcon attributedString]];
-            
-            
-            
-            
-            [playbackcount appendAttributedString:[[NSAttributedString alloc]initWithString:@"  "]];
-            [playbackcount appendAttributedString:likecount];
-            [playbackcount appendAttributedString:[[NSAttributedString alloc]initWithString:@"  "]];
-            [playbackcount appendAttributedString:commentCount];
-            trackCell.playbackCountLabel.attributedText = playbackcount;
-            
-            /******************* SHOW USER BUTTON STUFF ****************/
-            FAKIonIcons * icon = [FAKIonIcons ios7PersonIconWithSize:30];
-            [icon addAttribute:NSForegroundColorAttributeName value:[UIColor
-                                                                     whiteColor]];
             trackCell.delegate = self;
-            NSMutableArray * leftUtilityButtons = [NSMutableArray new];
-            [leftUtilityButtons sw_addUtilityButtonWithColor:[SRStylesheet darkGrayColor] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
-            trackCell.leftUtilityButtons = leftUtilityButtons;
-            /***********************************************************/
-            
+            trackCell.data = track;
             return  trackCell;
         } else if (self.scopeButton.selectedSegmentIndex == 1) {
             
             BasicTrackTableViewCell * listCell = (BasicTrackTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"basictrackcell" forIndexPath:indexPath];
             Playlist * list = [self.dataSourceArray objectAtIndex:indexPath.row];
-            listCell.trackNameLabel.text  = list.title;
-            listCell.userNameLabel.text = list.user.username;
-            [listCell.repostedImageView setImage:[UIImage imageNamed:@"user"]];
-            
-            // Private not private etc
-            FAKFontAwesome * lockIcon = [FAKFontAwesome lockIconWithSize:10];
-            NSMutableAttributedString * lockString = [[NSMutableAttributedString alloc]init];
-            if ([list.sharing isEqualToString:@"private"]) {
-                lockString = [[lockIcon attributedString]mutableCopy];
-                [lockString appendAttributedString:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@" %@ Tracks",list.track_count]]];
-                
-            } else {
-                [lockString appendAttributedString:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ Tracks",list.track_count]]];
-            }
-            
-            listCell.playbackCountLabel.attributedText = lockString;
-            
-            if (list.artwork_url) {
-                [listCell.artworkImage setImageWithURL:[NSURL URLWithString:list.artwork_url] placeholderImage:nil];
-            } else {
-                [listCell.artworkImage setImageWithURL:[NSURL URLWithString:list.user.avatar_url] placeholderImage:nil];
-            }
-            listCell.secondLayerViewPlaylist.hidden = NO;
-            listCell.firstLayerViewPlaylist.hidden = NO;
-            listCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            /******************* SHOW USER BUTTON STUFF ****************/
-            FAKIonIcons * icon = [FAKIonIcons ios7PersonIconWithSize:30];
-            [icon addAttribute:NSForegroundColorAttributeName value:[UIColor
-                                                                     whiteColor]];
             listCell.delegate = self;
-            NSMutableArray * leftUtilityButtons = [NSMutableArray new];
-            [leftUtilityButtons sw_addUtilityButtonWithColor:[SRStylesheet darkGrayColor] normalIcon:[icon imageWithSize:CGSizeMake(30, 30)] selectedIcon:nil];
-            listCell.leftUtilityButtons = leftUtilityButtons;
-            /***********************************************************/
+            listCell.data = list;
             return listCell;
             
         } else if ((self.scopeButton.selectedSegmentIndex == 3) || (self.scopeButton.selectedSegmentIndex == 4)) {
@@ -397,29 +333,7 @@
             UserTableViewCell * userCell = (UserTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier:@"usercell" forIndexPath:indexPath];
             userCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             User * user = [self.dataSourceArray objectAtIndex:indexPath.row];
-            
-            if (user.country) {
-                userCell.userNameAndCoutryLabel.text = [NSString stringWithFormat:@"%@,%@",user.username,user.country];
-            } else {
-                userCell.userNameAndCoutryLabel.text = [NSString stringWithFormat:@"%@",user.username];
-            }
-            
-            FAKIonIcons *soundsIcon = [FAKIonIcons podiumIconWithSize:10];
-            NSMutableAttributedString * soundsCount = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ ",user.track_count]];
-            [soundsCount appendAttributedString:[soundsIcon attributedString]];
-            // Number of Followers label
-            FAKIonIcons *followersIcon = [FAKIonIcons personStalkerIconWithSize:10];
-            NSMutableAttributedString * followersCount = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@ ",user.followers_count]];
-            [followersCount appendAttributedString:[followersIcon attributedString]];
-            NSAttributedString * spacer = [[NSMutableAttributedString alloc]initWithString:@"    " attributes:nil];
-            [followersCount appendAttributedString:spacer];
-            [followersCount appendAttributedString:soundsCount];
-            userCell.numberOfSoundsLabel.attributedText = followersCount;
-            
-            [userCell.userImageView setImageWithURL:[NSURL URLWithString:user.avatar_url] placeholderImage:nil];
-
-            
-            
+            userCell.user = user;
             return  userCell;
         }
     }
@@ -883,20 +797,10 @@
     }
 }
 
-#pragma mark - SWTableViewDelegate
-
--(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index{
-    
-    NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
-    NSNumber * idOfUser = @0;
-    id currentObject = [self.dataSourceArray  objectAtIndex:indexPath.row];
-    Track * track = (Track*)currentObject;
-    idOfUser = track.user.id;
-    
-    [cell hideUtilityButtonsAnimated:YES];
-    UserTableViewController * userTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"user"];
-    userTableViewController.user_id = idOfUser;
-    userTableViewController.showMenuButton = NO;
-    [self.navigationController pushViewController:userTableViewController animated:YES];
+#pragma mark - BasictracktableViewCellDelegate
+-(void)userButtonPressedWithUserID:(NSNumber *)user_id{
+    UserTableViewController * controller = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"user"];
+    controller.user_id = user_id;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 @end

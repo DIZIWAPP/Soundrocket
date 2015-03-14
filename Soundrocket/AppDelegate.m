@@ -34,6 +34,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptios
 
 {
+    [application setStatusBarStyle:UIStatusBarStyleLightContent];
     [self setup];
     [self setupMixpanel];
     [self setupUI];

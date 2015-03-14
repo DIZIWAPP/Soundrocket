@@ -11,7 +11,6 @@ target 'Soundrocket' do
     pod 'FontAwesomeKit', '~> 2.1.0'
     pod 'SVProgressHUD'
     pod 'SZTextView', '~> 1.1.1'
-    pod 'SWTableViewCell', '~> 0.3.7'
     pod 'Mixpanel'
 end
 
@@ -26,6 +25,5 @@ target 'SoundrocketTests' do
     pod 'FontAwesomeKit', '~> 2.1.0'
     pod 'SVProgressHUD'
     pod 'SZTextView', '~> 1.1.1'
-    pod 'SWTableViewCell', '~> 0.3.7'
     pod 'Mixpanel'
 end
