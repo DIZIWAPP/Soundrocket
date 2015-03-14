@@ -226,7 +226,7 @@
 -(void)setupUserInfo {
     
     self.userImageView.clipsToBounds = YES;
-    self.userImageView.layer.cornerRadius = 25;
+    self.userImageView.layer.cornerRadius = 40;
     self.userImageView.layer.borderColor = [[SRStylesheet mainColor] CGColor];
     self.userImageView.layer.borderWidth = 1.0;
     
@@ -263,7 +263,12 @@
          self.numberOfSoundsLabel.attributedText = followersCount;
          
          dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^(){
-             NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:user.avatar_url]];
+             
+
+            NSString*largeUrl = [user.avatar_url stringByReplacingOccurrencesOfString:@"large" withString:@"t500x500"];
+
+             
+             NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:largeUrl]];
              UIImage * image = [UIImage imageWithData:data];
              
              dispatch_async(dispatch_get_main_queue(), ^(){

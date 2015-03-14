@@ -53,12 +53,13 @@
     [self setup]; // Setup everything from Navigationbar registering nib files
     [self setUpRefreshControl];
     [self fetchForTracksOfStream]; // Then fetch Tracks of Stream ..
+    [self setupNavigationbar];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationItem.title = @"";
-    [self setupNavigationbar];
+    
 }
 
 -(void)setupNavigationbar {
