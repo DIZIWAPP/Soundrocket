@@ -41,7 +41,9 @@
     [self setUpAudioPlayback];
     [self setupReceiveRemoteControlEvents];
     [self setFirstViewController];
+    #ifndef DEBUG
     [Fabric with:@[CrashlyticsKit]];
+    #endif
     [self.window makeKeyAndVisible];
     return YES;
 }
