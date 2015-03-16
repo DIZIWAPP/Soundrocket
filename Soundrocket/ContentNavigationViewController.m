@@ -17,8 +17,12 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationBar.translucent = YES;
-    self.navigationBar.barTintColor= [SRStylesheet mainColor];
+    self.navigationBar.barTintColor = [SRStylesheet mainColor];
+    self.navigationBar.tintColor = [UIColor whiteColor];
+    
+    [self.navigationBar
+     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    self.navigationBar.translucent = NO;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

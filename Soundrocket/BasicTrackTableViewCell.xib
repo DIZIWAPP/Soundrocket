@@ -27,7 +27,7 @@
                             <constraint firstAttribute="height" constant="50" id="REb-Qy-CRI"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXb-2R-h12" customClass="MarqueeLabel">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="gsdfgsdgsgsfgsgsgsdfgsd" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXb-2R-h12" customClass="MarqueeLabel">
                         <rect key="frame" x="78" y="32" width="218" height="17"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="XVv-4A-lcM"/>
@@ -37,7 +37,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="plays" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHa-hT-u0b" customClass="MarqueeLabel">
-                        <rect key="frame" x="78" y="50" width="218" height="16"/>
+                        <rect key="frame" x="78" y="52" width="218" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="E7k-Wz-nQG"/>
                         </constraints>
@@ -45,10 +45,17 @@
                         <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2v-je-5tP">
+                        <rect key="frame" x="41" y="48" width="20" height="20"/>
+                        <color key="backgroundColor" white="0.5" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0U-Br-4AX">
-                        <rect key="frame" x="78" y="8" width="218" height="33"/>
+                        <rect key="frame" x="78" y="12" width="218" height="16"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="33" id="Vem-3g-Hn7"/>
+                            <constraint firstAttribute="height" constant="16" id="Vem-3g-Hn7"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <state key="normal" title="Button">
@@ -58,15 +65,15 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="B0U-Br-4AX" secondAttribute="trailing" constant="16" id="0Ca-qc-qkR"/>
-                    <constraint firstItem="cHa-hT-u0b" firstAttribute="top" secondItem="YXb-2R-h12" secondAttribute="bottom" constant="1" id="0vP-Nu-h4u"/>
-                    <constraint firstItem="B0U-Br-4AX" firstAttribute="top" secondItem="JZ3-3R-gan" secondAttribute="top" constant="-8" id="11F-i4-Bmk"/>
+                    <constraint firstItem="cHa-hT-u0b" firstAttribute="top" secondItem="YXb-2R-h12" secondAttribute="bottom" constant="3" id="0vP-Nu-h4u"/>
+                    <constraint firstItem="B0U-Br-4AX" firstAttribute="top" secondItem="JZ3-3R-gan" secondAttribute="top" constant="-4" id="11F-i4-Bmk"/>
                     <constraint firstItem="cHa-hT-u0b" firstAttribute="leading" secondItem="JZ3-3R-gan" secondAttribute="trailing" constant="20" id="E4n-MT-am0"/>
                     <constraint firstAttribute="centerY" secondItem="JZ3-3R-gan" secondAttribute="centerY" id="FF6-ll-0fn"/>
                     <constraint firstItem="B0U-Br-4AX" firstAttribute="leading" secondItem="JZ3-3R-gan" secondAttribute="trailing" constant="20" id="J5V-05-Chd"/>
                     <constraint firstItem="JZ3-3R-gan" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Y9q-3d-eOo"/>
                     <constraint firstItem="YXb-2R-h12" firstAttribute="leading" secondItem="JZ3-3R-gan" secondAttribute="trailing" constant="20" id="a30-4n-yGf"/>
                     <constraint firstAttribute="trailingMargin" secondItem="cHa-hT-u0b" secondAttribute="trailing" constant="16" id="eoQ-p8-bKo"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="cHa-hT-u0b" secondAttribute="bottom" constant="7.5" id="fX1-p1-7GK"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="cHa-hT-u0b" secondAttribute="bottom" constant="5.5" id="fX1-p1-7GK"/>
                     <constraint firstAttribute="trailingMargin" secondItem="YXb-2R-h12" secondAttribute="trailing" constant="16" id="xxz-0G-Pbc"/>
                 </constraints>
             </tableViewCellContentView>
@@ -74,6 +81,7 @@
                 <outlet property="artworkImage" destination="JZ3-3R-gan" id="zjl-QR-NHU"/>
                 <outlet property="firstLayerViewPlaylist" destination="Mxi-db-FqY" id="Ldi-Jp-mds"/>
                 <outlet property="playbackCountLabel" destination="cHa-hT-u0b" id="HdU-YQ-OJw"/>
+                <outlet property="respostedLabel" destination="l2v-je-5tP" id="oqF-Fq-k9E"/>
                 <outlet property="secondLayerViewPlaylist" destination="7nA-yL-mDZ" id="SED-VG-r6X"/>
                 <outlet property="trackNameLabel" destination="YXb-2R-h12" id="NMp-1w-8r9"/>
                 <outlet property="userNameLabel" destination="B0U-Br-4AX" id="BDh-zT-mhB"/>

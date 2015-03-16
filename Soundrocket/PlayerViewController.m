@@ -22,6 +22,7 @@
 #import <SZTextView.h>
 #import <SVProgressHUD.h>
 #import "SRStylesheet.h"
+#import "UserTableViewController.h"
 
 @interface PlayerViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *showVolumeFaderButton;
@@ -78,7 +79,7 @@
     self.liked = false;
     self.nextCommentButton.tintColor = [SRStylesheet mainColor];
     self.lastCommentButton.tintColor = [SRStylesheet mainColor];
-    self.trackIDLabel.textColor = [SRStylesheet mainColor];
+    self.trackIDLabel.textColor = [SRStylesheet whiteColor];
     // Setting up Scrollbar
     UIView *scrollbar = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, self.waveformImageView.frame.size.height)];
     scrollbar.backgroundColor = [SRStylesheet mainColor];
@@ -91,8 +92,8 @@
     self.currentCommentViews = [[NSMutableArray alloc]init];
     self.currentComments = [[NSMutableArray alloc]init];
     self.store = [[CredentialStore alloc]init];
-
     
+    [self.artistLabel addTarget:self action:@selector(artistButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
 
     
     UIPanGestureRecognizer * panRecognizer = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(pannedWaveform:)];
@@ -501,7 +502,12 @@
     [self.soundPlayer replaceCurrentItemWithPlayerItem:self.streamingItem];
 
     [self checkLike];
-    
+}
+
+-(void)artistButtonPressed:(id)sender {
+    UserTableViewController * controller = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"user"];
+    controller.user_id = self.currentTrack.user.id;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 -(void)checkLike {
@@ -556,7 +562,7 @@
     [self.streamingItem removeObserver:self forKeyPath:@"playbackLikelyToKeepUp"];
     _currentTrack = currentTrack;
     self.trackIDLabel.text = currentTrack.title;
-    self.artistLabel.text = currentTrack.user.username;
+    [self.artistLabel setTitle:currentTrack.user.username forState:UIControlStateNormal];
     NSString * largeUrl = nil;
     if (currentTrack.artwork_url) {
         largeUrl = [currentTrack.artwork_url stringByReplacingOccurrencesOfString:@"large" withString:@"t500x500"];

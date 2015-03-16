@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIView *firstLayerViewPlaylist;
 @property (weak, nonatomic) IBOutlet UIView *secondLayerViewPlaylist;
 @property (weak,nonatomic) id<BasicTrackTableViewCellDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UILabel *respostedLabel;
 //
 @property (nonatomic,strong) id data;
 

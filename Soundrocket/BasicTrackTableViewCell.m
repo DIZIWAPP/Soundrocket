@@ -82,6 +82,12 @@
 }
 
 -(void)setupCellWithRepost:(TrackRespost*)trackRepost {
+    FAKFontAwesome *retweetIcon = [FAKFontAwesome retweetIconWithSize:10];
+    [self.respostedLabel setAttributedText:[retweetIcon attributedString]];
+    self.respostedLabel.clipsToBounds = YES;
+    self.respostedLabel.layer.cornerRadius = 10;
+    self.respostedLabel.backgroundColor = [UIColor darkGrayColor];
+    
     TrackRespost * track = (TrackRespost*)trackRepost;
     [self.userNameLabel setTitle:track.user.username forState:UIControlStateNormal];
     self.trackNameLabel.text = track.title;
@@ -143,11 +149,15 @@
     self.firstLayerViewPlaylist.hidden = NO;
     self.secondLayerViewPlaylist.hidden = NO;
     
-    
-    
 }
 
 -(void)setupCellWithPlaylistRepost:(PlaylistRespost*)playlistRepost {
+    
+    FAKFontAwesome *retweetIcon = [FAKFontAwesome retweetIconWithSize:10];
+    [self.respostedLabel setAttributedText:[retweetIcon attributedString]];
+    self.respostedLabel.clipsToBounds = YES;
+    self.respostedLabel.layer.cornerRadius = 10;
+    self.respostedLabel.backgroundColor = [UIColor darkGrayColor];
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     [self.userNameLabel setTitle:playlistRepost.user.username forState:UIControlStateNormal];
 
@@ -204,6 +214,8 @@
     self.firstLayerViewPlaylist.hidden = YES;
     self.secondLayerViewPlaylist.hidden = YES;
     self.backgroundColor = [UIColor whiteColor];
+    [self.respostedLabel setText:@""];
+    [self.respostedLabel setBackgroundColor:[UIColor clearColor]];
 }
 
 @end

@@ -12,7 +12,7 @@
 @property (nonatomic,strong) Track * currentTrack;
 + (instancetype)sharedPlayer;
 @property (weak, nonatomic) IBOutlet MarqueeLabel *trackIDLabel;
-@property (weak, nonatomic) IBOutlet UILabel *artistLabel;
+@property (weak, nonatomic) IBOutlet UIButton *artistLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *coverImageView;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UIImageView *waveformImageView;
@@ -32,7 +32,7 @@
 - (IBAction)nextCommentButtonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *lastTrackButton;
 @property (weak, nonatomic) IBOutlet UIButton *nextTrackButton;
-@property (weak, nonatomic) IBOutlet MarqueeLabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet MarqueeLabel*userNameLabel;
 
 - (IBAction)playPauseButtonPressed:(id)sender;
 -(void)initiatePlayback; // Should be called by Miniplayer to start playback

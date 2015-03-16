@@ -6,12 +6,12 @@
 //  Copyright (c) 2015 sebastianboldt. All rights reserved.
 //
 
-// red [UIColor colorWithRed:1.000 green:0.180 blue:0.220 alpha:1.000];
+// red [UIColor colorWithRed:1.000 green:0.180 blue:0.220 alpha:0.880];
 #import "SRStylesheet.h"
 
 @implementation SRStylesheet
 +(UIColor*)mainColor{
-    return [UIColor colorWithRed:1.000 green:0.180 blue:0.220 alpha:1.000];
+    return [UIColor colorWithRed:1.000 green:0.243 blue:0.269 alpha:1.000];
 }
 
 +(UIColor*)darkGrayColor{
