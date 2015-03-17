@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseTableViewController.h"
-@interface LikesTableViewController : BaseTableViewController 
-
+#import "BaseViewController.h"
+@interface LikesTableViewController : BaseViewController <UITableViewDataSource,UITabBarDelegate>
+@property(nonatomic,strong)IBOutlet UITableView * tableView;
 @end

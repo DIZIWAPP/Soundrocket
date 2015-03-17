@@ -30,6 +30,7 @@
 @property (nonatomic,strong) NSNumber * offset;
 @property (nonatomic,assign) BOOL isLoading;
 @property (nonatomic,assign) BOOL itemsAvailable;
+@property (nonatomic,strong) UIRefreshControl * refreshControl;
 
 
 @end
@@ -42,7 +43,7 @@
     [self setupPagination];
     [self setup];
     [self setUpRefreshControl];
-    [self fetchForLikes];
+    [self fetchForLikesAndShowLoadingScreen:YES];
 }
 
 -(void)setup{
@@ -70,6 +71,7 @@
     UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
     [refresh addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refresh;
+    [self.tableView addSubview:self.refreshControl];
 }
 /**
  *  Reinits every Pagination Parameter and then fetches Tracks
@@ -79,13 +81,23 @@
         self.offset = @0;
         self.view.userInteractionEnabled = NO;
         [self.tracks removeAllObjects];
-        [self fetchForLikes];
+        [self fetchForLikesAndShowLoadingScreen:NO];
     }
 }
 
 
 
--(void)fetchForLikes {
+-(void)fetchForLikesAndShowLoadingScreen:(BOOL)showLoadingScreen {
+    if (showLoadingScreen) {
+        [UIView animateWithDuration:0.5 delay:0.0 options:0 animations:^{
+            // Animate the alpha value of your imageView from 1.0 to 0.0 here
+            self.loadingScreen.alpha = 1.0f;
+        } completion:^(BOOL finished) {
+            // Once the animation is completed and the alpha has gone to 0.0, hide the view for good
+            self.loadingScreen.hidden = NO;
+        }];
+    }
+    
     self.isLoading = YES;
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     AppDelegate * delegate = (AppDelegate*) [[UIApplication sharedApplication]delegate];
@@ -118,6 +130,14 @@
          self.isLoading = NO;
          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
          
+         [UIView animateWithDuration:0.5 delay:0.0 options:0 animations:^{
+             // Animate the alpha value of your imageView from 1.0 to 0.0 here
+             self.loadingScreen.alpha = 0.0f;
+         } completion:^(BOOL finished) {
+             // Once the animation is completed and the alpha has gone to 0.0, hide the view for good
+             self.loadingScreen.hidden = YES;
+         }];
+         
      }
      
     failure: ^(NSURLSessionDataTask *task, NSError *error)
@@ -126,16 +146,15 @@
          [self.refreshControl endRefreshing];
          self.isLoading = NO;
          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+         [UIView animateWithDuration:0.5 delay:0.0 options:0 animations:^{
+             // Animate the alpha value of your imageView from 1.0 to 0.0 here
+             self.loadingScreen.alpha = 0.0f;
+         } completion:^(BOOL finished) {
+             // Once the animation is completed and the alpha has gone to 0.0, hide the view for good
+             self.loadingScreen.hidden = YES;
+         }];
 
      }];
-}
-
--(void)showMenu {
-    [self presentLeftMenuViewController:nil];
-    
-}
-- (IBAction)showMenuButtonPressed:(id)sender {
-    [self showMenu];
 }
 
 #pragma mark - Table view data source
@@ -210,7 +229,7 @@
             if (self.itemsAvailable) {
                 LoadMoreTableViewCell * lmc = (LoadMoreTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:[self.tracks count] inSection:0]];
                 [lmc.loadingIndicator startAnimating];
-                [self fetchForLikes];
+                [self fetchForLikesAndShowLoadingScreen:NO];
             }
         }
     }
@@ -222,4 +241,6 @@
     controller.user_id = user_id;
     [self.navigationController pushViewController:controller animated:YES];
 }
+
+
 @end
