@@ -42,7 +42,6 @@
 
     [self setupPagination];
     [self setup];
-    [self setUpRefreshControl];
     [self fetchForLikesAndShowLoadingScreen:YES];
 }
 
@@ -65,15 +64,6 @@
 }
 
 /**
- *  Sets up Refresh Controler and Selector calls specific selector
- */
-- (void)setUpRefreshControl {
-    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
-    [refresh addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
-    self.refreshControl = refresh;
-    [self.tableView addSubview:self.refreshControl];
-}
-/**
  *  Reinits every Pagination Parameter and then fetches Tracks
  */
 - (void)refresh {
@@ -89,13 +79,7 @@
 
 -(void)fetchForLikesAndShowLoadingScreen:(BOOL)showLoadingScreen {
     if (showLoadingScreen) {
-        [UIView animateWithDuration:0.5 delay:0.0 options:0 animations:^{
-            // Animate the alpha value of your imageView from 1.0 to 0.0 here
-            self.loadingScreen.alpha = 1.0f;
-        } completion:^(BOOL finished) {
-            // Once the animation is completed and the alpha has gone to 0.0, hide the view for good
-            self.loadingScreen.hidden = NO;
-        }];
+        [self showLoadingScreen];
     }
     
     self.isLoading = YES;
@@ -129,14 +113,7 @@
          [self.refreshControl endRefreshing];
          self.isLoading = NO;
          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-         
-         [UIView animateWithDuration:0.5 delay:0.0 options:0 animations:^{
-             // Animate the alpha value of your imageView from 1.0 to 0.0 here
-             self.loadingScreen.alpha = 0.0f;
-         } completion:^(BOOL finished) {
-             // Once the animation is completed and the alpha has gone to 0.0, hide the view for good
-             self.loadingScreen.hidden = YES;
-         }];
+         [self hideLoadingScreen];
          
      }
      
@@ -146,13 +123,7 @@
          [self.refreshControl endRefreshing];
          self.isLoading = NO;
          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-         [UIView animateWithDuration:0.5 delay:0.0 options:0 animations:^{
-             // Animate the alpha value of your imageView from 1.0 to 0.0 here
-             self.loadingScreen.alpha = 0.0f;
-         } completion:^(BOOL finished) {
-             // Once the animation is completed and the alpha has gone to 0.0, hide the view for good
-             self.loadingScreen.hidden = YES;
-         }];
+         [self hideLoadingScreen];
 
      }];
 }

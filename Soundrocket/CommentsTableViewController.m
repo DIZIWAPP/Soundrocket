@@ -37,9 +37,8 @@
     self.order = @"created_at";
     [self setup];
     [self setupPagination];
-    [self setUpRefreshControl];
     [self setupToolbar];
-    [self fetchForComments];
+    [self fetchForCommentsAndShowLoadingScreen:YES];
     
 }
 
@@ -69,25 +68,20 @@
 }
 
 /**
- *  Sets up Refresh Controler and Selector calls specific selector
- */
-- (void)setUpRefreshControl {
-    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
-    [refresh addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
-    self.refreshControl = refresh;
-}
-/**
  *  Reinits every Pagination Parameter and then fetches Tracks
  */
 - (void)refresh {
     if (!self.isLoading) {
         self.offset = @0;
         [self.comments removeAllObjects];
-        [self fetchForComments];
+        [self fetchForCommentsAndShowLoadingScreen:NO];
     }
 }
 
--(void)fetchForComments {
+-(void)fetchForCommentsAndShowLoadingScreen:(BOOL)showLoadingScreen {
+    if (showLoadingScreen) {
+        [self showLoadingScreen];
+    }
     self.isLoading = YES;
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 
@@ -124,6 +118,7 @@
          [self.refreshControl endRefreshing];
          self.isLoading = NO;
          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+         [self hideLoadingScreen];
      }
      
      failure: ^(NSURLSessionDataTask *task, NSError *error)
@@ -132,7 +127,7 @@
          [self.refreshControl endRefreshing];
          self.isLoading = NO;
          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-
+         [self hideLoadingScreen];
      }];
     
 }
@@ -188,7 +183,7 @@
             if (self.itemsAvailable) {
                 LoadMoreTableViewCell * lmc = (LoadMoreTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:[self.comments count] inSection:0]];
                 [lmc.loadingIndicator startAnimating];
-                [self fetchForComments];
+                [self fetchForCommentsAndShowLoadingScreen:NO];
             }
         }
     }

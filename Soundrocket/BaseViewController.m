@@ -13,9 +13,10 @@
 
 @implementation BaseViewController
 
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
+-(void)viewDidLoad{
+    [super viewDidLoad];
     [self setupLoadingScreen];
+    [self setUpRefreshControl];
 }
 
 -(void)setupLoadingScreen{
@@ -23,12 +24,19 @@
     self.loadingScreen.backgroundColor = [UIColor whiteColor];
     self.activityIndicatorView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     self.activityIndicatorView.color = [SRStylesheet mainColor];
-    self.activityIndicatorView.center = self.loadingScreen.center;
+    self.activityIndicatorView.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
     self.activityIndicatorView.tintColor = [SRStylesheet mainColor];
     [self.loadingScreen addSubview:self.activityIndicatorView];
     [self.view addSubview:self.loadingScreen];
     [self.view bringSubviewToFront:self.loadingScreen];
     [self.activityIndicatorView startAnimating];
+}
+
+- (void)setUpRefreshControl {
+    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+    [refresh addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refresh;
+    [self.tableView addSubview:self.refreshControl];
 }
 
 -(void)setshowMenuButton {
@@ -45,7 +53,30 @@
                                     action:@selector(showMenu)];
 }
 
+-(void)refresh {
+    NSAssert(NO, @"Subclasses need to overwrite this method");
+}
 -(void)showMenu {
     [self presentLeftMenuViewController:nil];
+}
+
+-(void)hideLoadingScreen {
+    [UIView animateWithDuration:0.5 delay:0.0 options:0 animations:^{
+        // Animate the alpha value of your imageView from 1.0 to 0.0 here
+        self.loadingScreen.alpha = 0.0f;
+    } completion:^(BOOL finished) {
+        // Once the animation is completed and the alpha has gone to 0.0, hide the view for good
+        self.loadingScreen.hidden = YES;
+    }];
+}
+
+-(void)showLoadingScreen {
+    [UIView animateWithDuration:0.5 delay:0.0 options:0 animations:^{
+        // Animate the alpha value of your imageView from 1.0 to 0.0 here
+        self.loadingScreen.alpha = 1.0f;
+    } completion:^(BOOL finished) {
+        // Once the animation is completed and the alpha has gone to 0.0, hide the view for good
+        self.loadingScreen.hidden = NO;
+    }];
 }
 @end

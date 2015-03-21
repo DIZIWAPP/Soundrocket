@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 #import "Track.h"
-@interface CommentsTableViewController : UITableViewController
+@interface CommentsTableViewController : BaseViewController
 @property (nonatomic,strong) Track * currentTrack;
 @end

@@ -9,5 +9,4 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 @interface LikesTableViewController : BaseViewController <UITableViewDataSource,UITabBarDelegate>
-@property(nonatomic,strong)IBOutlet UITableView * tableView;
 @end

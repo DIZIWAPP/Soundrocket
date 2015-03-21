@@ -46,9 +46,4 @@
                                     target:self
                                     action:@selector(showMenu)];
 }
-
--(void)showMenu {
-    [self presentLeftMenuViewController:nil];
-}
-
 @end

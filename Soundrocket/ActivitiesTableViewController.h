@@ -7,6 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseTableViewController.h"
-@interface ActivitiesTableViewController : BaseTableViewController 
+#import "BaseViewController.h"
+@interface ActivitiesTableViewController : BaseViewController
 @end

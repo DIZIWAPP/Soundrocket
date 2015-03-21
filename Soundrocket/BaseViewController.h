@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface BaseViewController : UIViewController
-@property(nonatomic,strong) UITableView * tableView;
+@property(nonatomic,strong) IBOutlet UITableView * tableView;
 @property(nonatomic,strong) UIView * loadingScreen;
 @property(nonatomic,strong) UIActivityIndicatorView * activityIndicatorView;
 @property(nonatomic,strong) UIRefreshControl * refreshControl;
 
 -(void)setshowMenuButton;
+-(void)showLoadingScreen;
+-(void)hideLoadingScreen;
 @end
