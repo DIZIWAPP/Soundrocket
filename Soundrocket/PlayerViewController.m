@@ -217,7 +217,7 @@
     self.volumeControlView.alpha = 0.0;
     self.volumeControlView.layer.zPosition = 2000;
     self.volumeControlView = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height+50, self.view.frame.size.width, 60)];
-    self.volumeControlView.backgroundColor = [SRStylesheet darkGrayColor];
+    self.volumeControlView.backgroundColor = [SRStylesheet mainColor];
     
     // Setting up the Button
     UIButton * closeButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 60)];
@@ -230,6 +230,7 @@
     
     MPVolumeView *myVolumeView =
     [[MPVolumeView alloc] initWithFrame: CGRectMake(60,20, self.volumeControlView.frame.size.width-70, self.volumeControlView.frame.size.height)];
+    myVolumeView.tintColor = [SRStylesheet mainColor];
     [self.volumeControlView addSubview:myVolumeView];
     [self.contentViewofVisualEffectView addSubview: self.volumeControlView];
 }

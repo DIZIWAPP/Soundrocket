@@ -41,6 +41,7 @@
 @property (nonatomic,strong) UILabel * indicatorLabel;
 @property (nonatomic,strong) NSMutableArray * tasks;
 @property (nonatomic,strong) UIBarButtonItem * followButton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *userLoadingIndicator;
 
 @end
 
@@ -234,7 +235,7 @@
 }
 
 -(void)setupUserInfo {
-    
+    [self.userLoadingIndicator startAnimating];
     self.userImageView.clipsToBounds = YES;
     self.userImageView.layer.cornerRadius = 40;
     self.userImageView.layer.borderColor = [[SRStylesheet mainColor] CGColor];
@@ -284,6 +285,7 @@
              dispatch_async(dispatch_get_main_queue(), ^(){
                  [self.userImageView setImage:image];
                  [self.imageView_backgroundBlurred setImage:image];
+                 [self.userLoadingIndicator stopAnimating];
              });
              
          });
@@ -304,13 +306,11 @@
     failure: ^(NSURLSessionDataTask *task, NSError *error)
     {
          // Something went wrong
+        [self.userLoadingIndicator stopAnimating];
+
     }];
 }
 
-// Displaying Data Stuff
--(void)fetchData {
-    
-}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
