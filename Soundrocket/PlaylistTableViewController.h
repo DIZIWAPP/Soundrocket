@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseTableViewController.h"
+#import "BaseViewController.h"
 #import "CreatePlaylistTableTableViewController.h"
-@interface PlaylistTableViewController : BaseTableViewController <CreatePlaylistDelegateProtocoll>
+@interface PlaylistTableViewController : BaseViewController <CreatePlaylistDelegateProtocoll,UITableViewDataSource,UITabBarControllerDelegate>
 -(void)playlistCreated;
 @end

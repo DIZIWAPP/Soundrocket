@@ -51,8 +51,7 @@
     self.playlists = [[NSMutableArray alloc]init];
     [self setAddButton];
     [self setupPagination];
-    [self setUpRefreshControl];
-    [self fetchForPlaylists];
+    [self fetchForPlaylistsAndShowLoadingScreen:YES];
 }
 
 -(void)setupPagination {
@@ -62,21 +61,13 @@
     self.itemsAvailable = YES;
 }
 /**
- *  Sets up Refresh Controler and Selector calls specific selector
- */
-- (void)setUpRefreshControl {
-    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
-    [refresh addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
-    self.refreshControl = refresh;
-}
-/**
  *  Reinits every Pagination Parameter and then fetches Tracks
  */
 - (void)refresh {
     if (!self.isLoading) {
         self.offset = @0;
         [self.playlists removeAllObjects];
-        [self fetchForPlaylists];
+        [self fetchForPlaylistsAndShowLoadingScreen:NO];
     }
 }
 
@@ -105,7 +96,18 @@
 }
 
 
--(void)fetchForPlaylists {
+-(void)fetchForPlaylistsAndShowLoadingScreen:(BOOL)showLoadingScreen {
+    
+    if (showLoadingScreen) {
+        [UIView animateWithDuration:0.5 delay:0.0 options:0 animations:^{
+            // Animate the alpha value of your imageView from 1.0 to 0.0 here
+            self.loadingScreen.alpha = 1.0f;
+        } completion:^(BOOL finished) {
+            // Once the animation is completed and the alpha has gone to 0.0, hide the view for good
+            self.loadingScreen.hidden = NO;
+        }];
+    }
+    
     self.isLoading = YES;
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 
@@ -140,6 +142,13 @@
          self.isLoading = NO;
          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
          
+         [UIView animateWithDuration:0.5 delay:0.0 options:0 animations:^{
+             // Animate the alpha value of your imageView from 1.0 to 0.0 here
+             self.loadingScreen.alpha = 0.0f;
+         } completion:^(BOOL finished) {
+             // Once the animation is completed and the alpha has gone to 0.0, hide the view for good
+             self.loadingScreen.hidden = YES;
+         }];
      }
      
     failure: ^(NSURLSessionDataTask *task, NSError *error)
@@ -148,7 +157,14 @@
          [self.refreshControl endRefreshing];
          self.isLoading = NO;
          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-
+         
+         [UIView animateWithDuration:0.5 delay:0.0 options:0 animations:^{
+             // Animate the alpha value of your imageView from 1.0 to 0.0 here
+             self.loadingScreen.alpha = 0.0f;
+         } completion:^(BOOL finished) {
+             // Once the animation is completed and the alpha has gone to 0.0, hide the view for good
+             self.loadingScreen.hidden = YES;
+         }];
      }];
 }
 
@@ -291,7 +307,7 @@
             if (self.itemsAvailable) {
                 LoadMoreTableViewCell * lmc = (LoadMoreTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:[self.playlists count] inSection:0]];
                 [lmc.loadingIndicator startAnimating];
-                [self fetchForPlaylists];
+                [self fetchForPlaylistsAndShowLoadingScreen:NO];
             }
         }
     }

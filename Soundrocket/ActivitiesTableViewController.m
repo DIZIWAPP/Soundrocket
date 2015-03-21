@@ -43,16 +43,15 @@
  */
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
     AFHTTPSessionManager * client = [SoundtraceClient sharedClient];
     client.securityPolicy = [AFSecurityPolicy defaultPolicy];
     client.responseSerializer = [AFJSONResponseSerializer serializer];
     client.requestSerializer = [AFJSONRequestSerializer serializer];
-    [super viewDidLoad];
     self.nextUrl = nil;
     self.isLoading = NO;
     [self setup]; // Setup everything from Navigationbar registering nib files
-    [self setUpRefreshControl];
-    [self fetchForTracksOfStream]; // Then fetch Tracks of Stream ..
+    [self fetchForTracksOfStreamAndShowLoadingScreen:YES]; // Then fetch Tracks of Stream ..
     [self setupNavigationbar];
 }
 
@@ -84,14 +83,6 @@
 }
 
 /**
- *  Sets up Refresh Controler and Selector calls specific selector
- */
-- (void)setUpRefreshControl {
-    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
-    [refresh addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
-    self.refreshControl = refresh;
-}
-/**
  *  Reinits every Pagination Parameter and then fetches Tracks
  */
 - (void)refresh {
@@ -99,16 +90,15 @@
         self.view.userInteractionEnabled = NO;
         self.nextUrl = nil;
         [self.activities removeAllObjects];
-        [self fetchForTracksOfStream];
+        [self fetchForTracksOfStreamAndShowLoadingScreen:NO];
     }
 }
 
--(void)fetchForTracksOfStream {
+-(void)fetchForTracksOfStreamAndShowLoadingScreen:(BOOL)showLoadingScreen {
     
-    /*******************************************************/
-    /****************** MASTER BUG *************************/
-    /*******************************************************/
-    
+    if (showLoadingScreen) {
+        [self showLoadingScreen];
+    }
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 
     self.isLoading = YES;
@@ -157,6 +147,7 @@
          self.isLoading = NO;
 
          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+         [self hideLoadingScreen];
      }
      
     failure: ^(NSURLSessionDataTask *task, NSError *error)
@@ -167,7 +158,7 @@
          self.isLoading = NO;
          [TSMessage showNotificationWithTitle:@"Something went wrong" type:TSMessageNotificationTypeError];
          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-
+         [self hideLoadingScreen];
 
      }];
     
@@ -350,7 +341,7 @@
     if (actualPosition >= contentHeight) {
         if(!self.isLoading) {
             if (self.nextUrl) {
-                [self fetchForTracksOfStream];
+                [self fetchForTracksOfStreamAndShowLoadingScreen:NO];
             }
         }
     }

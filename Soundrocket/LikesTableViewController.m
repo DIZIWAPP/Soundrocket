@@ -30,6 +30,7 @@
 @property (nonatomic,strong) NSNumber * offset;
 @property (nonatomic,assign) BOOL isLoading;
 @property (nonatomic,assign) BOOL itemsAvailable;
+@property (nonatomic,strong) UIRefreshControl * refreshControl;
 
 
 @end
@@ -41,8 +42,7 @@
 
     [self setupPagination];
     [self setup];
-    [self setUpRefreshControl];
-    [self fetchForLikes];
+    [self fetchForLikesAndShowLoadingScreen:YES];
 }
 
 -(void)setup{
@@ -64,14 +64,6 @@
 }
 
 /**
- *  Sets up Refresh Controler and Selector calls specific selector
- */
-- (void)setUpRefreshControl {
-    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
-    [refresh addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
-    self.refreshControl = refresh;
-}
-/**
  *  Reinits every Pagination Parameter and then fetches Tracks
  */
 - (void)refresh {
@@ -79,13 +71,17 @@
         self.offset = @0;
         self.view.userInteractionEnabled = NO;
         [self.tracks removeAllObjects];
-        [self fetchForLikes];
+        [self fetchForLikesAndShowLoadingScreen:NO];
     }
 }
 
 
 
--(void)fetchForLikes {
+-(void)fetchForLikesAndShowLoadingScreen:(BOOL)showLoadingScreen {
+    if (showLoadingScreen) {
+        [self showLoadingScreen];
+    }
+    
     self.isLoading = YES;
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     AppDelegate * delegate = (AppDelegate*) [[UIApplication sharedApplication]delegate];
@@ -117,6 +113,7 @@
          [self.refreshControl endRefreshing];
          self.isLoading = NO;
          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+         [self hideLoadingScreen];
          
      }
      
@@ -126,16 +123,9 @@
          [self.refreshControl endRefreshing];
          self.isLoading = NO;
          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+         [self hideLoadingScreen];
 
      }];
-}
-
--(void)showMenu {
-    [self presentLeftMenuViewController:nil];
-    
-}
-- (IBAction)showMenuButtonPressed:(id)sender {
-    [self showMenu];
 }
 
 #pragma mark - Table view data source
@@ -210,7 +200,7 @@
             if (self.itemsAvailable) {
                 LoadMoreTableViewCell * lmc = (LoadMoreTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:[self.tracks count] inSection:0]];
                 [lmc.loadingIndicator startAnimating];
-                [self fetchForLikes];
+                [self fetchForLikesAndShowLoadingScreen:NO];
             }
         }
     }
@@ -222,4 +212,6 @@
     controller.user_id = user_id;
     [self.navigationController pushViewController:controller animated:YES];
 }
+
+
 @end

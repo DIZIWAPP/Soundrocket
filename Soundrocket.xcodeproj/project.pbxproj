@@ -117,14 +117,14 @@
 		15B96A0E1AAA524A00B26BAA /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B96A0B1AAA524A00B26BAA /* Crashlytics.framework */; };
 		15B96A0F1AAA524A00B26BAA /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B96A0C1AAA524A00B26BAA /* Fabric.framework */; };
 		15B96A101AAA524A00B26BAA /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B96A0C1AAA524A00B26BAA /* Fabric.framework */; };
-		15E512A51AB3A2DD00C7C3DF /* UIViewController+ShakeGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E512A41AB3A2DD00C7C3DF /* UIViewController+ShakeGesture.m */; };
-		15E512A61AB3A2DD00C7C3DF /* UIViewController+ShakeGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E512A41AB3A2DD00C7C3DF /* UIViewController+ShakeGesture.m */; };
 		15E840AB1A60305200BDB21F /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E840AA1A60305200BDB21F /* MenuTableViewCell.m */; };
 		15E840AC1A60305200BDB21F /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E840AA1A60305200BDB21F /* MenuTableViewCell.m */; };
 		15E840B01A60593C00BDB21F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15E840B31A60593C00BDB21F /* Localizable.strings */; };
 		15E840B11A60593C00BDB21F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15E840B31A60593C00BDB21F /* Localizable.strings */; };
 		15E840BF1A61CC6600BDB21F /* page0.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E840BE1A61CC6600BDB21F /* page0.png */; };
 		15E840C01A61CC6600BDB21F /* page0.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E840BE1A61CC6600BDB21F /* page0.png */; };
+		15FEAE041AB89B2900B3DC94 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FEAE031AB89B2900B3DC94 /* BaseViewController.m */; };
+		15FEAE051AB89B2900B3DC94 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FEAE031AB89B2900B3DC94 /* BaseViewController.m */; };
 		339C249A0D28AA13A12F238D /* libPods-SoundrocketTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8A5398DBE8EF7DE82A19B3 /* libPods-SoundrocketTests.a */; };
 		4F7DAD2E5F554B84C2694BEC /* libPods-Soundrocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F30819A83ED9EDFDCB71DB54 /* libPods-Soundrocket.a */; };
 /* End PBXBuildFile section */
@@ -243,12 +243,12 @@
 		15B7537E1A4DB4C300CC7CA0 /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = "<group>"; };
 		15B96A0B1AAA524A00B26BAA /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		15B96A0C1AAA524A00B26BAA /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
-		15E512A31AB3A2DD00C7C3DF /* UIViewController+ShakeGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ShakeGesture.h"; sourceTree = "<group>"; };
-		15E512A41AB3A2DD00C7C3DF /* UIViewController+ShakeGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ShakeGesture.m"; sourceTree = "<group>"; };
 		15E840A91A60305200BDB21F /* MenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewCell.h; sourceTree = "<group>"; };
 		15E840AA1A60305200BDB21F /* MenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewCell.m; sourceTree = "<group>"; };
 		15E840B21A60593C00BDB21F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		15E840BE1A61CC6600BDB21F /* page0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page0.png; sourceTree = "<group>"; };
+		15FEAE021AB89B2900B3DC94 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		15FEAE031AB89B2900B3DC94 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		2004ADB3C3F43A9CE0421C67 /* Pods-Soundrocket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Soundrocket.release.xcconfig"; path = "Pods/Target Support Files/Pods-Soundrocket/Pods-Soundrocket.release.xcconfig"; sourceTree = "<group>"; };
 		2F8A5398DBE8EF7DE82A19B3 /* libPods-SoundrocketTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SoundrocketTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CD473E686067E4723C11905 /* Pods-SoundrocketTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundrocketTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SoundrocketTests/Pods-SoundrocketTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -343,10 +343,10 @@
 				159D89F51A495B73009C8078 /* Controller */,
 				159D89F41A495B65009C8078 /* View  */,
 				159D89F31A495B5F009C8078 /* Model */,
-				159D89D11A495A6C009C8078 /* Soundrocket.xcdatamodeld */,
 				159D89CA1A495A6C009C8078 /* Supporting Files */,
 				150F586F1A4FD85C00827525 /* TutorialViewController.h */,
 				150F58701A4FD85C00827525 /* TutorialViewController.m */,
+				159D89D11A495A6C009C8078 /* Soundrocket.xcdatamodeld */,
 			);
 			path = Soundrocket;
 			sourceTree = "<group>";
@@ -462,6 +462,8 @@
 				156E411A1A58AC52002DBA83 /* IntroViewController.m */,
 				1517A6171A67F0DD00619603 /* CommentsTableViewController.h */,
 				1517A6181A67F0DD00619603 /* CommentsTableViewController.m */,
+				15FEAE021AB89B2900B3DC94 /* BaseViewController.h */,
+				15FEAE031AB89B2900B3DC94 /* BaseViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -478,8 +480,6 @@
 				159D89F81A495B9B009C8078 /* URLParser.m */,
 				154CD81A1AB380F400DF20B9 /* SRStylesheet.h */,
 				154CD81B1AB380F400DF20B9 /* SRStylesheet.m */,
-				15E512A31AB3A2DD00C7C3DF /* UIViewController+ShakeGesture.h */,
-				15E512A41AB3A2DD00C7C3DF /* UIViewController+ShakeGesture.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -735,6 +735,7 @@
 				159D89F91A495B9B009C8078 /* URLParser.m in Sources */,
 				159D8A0C1A495BBB009C8078 /* Track.m in Sources */,
 				150F586D1A4ED65500827525 /* BaseTableViewController.m in Sources */,
+				15FEAE041AB89B2900B3DC94 /* BaseViewController.m in Sources */,
 				159D8A321A495C0A009C8078 /* LoginTableViewController.m in Sources */,
 				159D8A721A495C3C009C8078 /* MiniPlayer.m in Sources */,
 				159D8A301A495C0A009C8078 /* AppDelegate.m in Sources */,
@@ -758,7 +759,6 @@
 				159D8A501A495C28009C8078 /* LikesTableViewController.m in Sources */,
 				150F58691A4EC6B400827525 /* UsersListTableViewController.m in Sources */,
 				159D8A3A1A495C0A009C8078 /* MenuTableViewController.m in Sources */,
-				15E512A51AB3A2DD00C7C3DF /* UIViewController+ShakeGesture.m in Sources */,
 				159D8A4E1A495C28009C8078 /* ActivitiesTableViewController.m in Sources */,
 				15B30DAF1A582F8800CCA433 /* AddToPlaylistTableViewController.m in Sources */,
 				159D8A341A495C0A009C8078 /* RootViewController.m in Sources */,
@@ -787,6 +787,7 @@
 				159D89EA1A495A6C009C8078 /* SoundrocketTests.m in Sources */,
 				159D8A171A495BBB009C8078 /* PlaylistRespost.m in Sources */,
 				1517A61A1A67F0DD00619603 /* CommentsTableViewController.m in Sources */,
+				15FEAE051AB89B2900B3DC94 /* BaseViewController.m in Sources */,
 				159D8A0B1A495BBB009C8078 /* User.m in Sources */,
 				159D8A6B1A495C3C009C8078 /* LoadMoreTableViewCell.m in Sources */,
 				159D8A801A4AE8FE009C8078 /* LibariesTableViewController.m in Sources */,
@@ -801,7 +802,6 @@
 				159D8A311A495C0A009C8078 /* AppDelegate.m in Sources */,
 				159D8A0D1A495BBB009C8078 /* Track.m in Sources */,
 				159D8A7C1A4AE094009C8078 /* UserTableViewController.m in Sources */,
-				15E512A61AB3A2DD00C7C3DF /* UIViewController+ShakeGesture.m in Sources */,
 				159D8A571A495C28009C8078 /* AboutTableViewController.m in Sources */,
 				159D8A1D1A495BCA009C8078 /* SoundtraceClient.m in Sources */,
 				159D8A511A495C28009C8078 /* LikesTableViewController.m in Sources */,
