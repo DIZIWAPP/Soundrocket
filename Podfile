@@ -13,6 +13,7 @@ target 'Soundrocket' do
     pod 'SZTextView', '~> 1.1.1'
     pod 'Mixpanel'
     pod 'pop', '~> 1.0'
+    pod 'Tweaks'
 end
 
 target 'SoundrocketTests' do
@@ -28,4 +29,5 @@ target 'SoundrocketTests' do
     pod 'SZTextView', '~> 1.1.1'
     pod 'Mixpanel'
     pod 'pop', '~> 1.0'
+    pod 'Tweaks'
 end

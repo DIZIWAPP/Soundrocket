@@ -347,10 +347,10 @@
 				159D89F51A495B73009C8078 /* Controller */,
 				159D89F41A495B65009C8078 /* View  */,
 				159D89F31A495B5F009C8078 /* Model */,
-				159D89D11A495A6C009C8078 /* Soundrocket.xcdatamodeld */,
 				159D89CA1A495A6C009C8078 /* Supporting Files */,
 				150F586F1A4FD85C00827525 /* TutorialViewController.h */,
 				150F58701A4FD85C00827525 /* TutorialViewController.m */,
+				159D89D11A495A6C009C8078 /* Soundrocket.xcdatamodeld */,
 			);
 			path = Soundrocket;
 			sourceTree = "<group>";

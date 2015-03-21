@@ -49,6 +49,7 @@ PODS:
   - SZTextView (1.1.10)
   - TSMessages (0.9.12):
     - HexColors
+  - Tweaks (1.1.0)
 
 DEPENDENCIES:
   - AFNetworking
@@ -63,6 +64,7 @@ DEPENDENCIES:
   - SVProgressHUD
   - SZTextView (~> 1.1.1)
   - TSMessages
+  - Tweaks
 
 SPEC CHECKSUMS:
   AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
@@ -78,5 +80,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: da7a49e789af645d9279ffbca62318945a832438
   SZTextView: 8f1126696c6d54e5f0d672bbecf259ef65b04aeb
   TSMessages: b2b5dc71f65146387e51f2600bb0eb8f3a6c4ab8
+  Tweaks: 05b197d4a1247288f576587546bc1932189d8c98
 
 COCOAPODS: 0.35.0
