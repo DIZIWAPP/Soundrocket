@@ -99,15 +99,8 @@
 -(void)fetchForPlaylistsAndShowLoadingScreen:(BOOL)showLoadingScreen {
     
     if (showLoadingScreen) {
-        [UIView animateWithDuration:0.5 delay:0.0 options:0 animations:^{
-            // Animate the alpha value of your imageView from 1.0 to 0.0 here
-            self.loadingScreen.alpha = 1.0f;
-        } completion:^(BOOL finished) {
-            // Once the animation is completed and the alpha has gone to 0.0, hide the view for good
-            self.loadingScreen.hidden = NO;
-        }];
+        [self showLoadingScreen];
     }
-    
     self.isLoading = YES;
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 
@@ -141,14 +134,7 @@
          [self.refreshControl endRefreshing];
          self.isLoading = NO;
          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-         
-         [UIView animateWithDuration:0.5 delay:0.0 options:0 animations:^{
-             // Animate the alpha value of your imageView from 1.0 to 0.0 here
-             self.loadingScreen.alpha = 0.0f;
-         } completion:^(BOOL finished) {
-             // Once the animation is completed and the alpha has gone to 0.0, hide the view for good
-             self.loadingScreen.hidden = YES;
-         }];
+         [self hideLoadingScreen];
      }
      
     failure: ^(NSURLSessionDataTask *task, NSError *error)
@@ -157,14 +143,7 @@
          [self.refreshControl endRefreshing];
          self.isLoading = NO;
          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-         
-         [UIView animateWithDuration:0.5 delay:0.0 options:0 animations:^{
-             // Animate the alpha value of your imageView from 1.0 to 0.0 here
-             self.loadingScreen.alpha = 0.0f;
-         } completion:^(BOOL finished) {
-             // Once the animation is completed and the alpha has gone to 0.0, hide the view for good
-             self.loadingScreen.hidden = YES;
-         }];
+         [self hideLoadingScreen];
      }];
 }
 

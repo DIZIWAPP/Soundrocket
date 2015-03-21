@@ -59,8 +59,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"BasicTrackTableViewCell" bundle:nil] forCellReuseIdentifier:@"basictrackcell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"UserTableViewCell" bundle:nil] forCellReuseIdentifier:@"usercell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"LoadMoreTableViewCell" bundle:nil] forCellReuseIdentifier:@"loadmorecell"];
-
-
+    [self hideLoadingScreen];
 }
 
 -(void)cancelAllRequests {
@@ -143,12 +142,18 @@
 #pragma mark -searchbar
 
 
+-(void)refresh {
+    [self searchWithLoadingScreen:NO];
+}
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    [self search];
+    [self searchWithLoadingScreen:YES];
     [self.searchBar resignFirstResponder];
 }
 
--(void)search {
+-(void)searchWithLoadingScreen:(BOOL)showLoadingScreen {
+    if(showLoadingScreen){
+        [self showLoadingScreen];
+    }
     self.offset = @0;
     [self.dataSourceArray removeAllObjects];
     NSInteger index = self.searchBar.selectedScopeButtonIndex;
@@ -193,7 +198,9 @@
          self.isLoading = NO;
          [self.tableView reloadData];
          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-         
+         [self.refreshControl endRefreshing];
+         [self hideLoadingScreen];
+
      }
      
      
@@ -202,7 +209,9 @@
          // Fehlerbehandlung
          self.isLoading = NO;
          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-         
+         [self.refreshControl endRefreshing];
+         [self hideLoadingScreen];
+
      }];
     
     [self.tasks addObject:task];
@@ -240,7 +249,9 @@
 
          [self.tableView reloadData];
          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-         
+         [self.refreshControl endRefreshing];
+         [self hideLoadingScreen];
+
      }
      
                                  failure: ^(NSURLSessionDataTask *task, NSError *error)
@@ -248,7 +259,8 @@
          // Fehlerbehandlung
          self.isLoading = NO;
          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-
+         [self.refreshControl endRefreshing];
+         [self hideLoadingScreen];
          
      }];
     
@@ -288,6 +300,9 @@
 
          [self.tableView reloadData];
          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+         [self.refreshControl endRefreshing];
+
+         [self hideLoadingScreen];
 
      }
      
@@ -296,7 +311,8 @@
          // Fehlerbehandlung
          self.isLoading = NO;
          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-
+         [self.refreshControl endRefreshing];
+         [self hideLoadingScreen];
          
      }];
     

@@ -1148,12 +1148,56 @@
             </objects>
             <point key="canvasLocation" x="3022" y="174"/>
         </scene>
+        <!--Search Table View Controller-->
+        <scene sceneID="BCd-2K-yEt">
+            <objects>
+                <viewController storyboardIdentifier="Search" id="r58-4g-ima" customClass="SearchTableViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="43G-TA-xix"/>
+                        <viewControllerLayoutGuide type="bottom" id="9vE-Ju-d5L"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="89H-Gq-UBP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="giD-jw-WLq">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="barTintColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Tracks</string>
+                                    <string>Users</string>
+                                    <string>Playlists</string>
+                                </scopeButtonTitles>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Kfe-KG-2Kk">
+                                <rect key="frame" x="0.0" y="85" width="320" height="395"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="r58-4g-ima" id="YkQ-Wp-id1"/>
+                                    <outlet property="delegate" destination="r58-4g-ima" id="HjC-we-EEd"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="searchBar" destination="giD-jw-WLq" id="lnz-FA-qKw"/>
+                        <outlet property="tableView" destination="Kfe-KG-2Kk" id="Map-Ik-OkS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DYo-2p-liz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1938" y="186"/>
+        </scene>
         <!--User Controller-->
         <scene sceneID="URC-lA-pu8">
             <objects>
                 <tableViewController storyboardIdentifier="user" title="User Controller" id="NjI-v6-kcl" customClass="UserTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="DIl-5e-SxU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="SX2-Ku-0GW">
@@ -1333,72 +1377,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y5e-Am-soA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1572" y="186"/>
-        </scene>
-        <!--Search-->
-        <scene sceneID="ctd-Vl-gof">
-            <objects>
-                <tableViewController storyboardIdentifier="Search" id="XMj-tJ-AQ9" customClass="SearchTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="HDM-qj-pJ6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="CaI-mh-bTI">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <searchBar contentMode="redraw" misplaced="YES" translucent="NO" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2fk-98-kwu">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
-                                    <color key="tintColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                    <scopeButtonTitles>
-                                        <string>Tracks</string>
-                                        <string>Users</string>
-                                        <string>Playlists</string>
-                                    </scopeButtonTitles>
-                                </searchBar>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstItem="2fk-98-kwu" firstAttribute="top" secondItem="CaI-mh-bTI" secondAttribute="top" id="2eT-RE-25P"/>
-                                <constraint firstAttribute="bottom" secondItem="2fk-98-kwu" secondAttribute="bottom" id="3dZ-6T-Tfj"/>
-                                <constraint firstItem="2fk-98-kwu" firstAttribute="leading" secondItem="CaI-mh-bTI" secondAttribute="leading" id="WEu-ef-ikz"/>
-                                <constraint firstAttribute="trailing" secondItem="2fk-98-kwu" secondAttribute="trailing" id="jW2-ll-wM6"/>
-                            </constraints>
-                        </view>
-                        <connections>
-                            <outlet property="dataSource" destination="XMj-tJ-AQ9" id="gde-P0-AD5"/>
-                            <outlet property="delegate" destination="XMj-tJ-AQ9" id="d68-3t-qbG"/>
-                        </connections>
-                    </tableView>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="ZbQ-U1-utf"/>
-                    </toolbarItems>
-                    <navigationItem key="navigationItem" title="Search" id="xqj-MV-S8b">
-                        <barButtonItem key="leftBarButtonItem" title="| | |" id="fDv-Jb-CDQ">
-                            <color key="tintColor" red="0.96099999999999997" green="0.17599999999999999" blue="0.192" alpha="1" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-                    <connections>
-                        <outlet property="searchBar" destination="2fk-98-kwu" id="IMy-5o-xaO"/>
-                        <outlet property="searchDisplayController" destination="DzJ-ZL-feo" id="b7Q-6r-wz6"/>
-                        <segue destination="NjI-v6-kcl" kind="show" identifier="showUser" id="4nl-HW-dyN"/>
-                        <segue destination="oZM-yH-RHl" kind="show" identifier="showTracksOfPlaylist" id="REs-6f-vc4"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wyb-bf-9Lx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="DzJ-ZL-feo">
-                    <connections>
-                        <outlet property="delegate" destination="XMj-tJ-AQ9" id="chu-Oc-IYv"/>
-                        <outlet property="searchContentsController" destination="XMj-tJ-AQ9" id="X1f-Wv-Bqd"/>
-                        <outlet property="searchResultsDataSource" destination="XMj-tJ-AQ9" id="2PX-4w-q6B"/>
-                        <outlet property="searchResultsDelegate" destination="XMj-tJ-AQ9" id="ckq-ox-4xl"/>
-                    </connections>
-                </searchDisplayController>
-            </objects>
-            <point key="canvasLocation" x="1920" y="180"/>
         </scene>
         <!--About-->
         <scene sceneID="XGw-mG-2jg">
@@ -1760,7 +1738,7 @@
         <image name="user" width="341" height="341"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="REs-6f-vc4"/>
+        <segue reference="jAk-uB-oes"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
 </document>

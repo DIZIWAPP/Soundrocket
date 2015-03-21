@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseTableViewController.h"
-@interface SearchTableViewController : BaseTableViewController
-
+#import "BaseViewController.h"
+@interface SearchTableViewController : BaseViewController
 @end
