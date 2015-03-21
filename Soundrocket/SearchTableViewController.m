@@ -326,16 +326,8 @@
     self.offset = @0;
     [self.tableView reloadData];
     if ([self.searchBar.text length] != 0) {
-        NSInteger index = self.searchBar.selectedScopeButtonIndex;
-        if (index == 0) {
-            [self searchForTracks];
-        } else if(index == 1) {
-            [self searchForUsers];
-        } else if(index == 2) {
-            [self searchForPlaylists];
-        }
+        [self searchWithLoadingScreen:YES];
     }
-
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
