@@ -14,6 +14,7 @@ target 'Soundrocket' do
     pod 'Mixpanel'
     pod 'pop', '~> 1.0'
     pod 'Tweaks'
+    pod 'SupportKit'
 end
 
 target 'SoundrocketTests' do
@@ -30,4 +31,5 @@ target 'SoundrocketTests' do
     pod 'Mixpanel'
     pod 'pop', '~> 1.0'
     pod 'Tweaks'
+    pod 'SupportKit'
 end

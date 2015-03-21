@@ -1554,6 +1554,26 @@
                                             <segue destination="Lpz-cN-dAr" kind="show" id="Ibr-5m-uOs"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="64" id="Mmb-m0-JLK">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mmb-m0-JLK" id="Kbz-G0-dtW">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Libaries" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aT2-et-OpX">
+                                                    <rect key="frame" x="16" y="21" width="248" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="aT2-et-OpX" firstAttribute="top" secondItem="Kbz-G0-dtW" secondAttribute="topMargin" constant="13" id="IUs-S0-03A"/>
+                                                <constraint firstItem="aT2-et-OpX" firstAttribute="leading" secondItem="Kbz-G0-dtW" secondAttribute="leadingMargin" constant="8" id="LwN-IM-FZB"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="aT2-et-OpX" secondAttribute="bottom" constant="13.5" id="grU-dc-ZX3"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="aT2-et-OpX" secondAttribute="trailing" constant="15" id="jpW-3j-Grh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="64" id="1QX-4w-v4o">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1QX-4w-v4o" id="igv-SA-UiD">
@@ -1589,6 +1609,7 @@
                         <outlet property="poweredBySoundcloudLabel" destination="Ybu-BR-2AZ" id="l07-yj-spy"/>
                         <outlet property="rateThisAppLabel" destination="01H-EW-KUP" id="Hj1-sL-Oqt"/>
                         <outlet property="soundrocketNameLabel" destination="00B-K5-0H6" id="9cl-nq-qV5"/>
+                        <outlet property="supportLabel" destination="aT2-et-OpX" id="9nN-7w-cFp"/>
                         <outlet property="versionLabel" destination="Okd-5J-uFG" id="1y8-ri-fUX"/>
                         <outlet property="webSiteLabel" destination="gzf-Ru-s2a" id="Mqb-dP-Qg6"/>
                         <segue destination="afH-Fw-tVt" kind="presentation" identifier="showHelp" id="SQi-dI-4TU"/>

@@ -20,6 +20,7 @@
 #import <TSMessage.h>
 #import <SVProgressHUD.h>
 #import "SRStylesheet.h"
+#import <SupportKit/SupportKit.h>
 
 #define MIXPANEL_TOKEN @"739265f4d1e33052e1f1d63d5835c1cc"
 
@@ -48,6 +49,11 @@
     return YES;
 }
 
+-(void)setupSupportKit {
+    [SupportKit initWithSettings:
+     [SKTSettings settingsWithAppToken:@"36jjzzl52gkx0479cue3pdbgj"]];
+    [SupportKit setUserFirstName:self.currentUser.username lastName:self.currentUser.username];
+}
 -(void)setupMixpanel {
     [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
 }
@@ -87,7 +93,7 @@
          UIStoryboard * storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
          RootViewController * root = [storyBoard instantiateViewControllerWithIdentifier:@"Root"];
          self.window.rootViewController  = root;
-         
+         [self setupSupportKit];
      }
      
                                  failure: ^(NSURLSessionDataTask *task, NSError *error)

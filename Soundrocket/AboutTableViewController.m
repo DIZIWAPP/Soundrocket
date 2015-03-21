@@ -11,10 +11,13 @@
 #import <RESideMenu.h>
 #import <FAKIonIcons.h>
 #import "SRStylesheet.h"
+#import <SupportKit/SupportKit.h>
+
 @interface AboutTableViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *versionLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
 @property (weak, nonatomic) IBOutlet UILabel *poweredBySoundcloudLabel;
+@property (weak, nonatomic) IBOutlet UILabel *supportLabel;
 
 @end
 
@@ -36,21 +39,26 @@
     self.soundrocketNameLabel.attributedText = attributedString;
     [self.navigationItem setTitle:@"About"];
     [self.logoImageView.layer setMinificationFilter:kCAFilterTrilinear];
+
     NSMutableAttributedString * websiteIcon = [[[FAKIonIcons earthIconWithSize:14]attributedString]mutableCopy];
     NSMutableAttributedString * contactIcon = [[[FAKIonIcons ios7EmailIconWithSize:14]attributedString]mutableCopy];
     NSMutableAttributedString * libariesIcon = [[[FAKFontAwesome cubesIconWithSize:14]attributedString]mutableCopy];
-    
-     NSMutableAttributedString * starIcon = [[[FAKIonIcons ios7StarIconWithSize:14]attributedString]mutableCopy];
+    NSMutableAttributedString * starIcon = [[[FAKIonIcons ios7StarIconWithSize:14]attributedString]mutableCopy];
+    NSMutableAttributedString * supportIcon = [[[FAKIonIcons ios7PeopleIconWithSize:14]attributedString]mutableCopy];
+
 
     [websiteIcon appendAttributedString:[[NSAttributedString alloc]initWithString:@"   My website"]];
     [contactIcon appendAttributedString:[[NSAttributedString alloc]initWithString:@"   Contact me"]];
     [libariesIcon appendAttributedString:[[NSAttributedString alloc]initWithString:@"   Libaries i used"]];
     [starIcon appendAttributedString:[[NSAttributedString alloc]initWithString:@"   Rate this App"]];
+    [supportIcon appendAttributedString:[[NSAttributedString alloc]initWithString:@"   Support"]];
+
 
     self.webSiteLabel.attributedText =  websiteIcon;
     self.contactLabel.attributedText =  contactIcon;
     self.libariesLabel.attributedText =  libariesIcon;
     self.rateThisAppLabel.attributedText = starIcon;
+    self.supportLabel.attributedText = supportIcon;
     
     
     // Build Number
@@ -78,6 +86,10 @@
                                     action:@selector(showHelp)];
 }
 
+
+-(void)showSupport {
+    [SupportKit show];
+}
 -(void)showHelp {
     [self performSegueWithIdentifier:@"showHelp" sender:nil];
 }
@@ -103,6 +115,8 @@
         [self websitePressed];
     } else if(indexPath.row == 3){
         [self feedbackPressed];
+    } else {
+        [self showSupport];
     }
 }
 
