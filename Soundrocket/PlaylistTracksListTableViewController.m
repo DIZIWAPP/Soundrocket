@@ -41,8 +41,7 @@
     self.store = [[CredentialStore alloc]init];
     self.tracks = [[NSMutableArray alloc]init];
     [self setupPagination];
-    [self setUpRefreshControl];
-    [self fetchFortrackofPlaylist];
+    [self fetchFortrackofPlaylistAndShowLoadingScreen:YES];
     [self setupEditButton];
     
 }
@@ -70,14 +69,6 @@
 }
 
 /**
- *  Sets up Refresh Controler and Selector calls specific selector
- */
-- (void)setUpRefreshControl {
-    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
-    [refresh addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
-    self.refreshControl = refresh;
-}
-/**
  *  Reinits every Pagination Parameter and then fetches Tracks
  */
 - (void)refresh {
@@ -85,13 +76,16 @@
         self.offset = @0;
         self.view.userInteractionEnabled = NO;
         [self.tracks removeAllObjects];
-        [self fetchFortrackofPlaylist];
+        [self fetchFortrackofPlaylistAndShowLoadingScreen:NO];
     }
 }
 
 
--(void)fetchFortrackofPlaylist {
+-(void)fetchFortrackofPlaylistAndShowLoadingScreen:(BOOL)showLoadingScreen{
     
+    if (showLoadingScreen) {
+        [self showLoadingScreen];
+    }
     self.isLoading = YES;
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     NSMutableDictionary * paramters = [[NSMutableDictionary alloc]init];
@@ -127,6 +121,7 @@
 
          [self.tableView reloadData];
          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+         [self hideLoadingScreen];
          
      }
      
@@ -138,8 +133,7 @@
 
          self.isLoading = NO;
          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-
-
+         [self hideLoadingScreen];
      }];
 }
 
@@ -213,7 +207,7 @@
             if (self.itemsAvailable) {
                 LoadMoreTableViewCell * lmc = (LoadMoreTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:[self.tracks count] inSection:0]];
                 [lmc.loadingIndicator startAnimating];
-                [self fetchFortrackofPlaylist];
+                [self fetchFortrackofPlaylistAndShowLoadingScreen:NO];
             }
         }
     }

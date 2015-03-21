@@ -765,7 +765,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6qu-hc-RJy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2598" y="-392"/>
+            <point key="canvasLocation" x="3022" y="-370"/>
         </scene>
         <!--Up Next-->
         <scene sceneID="q4E-Su-9XF">
@@ -795,7 +795,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uub-xx-BHB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2988" y="-392"/>
+            <point key="canvasLocation" x="3412" y="-370"/>
         </scene>
         <!--Add To Playlist Table View Controller-->
         <scene sceneID="wIo-ly-dHb">
@@ -822,7 +822,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EFu-VJ-NOA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3355" y="-392"/>
+            <point key="canvasLocation" x="3779" y="-370"/>
         </scene>
         <!--Content Navigation View Controller-->
         <scene sceneID="Q2f-Ll-pq2">
@@ -866,7 +866,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MDq-lk-rqa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2221" y="-392"/>
+            <point key="canvasLocation" x="2645" y="-370"/>
         </scene>
         <!--Activities Table View Controller-->
         <scene sceneID="VSz-dm-agW">
@@ -902,7 +902,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="NHY-aJ-CZZ" id="5sF-l9-eQB"/>
-                        <segue destination="Is2-dO-nAM" kind="show" identifier="showTracksOfPlaylist" id="ZHP-mF-1wl"/>
+                        <segue destination="oZM-yH-RHl" kind="show" identifier="showTracksOfPlaylist" id="7OU-Zx-ca3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3XG-CJ-U4r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1070,23 +1070,43 @@
             <point key="canvasLocation" x="862" y="791"/>
         </scene>
         <!--Playlist Tracks List Table View Controller-->
-        <scene sceneID="Y3g-yb-ONR">
+        <scene sceneID="Icv-R6-6aH">
             <objects>
-                <tableViewController id="Is2-dO-nAM" customClass="PlaylistTracksListTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="93" sectionHeaderHeight="22" sectionFooterHeight="22" id="IKt-T5-8cs">
+                <viewController id="oZM-yH-RHl" customClass="PlaylistTracksListTableViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WEj-4P-0AJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="iPm-QD-ywI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fO2-tF-W1E">
                         <rect key="frame" x="0.0" y="64" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="KGt-vd-Snh">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="oZM-yH-RHl" id="P2p-Gs-Wlk"/>
+                                    <outlet property="delegate" destination="oZM-yH-RHl" id="3s9-kp-TSB"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="dataSource" destination="Is2-dO-nAM" id="nKZ-TJ-4YZ"/>
-                            <outlet property="delegate" destination="Is2-dO-nAM" id="2ay-Lx-QhF"/>
-                        </connections>
-                    </tableView>
+                        <constraints>
+                            <constraint firstItem="KGt-vd-Snh" firstAttribute="leading" secondItem="fO2-tF-W1E" secondAttribute="leading" id="4Qu-JD-0EK"/>
+                            <constraint firstItem="iPm-QD-ywI" firstAttribute="top" secondItem="KGt-vd-Snh" secondAttribute="bottom" id="Heh-Th-f4V"/>
+                            <constraint firstItem="KGt-vd-Snh" firstAttribute="top" secondItem="fO2-tF-W1E" secondAttribute="top" id="OAy-sl-IdM"/>
+                            <constraint firstAttribute="trailing" secondItem="KGt-vd-Snh" secondAttribute="trailing" id="ht3-zE-7bd"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Ob-Qf-VJt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    <connections>
+                        <outlet property="tableView" destination="KGt-vd-Snh" id="Q6h-uy-hwp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="00c-bB-eby" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3185" y="954"/>
+            <point key="canvasLocation" x="2775" y="839"/>
         </scene>
         <!--Comments Table View Controller-->
         <scene sceneID="PlF-uI-VvG">
@@ -1126,7 +1146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yAV-H0-zqb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2598" y="152"/>
+            <point key="canvasLocation" x="3022" y="174"/>
         </scene>
         <!--User Controller-->
         <scene sceneID="URC-lA-pu8">
@@ -1226,12 +1246,12 @@
                         <outlet property="imageView_backgroundBlurred" destination="fgc-cH-7Up" id="EmH-Hu-bcE"/>
                         <outlet property="numberOfSoundsLabel" destination="Uia-Mo-8kt" id="uYy-hK-PZu"/>
                         <outlet property="userImageView" destination="cbm-ui-gTx" id="cFG-En-zC5"/>
-                        <segue destination="Is2-dO-nAM" kind="show" identifier="showTracksOfPlaylist" id="aTd-C0-ImL"/>
+                        <segue destination="oZM-yH-RHl" kind="show" identifier="showTracksOfPlaylist" id="98c-wd-jzD"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctT-jM-Dkn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3124" y="186"/>
+            <point key="canvasLocation" x="2304" y="142"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1Dm-UO-ek3">
@@ -1248,7 +1268,7 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="1VC-kf-sWX">
                                 <rect key="frame" x="290" y="289" width="20" height="20"/>
                                 <color key="tintColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <color key="color" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logging in ...." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDH-Tf-be4">
                                 <rect key="frame" x="41" y="227" width="518" height="34"/>
@@ -1257,11 +1277,11 @@
                                     <constraint firstAttribute="height" constant="34" id="dpV-67-tAh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="1VC-kf-sWX" secondAttribute="centerY" constant="1" id="INX-1B-XeT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DDH-Tf-be4" secondAttribute="trailing" constant="25" id="L37-0A-99G"/>
@@ -1307,7 +1327,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="sEm-Ml-VM2" id="DSC-kV-JKe"/>
-                        <segue destination="Is2-dO-nAM" kind="show" identifier="showTracksOfPlaylist" id="eDy-sa-jgP"/>
+                        <segue destination="oZM-yH-RHl" kind="show" identifier="showTracksOfPlaylist" id="jAk-uB-oes"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y5e-Am-soA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1365,7 +1385,7 @@
                         <outlet property="searchBar" destination="2fk-98-kwu" id="IMy-5o-xaO"/>
                         <outlet property="searchDisplayController" destination="DzJ-ZL-feo" id="b7Q-6r-wz6"/>
                         <segue destination="NjI-v6-kcl" kind="show" identifier="showUser" id="4nl-HW-dyN"/>
-                        <segue destination="Is2-dO-nAM" kind="show" identifier="showPlaylist" id="31T-LV-3qG"/>
+                        <segue destination="oZM-yH-RHl" kind="show" identifier="showTracksOfPlaylist" id="REs-6f-vc4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wyb-bf-9Lx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1378,7 +1398,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1948" y="235"/>
+            <point key="canvasLocation" x="1920" y="180"/>
         </scene>
         <!--About-->
         <scene sceneID="XGw-mG-2jg">
@@ -1643,7 +1663,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G1Z-Ti-w3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1753" y="819"/>
+            <point key="canvasLocation" x="1830" y="904"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="87D-Ab-kE3">
@@ -1740,7 +1760,7 @@
         <image name="user" width="341" height="341"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eDy-sa-jgP"/>
+        <segue reference="REs-6f-vc4"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
 </document>

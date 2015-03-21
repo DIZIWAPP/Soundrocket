@@ -189,7 +189,6 @@
     }
 }
 
-
 -(NSString*)getDateFromTimeStamp:(float)currentTime{
     // Setze das Zeit label
     

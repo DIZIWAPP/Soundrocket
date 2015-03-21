@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Playlist.h"
-@interface PlaylistTracksListTableViewController : UITableViewController
+#import "BaseViewController.h"
+@interface PlaylistTracksListTableViewController : BaseViewController
 @property (nonatomic,strong) Playlist * currentPlaylist;
 @end

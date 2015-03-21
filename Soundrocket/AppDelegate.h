@@ -17,20 +17,7 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-
-/**
- *  Core Data Attribute
- */
-
 @property (strong, nonatomic) UIWindow *window;
-@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-
-- (void)saveContext;
-- (NSURL *)applicationDocumentsDirectory;
-
-// Custom propertys
 
 @property (nonatomic,strong) User * currentUser;                // Stores the current logged in User
 @property (nonatomic,strong) MiniPlayer * miniPlayer;           // A Reference to the miniplayer
