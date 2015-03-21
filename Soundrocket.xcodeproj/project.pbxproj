@@ -15,6 +15,14 @@
 		150F58721A4FD85C00827525 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 150F58701A4FD85C00827525 /* TutorialViewController.m */; };
 		1517A6191A67F0DD00619603 /* CommentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1517A6181A67F0DD00619603 /* CommentsTableViewController.m */; };
 		1517A61A1A67F0DD00619603 /* CommentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1517A6181A67F0DD00619603 /* CommentsTableViewController.m */; };
+		1548CDA71ABE0692003662B1 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1548CDA61ABE0692003662B1 /* InterfaceController.m */; };
+		1548CDAA1ABE0692003662B1 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1548CDA91ABE0692003662B1 /* NotificationController.m */; };
+		1548CDAD1ABE0692003662B1 /* GlanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1548CDAC1ABE0692003662B1 /* GlanceController.m */; };
+		1548CDAF1ABE0692003662B1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1548CDAE1ABE0692003662B1 /* Images.xcassets */; };
+		1548CDB31ABE0692003662B1 /* Soundrocket WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 1548CDB21ABE0692003662B1 /* Soundrocket WatchKit App.app */; };
+		1548CDBB1ABE0692003662B1 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1548CDB91ABE0692003662B1 /* Interface.storyboard */; };
+		1548CDBD1ABE0692003662B1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1548CDBC1ABE0692003662B1 /* Images.xcassets */; };
+		1548CDC01ABE0692003662B1 /* Soundrocket WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1548CDA01ABE0692003662B1 /* Soundrocket WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		154CD81C1AB380F400DF20B9 /* SRStylesheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 154CD81B1AB380F400DF20B9 /* SRStylesheet.m */; };
 		154CD81D1AB380F400DF20B9 /* SRStylesheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 154CD81B1AB380F400DF20B9 /* SRStylesheet.m */; };
 		1554AE7B1A6827B80008BFE1 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1554AE791A6827B80008BFE1 /* CommentTableViewCell.m */; };
@@ -130,6 +138,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1548CDB41ABE0692003662B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 159D89BF1A495A6C009C8078 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1548CDB11ABE0692003662B1;
+			remoteInfo = "Soundrocket WatchKit App";
+		};
+		1548CDBE1ABE0692003662B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 159D89BF1A495A6C009C8078 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1548CD9F1ABE0692003662B1;
+			remoteInfo = "Soundrocket WatchKit Extension";
+		};
 		159D89E41A495A6C009C8078 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 159D89BF1A495A6C009C8078 /* Project object */;
@@ -138,6 +160,20 @@
 			remoteInfo = Soundrocket;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1548CDC71ABE0692003662B1 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1548CDC01ABE0692003662B1 /* Soundrocket WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		150F58671A4EC6B400827525 /* UsersListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersListTableViewController.h; sourceTree = "<group>"; };
@@ -148,6 +184,20 @@
 		150F58701A4FD85C00827525 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
 		1517A6171A67F0DD00619603 /* CommentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsTableViewController.h; sourceTree = "<group>"; };
 		1517A6181A67F0DD00619603 /* CommentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsTableViewController.m; sourceTree = "<group>"; };
+		1548CDA01ABE0692003662B1 /* Soundrocket WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Soundrocket WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1548CDA31ABE0692003662B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1548CDA41ABE0692003662B1 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		1548CDA51ABE0692003662B1 /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
+		1548CDA61ABE0692003662B1 /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
+		1548CDA81ABE0692003662B1 /* NotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
+		1548CDA91ABE0692003662B1 /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
+		1548CDAB1ABE0692003662B1 /* GlanceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlanceController.h; sourceTree = "<group>"; };
+		1548CDAC1ABE0692003662B1 /* GlanceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlanceController.m; sourceTree = "<group>"; };
+		1548CDAE1ABE0692003662B1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1548CDB21ABE0692003662B1 /* Soundrocket WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Soundrocket WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1548CDB81ABE0692003662B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1548CDBA1ABE0692003662B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		1548CDBC1ABE0692003662B1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		154CD81A1AB380F400DF20B9 /* SRStylesheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRStylesheet.h; sourceTree = "<group>"; };
 		154CD81B1AB380F400DF20B9 /* SRStylesheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRStylesheet.m; sourceTree = "<group>"; };
 		1554AE781A6827B80008BFE1 /* CommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableViewCell.h; sourceTree = "<group>"; };
@@ -258,6 +308,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1548CD9D1ABE0692003662B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		159D89C41A495A6C009C8078 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -281,6 +338,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1548CDA11ABE0692003662B1 /* Soundrocket WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1548CDA51ABE0692003662B1 /* InterfaceController.h */,
+				1548CDA61ABE0692003662B1 /* InterfaceController.m */,
+				1548CDA81ABE0692003662B1 /* NotificationController.h */,
+				1548CDA91ABE0692003662B1 /* NotificationController.m */,
+				1548CDAB1ABE0692003662B1 /* GlanceController.h */,
+				1548CDAC1ABE0692003662B1 /* GlanceController.m */,
+				1548CDAE1ABE0692003662B1 /* Images.xcassets */,
+				1548CDA21ABE0692003662B1 /* Supporting Files */,
+			);
+			path = "Soundrocket WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		1548CDA21ABE0692003662B1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1548CDA31ABE0692003662B1 /* Info.plist */,
+				1548CDA41ABE0692003662B1 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1548CDB61ABE0692003662B1 /* Soundrocket WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				1548CDB91ABE0692003662B1 /* Interface.storyboard */,
+				1548CDBC1ABE0692003662B1 /* Images.xcassets */,
+				1548CDB71ABE0692003662B1 /* Supporting Files */,
+			);
+			path = "Soundrocket WatchKit App";
+			sourceTree = "<group>";
+		};
+		1548CDB71ABE0692003662B1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1548CDB81ABE0692003662B1 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		154D0D801A5C7FAE00C29BCD /* Trash */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,6 +409,8 @@
 				15E840B31A60593C00BDB21F /* Localizable.strings */,
 				159D89C91A495A6C009C8078 /* Soundrocket */,
 				159D89E61A495A6C009C8078 /* SoundrocketTests */,
+				1548CDA11ABE0692003662B1 /* Soundrocket WatchKit Extension */,
+				1548CDB61ABE0692003662B1 /* Soundrocket WatchKit App */,
 				159D89C81A495A6C009C8078 /* Products */,
 				4F552862A5E17ABB2FE11824 /* Pods */,
 				27DEF230691A4D1591B65883 /* Frameworks */,
@@ -321,6 +422,8 @@
 			children = (
 				159D89C71A495A6C009C8078 /* Soundrocket.app */,
 				159D89E31A495A6C009C8078 /* SoundrocketTests.xctest */,
+				1548CDA01ABE0692003662B1 /* Soundrocket WatchKit Extension.appex */,
+				1548CDB21ABE0692003662B1 /* Soundrocket WatchKit App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -517,6 +620,39 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1548CD9F1ABE0692003662B1 /* Soundrocket WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1548CDC61ABE0692003662B1 /* Build configuration list for PBXNativeTarget "Soundrocket WatchKit Extension" */;
+			buildPhases = (
+				1548CD9C1ABE0692003662B1 /* Sources */,
+				1548CD9D1ABE0692003662B1 /* Frameworks */,
+				1548CD9E1ABE0692003662B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1548CDB51ABE0692003662B1 /* PBXTargetDependency */,
+			);
+			name = "Soundrocket WatchKit Extension";
+			productName = "Soundrocket WatchKit Extension";
+			productReference = 1548CDA01ABE0692003662B1 /* Soundrocket WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		1548CDB11ABE0692003662B1 /* Soundrocket WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1548CDC51ABE0692003662B1 /* Build configuration list for PBXNativeTarget "Soundrocket WatchKit App" */;
+			buildPhases = (
+				1548CDB01ABE0692003662B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Soundrocket WatchKit App";
+			productName = "Soundrocket WatchKit App";
+			productReference = 1548CDB21ABE0692003662B1 /* Soundrocket WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp";
+		};
 		159D89C61A495A6C009C8078 /* Soundrocket */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 159D89ED1A495A6C009C8078 /* Build configuration list for PBXNativeTarget "Soundrocket" */;
@@ -527,10 +663,12 @@
 				159D89C51A495A6C009C8078 /* Resources */,
 				5A8B2A83FC83657067B8DAC4 /* Copy Pods Resources */,
 				15B96A0A1AAA51F200B26BAA /* ShellScript */,
+				1548CDC71ABE0692003662B1 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1548CDBF1ABE0692003662B1 /* PBXTargetDependency */,
 			);
 			name = Soundrocket;
 			productName = Soundrocket;
@@ -566,6 +704,14 @@
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = sebastianboldt;
 				TargetAttributes = {
+					1548CD9F1ABE0692003662B1 = {
+						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = JY9STJR6M4;
+					};
+					1548CDB11ABE0692003662B1 = {
+						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = JY9STJR6M4;
+					};
 					159D89C61A495A6C009C8078 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = JY9STJR6M4;
@@ -591,11 +737,31 @@
 			targets = (
 				159D89C61A495A6C009C8078 /* Soundrocket */,
 				159D89E21A495A6C009C8078 /* SoundrocketTests */,
+				1548CD9F1ABE0692003662B1 /* Soundrocket WatchKit Extension */,
+				1548CDB11ABE0692003662B1 /* Soundrocket WatchKit App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1548CD9E1ABE0692003662B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1548CDB31ABE0692003662B1 /* Soundrocket WatchKit App.app in Resources */,
+				1548CDAF1ABE0692003662B1 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1548CDB01ABE0692003662B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1548CDBB1ABE0692003662B1 /* Interface.storyboard in Resources */,
+				1548CDBD1ABE0692003662B1 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		159D89C51A495A6C009C8078 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -718,6 +884,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1548CD9C1ABE0692003662B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1548CDAA1ABE0692003662B1 /* NotificationController.m in Sources */,
+				1548CDA71ABE0692003662B1 /* InterfaceController.m in Sources */,
+				1548CDAD1ABE0692003662B1 /* GlanceController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		159D89C31A495A6C009C8078 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -820,6 +996,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1548CDB51ABE0692003662B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1548CDB11ABE0692003662B1 /* Soundrocket WatchKit App */;
+			targetProxy = 1548CDB41ABE0692003662B1 /* PBXContainerItemProxy */;
+		};
+		1548CDBF1ABE0692003662B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1548CD9F1ABE0692003662B1 /* Soundrocket WatchKit Extension */;
+			targetProxy = 1548CDBE1ABE0692003662B1 /* PBXContainerItemProxy */;
+		};
 		159D89E51A495A6C009C8078 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 159D89C61A495A6C009C8078 /* Soundrocket */;
@@ -828,6 +1014,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1548CDB91ABE0692003662B1 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1548CDBA1ABE0692003662B1 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		15E840B31A60593C00BDB21F /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -839,6 +1033,72 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1548CDC11ABE0692003662B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Soundrocket WatchKit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		1548CDC21ABE0692003662B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				INFOPLIST_FILE = "Soundrocket WatchKit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		1548CDC31ABE0692003662B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = Soundrocket_WatchKit_Extension;
+				INFOPLIST_FILE = "Soundrocket WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Debug;
+		};
+		1548CDC41ABE0692003662B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				IBSC_MODULE = Soundrocket_WatchKit_Extension;
+				INFOPLIST_FILE = "Soundrocket WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
 		159D89EB1A495A6C009C8078 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1037,6 +1297,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1548CDC51ABE0692003662B1 /* Build configuration list for PBXNativeTarget "Soundrocket WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1548CDC31ABE0692003662B1 /* Debug */,
+				1548CDC41ABE0692003662B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1548CDC61ABE0692003662B1 /* Build configuration list for PBXNativeTarget "Soundrocket WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1548CDC11ABE0692003662B1 /* Debug */,
+				1548CDC21ABE0692003662B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		159D89C21A495A6C009C8078 /* Build configuration list for PBXProject "Soundrocket" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
