@@ -43,5 +43,4 @@
     PlayerViewController * player =  delegate.player;
     [player initiatePlayback];
 }
-
 @end

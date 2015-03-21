@@ -1174,4 +1174,14 @@ Detects runtime Biatch
     [UIView commitAnimations];
 }
 
+-(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        /* Reorganize views, or move child view controllers */
+    } completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+            // Once the animation is completed and the alpha has gone to 0.0, hide the view for good
+        [self setUpComments:self.currentTrack];
+    }];
+}
 @end

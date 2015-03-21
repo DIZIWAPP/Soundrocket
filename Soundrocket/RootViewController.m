@@ -110,7 +110,23 @@
     [self presentViewController:self.playerWrappingController animated:YES completion:nil];
 }
 
+-(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
 
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    self.miniPlayer.alpha =0.0f;
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        /* Reorganize views, or move child view controllers */
+    } completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        /* Do any cleanup, if necessary */
+        self.miniPlayer.frame = CGRectMake(0,size.height-50,size.width, 50);
+        [UIView animateWithDuration:0.5 delay:0.0 options:0 animations:^{
+            // Animate the alpha value of your imageView from 1.0 to 0.0 here
+            self.miniPlayer.alpha = 1.0f;
+        } completion:^(BOOL finished) {
+            // Once the animation is completed and the alpha has gone to 0.0, hide the view for good
+        }];
+    }];
+}
 #pragma mark RESideMenu Delegate
 
 - (void)sideMenu:(RESideMenu *)sideMenu willShowMenuViewController:(UIViewController *)menuViewController
