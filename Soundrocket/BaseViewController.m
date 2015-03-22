@@ -20,7 +20,7 @@
 }
 
 -(void)setupLoadingScreen{
-    self.loadingScreen = [[UIView alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
+    self.loadingScreen = [[UIView alloc]initWithFrame:self.tableView.frame];
     self.loadingScreen.backgroundColor = [UIColor whiteColor];
     self.activityIndicatorView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     self.activityIndicatorView.color = [SRStylesheet mainColor];

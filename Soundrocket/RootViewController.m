@@ -25,7 +25,16 @@
     [self setupMiniPlayer];
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        _bouncePresentationController = [BouncePresentAnimationController new];
+    }
+    return self;
+}
 
+-(id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
+    return  self.bouncePresentationController;
+}
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -106,10 +115,13 @@
         
         [self setupPlayer];
     }
-    
+    self.playerWrappingController.transitioningDelegate = self;
     [self presentViewController:self.playerWrappingController animated:YES completion:nil];
 }
 
+
+
+// Autorotation Stuff
 -(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
 
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
@@ -154,3 +166,35 @@
 }
 
 @end
+
+/*********************************************************************************
+*********************************************************************************/
+@implementation BouncePresentAnimationController
+-(void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
+    UIViewController * toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    CGRect finalFrame = [transitionContext finalFrameForViewController:toViewController];
+    
+    UIView * containerView = [transitionContext containerView];
+    
+    // Positioning the toViewController
+    CGRect screenBounds = [[UIScreen mainScreen]bounds];
+    toViewController.view.frame = CGRectOffset(finalFrame, 0, -screenBounds.size.height); // Rect, dx & dy
+    
+    [containerView addSubview:toViewController.view]; // We have to add the toViewController to the ContainerView which host the Controllers on animation
+    
+    NSTimeInterval duration = [self transitionDuration:transitionContext]; // Getting the Duration
+    
+    [UIView animateWithDuration:duration animations:^(){
+        toViewController.view.frame = finalFrame;
+    } completion:^(BOOL success){
+        [transitionContext completeTransition:YES];
+    }];
+}
+-(NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
+    return 0.5;
+}
+@end
+
+
+
+
